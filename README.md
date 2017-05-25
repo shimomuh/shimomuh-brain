@@ -1,24 +1,14 @@
-# README
+# Welcome to shimomuh-brain
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To make homepage repository
 
-Things you may want to cover:
+see: http://shimomuh-brain.net
 
-* Ruby version
+## Functions
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* frontal_lobes ... fundamental thought, motivation
+* temporal_lobes ... experience
+* parietal_lobes ... gather outside information
+* occipital_lobes ... visiblization such as product or service
+* cerebellum ... habit
+* brainstem ... send information outward

@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :beliefs, only: :index
-  root 'beliefs#index'
+  resources :frontal_lobes, only: :index
+  root 'frontal_lobes#index'
 end
