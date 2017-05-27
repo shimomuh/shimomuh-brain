@@ -1,6 +1,10 @@
 {
   "scripts": {
-    "build": "npm run lint && webpack",
+    "watch": "npm run build:watch",
+    "build": "npm run lint && npm run webpack:prod",
+    "build:watch": "npm run webpack:dev",
+    "webpack:prod": "cd webpack && webpack --env prod",
+    "webpack:dev": "cd webpack && webpack --env dev --watch",
     "lint": " eslint src"
   },
   "devDependencies": {
@@ -14,6 +18,7 @@
     "babel-preset-react": "6.24.1",
     "eslint": "3.19.0",
     "eslint-plugin-react": "7.0.1",
+    "minimist": "1.2.0",
     "webpack": "2.6.0"
   },
   "dependencies": {
