@@ -5,7 +5,8 @@ export default {
     'commons_chunk': [
       'babel-polyfill',
       'react',
-      'react-dom'
+      'react-dom',
+      'react-router'
     ],
     'brains': `${JS_SRC}/brains/main`
   },

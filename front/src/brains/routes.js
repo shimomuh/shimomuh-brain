@@ -1,3 +1,10 @@
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { FrontalLobe } from '~/brains/components/FrontalLobe'
+
 export function routes () {
-  return (<h1>OK</h1>)
+  return (
+    <BrowserRouter>
+      <Route path='/' component={FrontalLobe} />
+    </BrowserRouter>
+  )
 }
