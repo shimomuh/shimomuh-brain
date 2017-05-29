@@ -1,15 +1,11 @@
-for page show
+<%- content_for :stylesheet_in_head do -%>
+  <%= stylesheet_link_tag 'brains', media: 'all', 'data-turbolinks-track' => true %>
+<%- end -%>
+
 <%= content_tag :div, nil,
   id: 'brain-app',
   data: {
-    routes: {
-      frontal_lobes: '/frontal_lobes',
-      temporal_lobes: '/temporal_lobes',
-      parietal_lobes: '/parietal_lobes',
-      occipital_lobes: '/occipital_lobes',
-      cerebellum: '/cerebellum',
-      brainstem: '/brainstem'
-    }
+    lang: lang?(:ja) ? 'ja' : 'en'
   }
 %>
 
