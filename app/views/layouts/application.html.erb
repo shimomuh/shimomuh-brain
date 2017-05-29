@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShimomuhBrain</title>
+    <meta charst="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="author" content="Hiroshi Shimomura">
+    <%- if lang?(:ja) -%>
+      <meta name="description" content="しもむーの脳みそ">
+    <%- else -%>
+      <meta name="description" content="Shimomuh's Brain">
+    <%- end -%>
+    <meta name="keywords" content="しもむー,下村浩史,shimomuh">
+    <%-# TODO: og, twitter -%>
+    <%= favicon_link_tag 'icons/favicon-128x128.ico' %>
+    <%= favicon_link_tag 'icons/apple-touch-icon-120x120.png', rel: 'apple-touch-icon', type: 'image/png', sizes: '120x120' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>Shimomuh's Brain</title>
+    <%= yield :stylesheet_in_head %>
+    <%-# TODO: ga -%>
   </head>
-
   <body>
     <%= yield %>
   </body>

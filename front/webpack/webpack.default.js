@@ -6,7 +6,8 @@ export default {
       'babel-polyfill',
       'react',
       'react-dom',
-      'react-router'
+      'react-router',
+      'classnames'
     ],
     'brains': `${JS_SRC}/brains/main`
   },
