@@ -7,6 +7,15 @@ export default {
       output: { comments: false },
       compress: { warnings: false },
       sourceMap: false
-    })
+    }),
+    new webpack.ProvidePlugin({
+      'React': 'react'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'commons_chunk' })
   ]
 }

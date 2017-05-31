@@ -10,6 +10,8 @@
 %>
 
 <%- content_for :javascript_after_body do -%>
+  <%-# FIXME: for IE 11 -%>
+  <script src="https://www.promisejs.org/polyfills/promise-6.1.0.min.js"></script>
   <%= javascript_include_tag 'commons_chunk' %>
   <%= javascript_include_tag 'brains' %>
 <%- end -%>
