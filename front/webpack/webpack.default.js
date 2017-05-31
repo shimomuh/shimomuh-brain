@@ -4,10 +4,10 @@ export default {
   entry: {
     'commons_chunk': [
       'babel-polyfill',
+      'classnames',
       'react',
       'react-dom',
-      'react-router',
-      'classnames'
+      'react-router'
     ],
     'brains': `${JS_SRC}/brains/main`
   },

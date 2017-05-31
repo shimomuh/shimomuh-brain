@@ -2,6 +2,7 @@
 
 $white: #fff;
 $gray: #222;
+$aqua: #63c2ff;
 
 ol {
   margin: 0; padding: 0;
@@ -58,15 +59,59 @@ body {
   box-orient: $arg;
 }
 
+@mixin appearance($arg) {
+  -moz-appearance: $arg;
+  -webkit-appearance: $arg;
+  appearance: $arg;
+}
+
+
 .header {
   margin: 20px;
 
   &__title {
     text-align: center;
   }
-  &__langSelectBox {
+  &__selectBox {
     text-align: center;
-    label { margin-right: 20px; }
+    label {
+      margin-right: 20px;
+      font-size: 18px;
+    }
+  }
+}
+
+.__selectBox {
+  display: inline-block;
+  position: relative;
+  select {
+    background-color: $white;
+    @include appearance(none);
+    font-size: 18px;
+    height: 2.6rem;
+    min-width: 10rem;
+    padding: 0 .6rem;
+    border: none;
+  }
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 16px; top: 19px;
+    width: 12px; height: 4px;
+    border-radius: 30%;
+    background-color: $gray;
+    @include rotate(45deg);
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 10px; top: 19px;
+    width: 12px; height: 4px;
+    border-radius: 30%;
+    background-color: $gray;
+    @include rotate(-45deg);
   }
 }
 
