@@ -66,63 +66,14 @@ body {
 }
 
 
-.header {
-  margin: 20px;
-
-  &__title {
-    text-align: center;
-  }
-  &__selectBox {
-    text-align: center;
-    label {
-      margin-right: 20px;
-      font-size: 18px;
-    }
-  }
+.header__title {
+  margin-bottom: 0;
+  text-align: center;
 }
 
-.__selectBox {
-  display: inline-block;
-  position: relative;
-  select {
-    background-color: $white;
-    @include appearance(none);
-    font-size: 18px;
-    height: 2.6rem;
-    min-width: 10rem;
-    padding: 0 .6rem;
-    border: none;
-  }
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 16px; top: 19px;
-    width: 12px; height: 4px;
-    border-radius: 30%;
-    background-color: $gray;
-    @include rotate(45deg);
-  }
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 10px; top: 19px;
-    width: 12px; height: 4px;
-    border-radius: 30%;
-    background-color: $gray;
-    @include rotate(-45deg);
-  }
+.brainNav {
+  text-align: center;
 }
-
-.section {
-  width: 560px;
-  margin: 20px auto;
-  text-align: left;
-  min-height: 400px;
-  h2 { text-align: center; }
-}
-
 .__brainIcon {
   $parentNode: &;
   background-image: image_url('brains/brain.png');
@@ -266,7 +217,13 @@ body {
   }
 }
 
-.footer {
+.section {
+  width: 640px;
   margin: 20px auto;
+  h2 { text-align: center; }
+}
+
+.footer {
+  margin: 20px 0;
   text-align: center;
 }
