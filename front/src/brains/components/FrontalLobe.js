@@ -12,7 +12,7 @@ export class FrontalLobe extends Component {
         <div className='section'>
           <h2>Fundamental Thought and Motivation</h2>
           <ol className='section__policy'>
-            <li>First, make attraction, it&lsquo;s funny not interested</li>
+            <li>First, make attraction, it&#39;s funny not interested</li>
             <li>And then, just as imagined actions</li>
             <li>Finally, had better simply</li>
           </ol>
