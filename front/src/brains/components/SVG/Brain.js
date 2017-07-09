@@ -3,156 +3,188 @@ export function SVGBrain (props) {
     <div className='brainNav'>
       <svg width="570px" height="614px">
         <SVGSkin />
+        <a xlinkHref='/brainstems'>
           <SVGBrainBrainstem />
-        <SVGBrainCerebellum />
-        <SVGBrainTemporalLobe />
-        <SVGBrainOccipitalLobe />
-        <SVGBrainParietalLobe />
-        <SVGBrainFrontalLobe />
+        </a>
+        <a xlinkHref='/cerebellums'>
+          <SVGBrainCerebellum />
+        </a>
+        <a xlinkHref='/temporal_lobes'>
+          <SVGBrainTemporalLobe />
+        </a>
+        <a xlinkHref='/occipital_lobes'>
+          <SVGBrainOccipitalLobe />
+        </a>
+        <a xlinkHref='/parietal_lobes'>
+          <SVGBrainParietalLobe />
+        </a>
+        <a xlinkHref='/frontal_lobes'>
+          <SVGBrainFrontalLobe />
+        </a>
       </svg>
     </div>
   )
 }
 
 function SVGBrainFrontalLobe (props) {
-  return (
-    <g>
-      /* around */
-      <SVGBrainDot cx={374} cy={44} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'369,43'} end={'312,43'} color={'red'} />
-      <SVGBrainDot cx={304} cy={44} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'296,45'} end={'240,61'} color={'red'} />
-      <SVGBrainDot cx={234} cy={64} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'228,67'} end={'179,99'} color={'red'} />
-      <SVGBrainDot cx={174} cy={104} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'170,110'} end={'155,158'} color={'red'} />
-      <SVGBrainDot cx={154} cy={164} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'155,171'} end={'171,218'} color={'red'} />
-      <SVGBrainDot cx={174} cy={224} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'183,228'} end={'228,235'} color={'red'} />
-      <SVGBrainDot cx={234} cy={234} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'240,230'} end={'268,192'} color={'red'} />
-      <SVGBrainDot cx={274} cy={184} color={'red'} size={'large'} />
-      <SVGBrainLine start={'282,182'} end={'334,168'} color={'red'} />
-      <SVGBrainDot cx={344} cy={164} color={'red'} size={'giant'} />
-      <SVGBrainLine start={'342,154'} end={'336,112'} color={'red'} />
-      <SVGBrainDot cx={334} cy={104} color={'red'} size={'large'} />
-      <SVGBrainLine start={'340,96'} end={'369,50'} color={'red'} />
-      /* /around */
-    </g>
-  )
+  const dots = [
+    { x: 374, y:  44, size: 'middle' },
+    { x: 304, y:  44, size: 'middle' },
+    { x: 234, y:  64, size: 'middle' },
+    { x: 174, y: 104, size: 'middle' },
+    { x: 154, y: 164, size: 'middle' },
+    { x: 174, y: 224, size: 'middle' },
+    { x: 234, y: 234, size: 'middle' },
+    { x: 274, y: 184, size:  'large' },
+    { x: 344, y: 164, size:  'giant' },
+    { x: 334, y: 104, size:  'large' }
+  ]
+  const connectors = [
+    { x1: 369, y1:  43, x2: 312, y2:  43 },
+    { x1: 296, y1:  45, x2: 240, y2:  61 },
+    { x1: 228, y1:  67, x2: 179, y2:  99 },
+    { x1: 170, y1: 110, x2: 155, y2: 158 },
+    { x1: 155, y1: 171, x2: 171, y2: 218 },
+    { x1: 183, y1: 228, x2: 228, y2: 235 },
+    { x1: 240, y1: 230, x2: 268, y2: 192 },
+    { x1: 282, y1: 182, x2: 334, y2: 168 },
+    { x1: 342, y1: 154, x2: 336, y2: 112 },
+    { x1: 340, y1:  96, x2: 369, y2:  50 }
+  ]
+  const color = 'red'
+  return <SVGBrainField dots={dots} connectors={connectors} color={color } />
 }
 
 function SVGBrainParietalLobe (props) {
-  return (
-    <g>
-      /* around */
-      <SVGBrainDot cx={374} cy={44} color={'yellow'} size={'middle'} />
-      <SVGBrainLine start={'340,96'} end={'369,50'} color={'yellow'} />
-      <SVGBrainDot cx={334} cy={104} color={'yellow'} size={'large'} />
-      <SVGBrainLine start={'342,154'} end={'336,112'} color={'yellow'} />
-      <SVGBrainDot cx={344} cy={164} color={'yellow'} size={'giant'} />
-      <SVGBrainLine start={'354,164'} end={'404,164'} color={'yellow'} />
-      <SVGBrainDot cx={414} cy={164} color={'yellow'} size={'large'} />
-      <SVGBrainLine start={'424,162'} end={'488,137'} color={'yellow'} />
-      <SVGBrainDot cx={494} cy={134} color={'yellow'} size={'middle'} />
-      <SVGBrainLine start={'491,127'} end={'458,79'} color={'yellow'} />
-      <SVGBrainDot cx={454} cy={74} color={'yellow'} size={'middle'} />
-      <SVGBrainLine start={'447,72'} end={'380,46'} color={'yellow'} />
-      /* /around */
-    </g>
-  )
+  const dots = [
+    { x: 374, y:  44, size: 'middle' },
+    { x: 334, y: 104, size:  'large' },
+    { x: 344, y: 164, size:  'giant' },
+    { x: 414, y: 164, size:  'large' },
+    { x: 494, y: 134, size: 'middle' },
+    { x: 454, y:  74, size: 'middle' }
+  ]
+  const connectors = [
+    { x1: 340, y1:  96, x2: 369, y2:  50 },
+    { x1: 342, y1: 154, x2: 336, y2: 112 },
+    { x1: 354, y1: 164, x2: 404, y2: 164 },
+    { x1: 424, y1: 162, x2: 488, y2: 137 },
+    { x1: 491, y1: 127, x2: 458, y2:  79 },
+    { x1: 447, y1:  72, x2: 380, y2:  46 }
+  ]
+  const color = 'yellow'
+  return <SVGBrainField dots={dots} connectors={connectors} color={color } />
 }
 
 function SVGBrainOccipitalLobe (props) {
-  return (
-    <g>
-      /* around */
-      <SVGBrainDot cx={414} cy={164} color={'aqua'} size={'large'} />
-      <SVGBrainLine start={'424,162'} end={'488,137'} color={'aqua'} />
-      <SVGBrainDot cx={494} cy={134} color={'aqua'} size={'middle'} />
-      <SVGBrainLine start={'496,139'} end={'513,197'} color={'aqua'} />
-      <SVGBrainDot cx={514} cy={204} color={'aqua'} size={'middle'} />
-      <SVGBrainLine start={'510,210'} end={'478,258'} color={'aqua'} />
-      <SVGBrainDot cx={474} cy={264} color={'aqua'} size={'middle'} />
-      <SVGBrainLine start={'468,262'} end={'420,229'} color={'aqua'} />
-      <SVGBrainDot cx={414} cy={224} color={'aqua'} size={'large'} />
-      <SVGBrainLine start={'414,216'} end={'414,172'} color={'aqua'} />
-      /* /around */
-    </g>
-  )
+  const dots = [
+    { x: 414, y: 164, size:  'large' },
+    { x: 494, y: 134, size: 'middle' },
+    { x: 514, y: 204, size: 'middle' },
+    { x: 474, y: 264, size: 'middle' },
+    { x: 414, y: 224, size:  'large' }
+  ]
+  const connectors = [
+    { x1: 424, y1: 162, x2: 488, y2: 137 },
+    { x1: 496, y1: 139, x2: 513, y2: 197 },
+    { x1: 510, y1: 210, x2: 478, y2: 258 },
+    { x1: 468, y1: 262, x2: 420, y2: 229 },
+    { x1: 414, y1: 216, x2: 414, y2: 172 }
+  ]
+  const color = 'aqua'
+  return <SVGBrainField dots={dots} connectors={connectors} color={color } />
 }
 
 function SVGBrainTemporalLobe (props) {
-  return (
-    <g>
-      /* around */
-      <SVGBrainDot cx={474} cy={264} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'468,262'} end={'420,229'} color={'green'} />
-      <SVGBrainDot cx={414} cy={224} color={'green'} size={'large'} />
-      <SVGBrainLine start={'414,216'} end={'414,172'} color={'green'} />
-      <SVGBrainDot cx={414} cy={164} color={'green'} size={'large'} />
-      <SVGBrainLine start={'354,164'} end={'404,164'} color={'green'} />
-      <SVGBrainDot cx={344} cy={164} color={'green'} size={'giant'} />
-      <SVGBrainLine start={'282,182'} end={'334,168'} color={'green'} />
-      <SVGBrainDot cx={274} cy={184} color={'green'} size={'large'} />
-      <SVGBrainLine start={'240,230'} end={'268,192'} color={'green'} />
-      <SVGBrainDot cx={234} cy={234} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'238,238'} end={'268,278'} color={'green'} />
-      <SVGBrainDot cx={274} cy={284} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'280,284'} end={'328,284'} color={'green'} />
-      <SVGBrainDot cx={334} cy={284} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'340,284'} end={'398,284'} color={'green'} />
-      <SVGBrainDot cx={404} cy={284} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'410,283'} end={'468,268'} color={'green'} />
-      /* /around */
-    </g>
-  )
+  const dots = [
+    { x: 474, y: 264, size: 'middle' },
+    { x: 414, y: 224, size:  'large' },
+    { x: 414, y: 164, size:  'large' },
+    { x: 344, y: 164, size:  'giant' },
+    { x: 274, y: 184, size:  'large' },
+    { x: 234, y: 234, size: 'middle' },
+    { x: 274, y: 284, size: 'middle' },
+    { x: 334, y: 284, size: 'middle' },
+    { x: 404, y: 284, size: 'middle' }
+  ]
+  const connectors = [
+    { x1: 468, y1: 262, x2: 420, y2: 229 },
+    { x1: 414, y1: 216, x2: 414, y2: 172 },
+    { x1: 354, y1: 164, x2: 404, y2: 164 },
+    { x1: 282, y1: 182, x2: 334, y2: 168 },
+    { x1: 240, y1: 230, x2: 268, y2: 192 },
+    { x1: 238, y1: 238, x2: 268, y2: 278 },
+    { x1: 280, y1: 284, x2: 328, y2: 284 },
+    { x1: 340, y1: 284, x2: 398, y2: 284 },
+    { x1: 410, y1: 283, x2: 468, y2: 268 }
+  ]
+  const color = 'green'
+  return <SVGBrainField dots={dots} connectors={connectors} color={color } />
 }
 
 function SVGBrainCerebellum (props) {
-  return (
-    <g>
-      /* around */
-      <SVGBrainDot cx={474} cy={264} color={'blue'} size={'middle'} />
-      <SVGBrainLine start={'410,283'} end={'468,268'} color={'blue'} />
-      <SVGBrainDot cx={404} cy={284} color={'blue'} size={'middle'} />
-      <SVGBrainLine start={'340,284'} end={'398,284'} color={'blue'} />
-      <SVGBrainDot cx={334} cy={284} color={'blue'} size={'middle'} />
-      <SVGBrainLine start={'338,290'} end={'361,321'} color={'blue'} />
-      <SVGBrainDot cx={364} cy={324} color={'blue'} size={'small'} />
-      <SVGBrainLine start={'369,324'} end={'429,324'} color={'blue'} />
-      <SVGBrainDot cx={434} cy={324} color={'blue'} size={'small'} />
-      <SVGBrainLine start={'437,321'} end={'471,270'} color={'blue'} />
-      /* /around */
-    </g>
-  )
+  const dots = [
+    { x: 474, y: 264, size: 'middle' },
+    { x: 404, y: 284, size: 'middle' },
+    { x: 334, y: 284, size: 'middle' },
+    { x: 364, y: 324, size:  'small' },
+    { x: 434, y: 324, size:  'small' }
+  ]
+  const connectors = [
+    { x1: 410, y1: 283, x2: 468, y2: 268 },
+    { x1: 340, y1: 284, x2: 398, y2: 284 },
+    { x1: 338, y1: 290, x2: 361, y2: 321 },
+    { x1: 369, y1: 324, x2: 429, y2: 324 },
+    { x1: 437, y1: 321, x2: 471, y2: 270 }
+  ]
+  const color = 'blue'
+  return <SVGBrainField dots={dots} connectors={connectors} color={color } />
 }
 
 function SVGBrainBrainstem (props) {
+  const dots = [
+    { x: 404, y: 284, size: 'middle' },
+    { x: 334, y: 284, size: 'middle' },
+    { x: 374, y: 374, size:  'small' },
+    { x: 414, y: 374, size:  'small' }
+  ]
+  const connectors = [
+    { x1: 339, y1: 284, x2: 399, y2: 284 },
+    { x1: 336, y1: 289, x2: 371, y2: 371 },
+    { x1: 379, y1: 374, x2: 409, y2: 374 },
+    { x1: 414, y1: 369, x2: 406, y2: 292 }
+  ]
+  const color = 'purple'
+  return <SVGBrainField dots={dots} connectors={connectors} color={color } />
+}
+
+function SVGBrainField (props) {
+  const { dots, connectors, color } = props
+  const shows = dots.concat(connectors)
   return (
     <g>
-      /* around */
-      <SVGBrainDot cx={404} cy={284} color={'purple'} size={'middle'} />
-      <SVGBrainLine start={'339,284'} end={'399,284'} color={'purple'} />
-      <SVGBrainDot cx={334} cy={284} color={'purple'} size={'middle'} />
-      <SVGBrainLine start={'336,289'} end={'371,371'} color={'purple'} />
-      <SVGBrainDot cx={374} cy={374} color={'purple'} size={'small'} />
-      <SVGBrainLine start={'379,374'} end={'409,374'} color={'purple'} />
-      <SVGBrainDot cx={414} cy={374} color={'purple'} size={'small'} />
-      <SVGBrainLine start={'414,369'} end={'406,292'} color={'purple'} />
-      /* /around */
+      {
+        shows.map((c, i) => {
+          const _i = parseInt(i/2)
+          if (i % 2 == 0) {
+            return <SVGBrainDot dot={dots[_i]} color={color} key={i} />
+          } else {
+            return <SVGBrainConnector coordinate={connectors[_i]} color={color} key={i} />
+          }
+        })
+      }
+      <SVGBrainAnchorLine coordinates={dots} />
     </g>
   )
 }
 
 function SVGBrainDot (props) {
-  const { cx, cy, color, size } = props
-  const { r, width } = getSizeProperties(size)
+  const { dot, color } = props
+  const { r, width } = getSizeProperties(dot['size'])
   return (
     <circle
-      cx={cx}
-      cy={cy}
+      cx={dot['x']}
+      cy={dot['y']}
       r={r}
       fill="rgba(0,0,0,0)"
       stroke={color}
@@ -182,11 +214,42 @@ function SVGBrainLine (props) {
   )
 }
 
+function SVGBrainConnector (props) {
+  const { coordinate, color } = props
+  const c = coordinate
+  return (
+    <line
+      x1={c['x1']}
+      y1={c['y1']}
+      x2={c['x2']}
+      y2={c['y2']}
+      stroke={color}
+      strokeWidth={4} />
+  )
+}
+
+function SVGBrainAnchorLine (props) {
+  const { coordinates } = props
+  const firstCoordinate = coordinates.shift()
+  const connectedCoordinate = `${firstCoordinate['x']},${firstCoordinate['y']}`
+  const m = `M ${connectedCoordinate},`
+  const lastL = `L ${connectedCoordinate}`
+  const ls = coordinates.map((c) => { return `L ${c['x']},${c['y']}` }).join(' ')
+  const d = [m, ls, lastL].join(' ')
+  return (
+    <path
+      stroke="rgba(0,0,0,0)"
+      strokeWidth="8"
+      fill="rgba(0,0,0,0)"
+      d={d} />
+  )
+}
+
 function SVGSkin (props) {
   return (
     <g>
       <path
-        stroke="#37536A"
+        stroke="#272e35"
         strokeWidth="8"
         fill="rgba(0,0,0,0)"
         d="
@@ -195,7 +258,7 @@ function SVGSkin (props) {
           Q 444,474 464,604
         " />
       <path
-        stroke="#37536A"
+        stroke="#272e35"
         strokeWidth="8"
         fill="rgba(0,0,0,0)"
         d="
