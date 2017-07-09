@@ -1,9 +1,9 @@
 export function SVGBrain (props) {
   return (
     <div className='brainNav'>
-      <svg width="640px" height="680px">
+      <svg width="570px" height="614px">
         <SVGSkin />
-        <SVGBrainBrainstem />
+          <SVGBrainBrainstem />
         <SVGBrainCerebellum />
         <SVGBrainTemporalLobe />
         <SVGBrainOccipitalLobe />
@@ -18,26 +18,26 @@ function SVGBrainFrontalLobe (props) {
   return (
     <g>
       /* around */
-      <SVGBrainDot cx={410} cy={80} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'405,79'} end={'348,79'} color={'red'} />
-      <SVGBrainDot cx={340} cy={80} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'332,81'} end={'276,97'} color={'red'} />
-      <SVGBrainDot cx={270} cy={100} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'264,103'} end={'215,135'} color={'red'} />
-      <SVGBrainDot cx={210} cy={140} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'206,146'} end={'191,194'} color={'red'} />
-      <SVGBrainDot cx={190} cy={200} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'191,207'} end={'207,254'} color={'red'} />
-      <SVGBrainDot cx={210} cy={260} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'216,264'} end={'264,271'} color={'red'} />
-      <SVGBrainDot cx={270} cy={270} color={'red'} size={'middle'} />
-      <SVGBrainLine start={'276,266'} end={'304,228'} color={'red'} />
-      <SVGBrainDot cx={310} cy={220} color={'red'} size={'large'} />
-      <SVGBrainLine start={'318,218'} end={'370,204'} color={'red'} />
-      <SVGBrainDot cx={380} cy={200} color={'red'} size={'giant'} />
-      <SVGBrainLine start={'378,190'} end={'372,148'} color={'red'} />
-      <SVGBrainDot cx={370} cy={140} color={'red'} size={'large'} />
-      <SVGBrainLine start={'376,132'} end={'405,86'} color={'red'} />
+      <SVGBrainDot cx={374} cy={44} color={'red'} size={'middle'} />
+      <SVGBrainLine start={'369,43'} end={'312,43'} color={'red'} />
+      <SVGBrainDot cx={304} cy={44} color={'red'} size={'middle'} />
+      <SVGBrainLine start={'296,45'} end={'240,61'} color={'red'} />
+      <SVGBrainDot cx={234} cy={64} color={'red'} size={'middle'} />
+      <SVGBrainLine start={'228,67'} end={'179,99'} color={'red'} />
+      <SVGBrainDot cx={174} cy={104} color={'red'} size={'middle'} />
+      <SVGBrainLine start={'170,110'} end={'155,158'} color={'red'} />
+      <SVGBrainDot cx={154} cy={164} color={'red'} size={'middle'} />
+      <SVGBrainLine start={'155,171'} end={'171,218'} color={'red'} />
+      <SVGBrainDot cx={174} cy={224} color={'red'} size={'middle'} />
+      <SVGBrainLine start={'183,228'} end={'228,235'} color={'red'} />
+      <SVGBrainDot cx={234} cy={234} color={'red'} size={'middle'} />
+      <SVGBrainLine start={'240,230'} end={'268,192'} color={'red'} />
+      <SVGBrainDot cx={274} cy={184} color={'red'} size={'large'} />
+      <SVGBrainLine start={'282,182'} end={'334,168'} color={'red'} />
+      <SVGBrainDot cx={344} cy={164} color={'red'} size={'giant'} />
+      <SVGBrainLine start={'342,154'} end={'336,112'} color={'red'} />
+      <SVGBrainDot cx={334} cy={104} color={'red'} size={'large'} />
+      <SVGBrainLine start={'340,96'} end={'369,50'} color={'red'} />
       /* /around */
     </g>
   )
@@ -47,18 +47,18 @@ function SVGBrainParietalLobe (props) {
   return (
     <g>
       /* around */
-      <SVGBrainDot cx={410} cy={80} color={'yellow'} size={'middle'} />
-      <SVGBrainLine start={'376,132'} end={'405,86'} color={'yellow'} />
-      <SVGBrainDot cx={370} cy={140} color={'yellow'} size={'large'} />
-      <SVGBrainLine start={'378,190'} end={'372,148'} color={'yellow'} />
-      <SVGBrainDot cx={380} cy={200} color={'yellow'} size={'giant'} />
-      <SVGBrainLine start={'390,200'} end={'440,200'} color={'yellow'} />
-      <SVGBrainDot cx={450} cy={200} color={'yellow'} size={'large'} />
-      <SVGBrainLine start={'460,198'} end={'524,173'} color={'yellow'} />
-      <SVGBrainDot cx={530} cy={170} color={'yellow'} size={'middle'} />
-      <SVGBrainLine start={'527,163'} end={'494,115'} color={'yellow'} />
-      <SVGBrainDot cx={490} cy={110} color={'yellow'} size={'middle'} />
-      <SVGBrainLine start={'483,108'} end={'416,82'} color={'yellow'} />
+      <SVGBrainDot cx={374} cy={44} color={'yellow'} size={'middle'} />
+      <SVGBrainLine start={'340,96'} end={'369,50'} color={'yellow'} />
+      <SVGBrainDot cx={334} cy={104} color={'yellow'} size={'large'} />
+      <SVGBrainLine start={'342,154'} end={'336,112'} color={'yellow'} />
+      <SVGBrainDot cx={344} cy={164} color={'yellow'} size={'giant'} />
+      <SVGBrainLine start={'354,164'} end={'404,164'} color={'yellow'} />
+      <SVGBrainDot cx={414} cy={164} color={'yellow'} size={'large'} />
+      <SVGBrainLine start={'424,162'} end={'488,137'} color={'yellow'} />
+      <SVGBrainDot cx={494} cy={134} color={'yellow'} size={'middle'} />
+      <SVGBrainLine start={'491,127'} end={'458,79'} color={'yellow'} />
+      <SVGBrainDot cx={454} cy={74} color={'yellow'} size={'middle'} />
+      <SVGBrainLine start={'447,72'} end={'380,46'} color={'yellow'} />
       /* /around */
     </g>
   )
@@ -68,16 +68,16 @@ function SVGBrainOccipitalLobe (props) {
   return (
     <g>
       /* around */
-      <SVGBrainDot cx={450} cy={200} color={'aqua'} size={'large'} />
-      <SVGBrainLine start={'460,198'} end={'524,173'} color={'aqua'} />
-      <SVGBrainDot cx={530} cy={170} color={'aqua'} size={'middle'} />
-      <SVGBrainLine start={'532,175'} end={'549,233'} color={'aqua'} />
-      <SVGBrainDot cx={550} cy={240} color={'aqua'} size={'middle'} />
-      <SVGBrainLine start={'546,246'} end={'514,294'} color={'aqua'} />
-      <SVGBrainDot cx={510} cy={300} color={'aqua'} size={'middle'} />
-      <SVGBrainLine start={'504,298'} end={'456,265'} color={'aqua'} />
-      <SVGBrainDot cx={450} cy={260} color={'aqua'} size={'large'} />
-      <SVGBrainLine start={'450,252'} end={'450,208'} color={'aqua'} />
+      <SVGBrainDot cx={414} cy={164} color={'aqua'} size={'large'} />
+      <SVGBrainLine start={'424,162'} end={'488,137'} color={'aqua'} />
+      <SVGBrainDot cx={494} cy={134} color={'aqua'} size={'middle'} />
+      <SVGBrainLine start={'496,139'} end={'513,197'} color={'aqua'} />
+      <SVGBrainDot cx={514} cy={204} color={'aqua'} size={'middle'} />
+      <SVGBrainLine start={'510,210'} end={'478,258'} color={'aqua'} />
+      <SVGBrainDot cx={474} cy={264} color={'aqua'} size={'middle'} />
+      <SVGBrainLine start={'468,262'} end={'420,229'} color={'aqua'} />
+      <SVGBrainDot cx={414} cy={224} color={'aqua'} size={'large'} />
+      <SVGBrainLine start={'414,216'} end={'414,172'} color={'aqua'} />
       /* /around */
     </g>
   )
@@ -87,24 +87,24 @@ function SVGBrainTemporalLobe (props) {
   return (
     <g>
       /* around */
-      <SVGBrainDot cx={510} cy={300} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'504,298'} end={'456,265'} color={'green'} />
-      <SVGBrainDot cx={450} cy={260} color={'green'} size={'large'} />
-      <SVGBrainLine start={'450,252'} end={'450,208'} color={'green'} />
-      <SVGBrainDot cx={450} cy={200} color={'green'} size={'large'} />
-      <SVGBrainLine start={'390,200'} end={'440,200'} color={'green'} />
-      <SVGBrainDot cx={380} cy={200} color={'green'} size={'giant'} />
-      <SVGBrainLine start={'318,218'} end={'370,204'} color={'green'} />
-      <SVGBrainDot cx={310} cy={220} color={'green'} size={'large'} />
-      <SVGBrainLine start={'276,266'} end={'304,228'} color={'green'} />
-      <SVGBrainDot cx={270} cy={270} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'274,274'} end={'304,314'} color={'green'} />
-      <SVGBrainDot cx={310} cy={320} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'316,320'} end={'364,320'} color={'green'} />
-      <SVGBrainDot cx={370} cy={320} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'376,320'} end={'434,320'} color={'green'} />
-      <SVGBrainDot cx={440} cy={320} color={'green'} size={'middle'} />
-      <SVGBrainLine start={'446,319'} end={'504,304'} color={'green'} />
+      <SVGBrainDot cx={474} cy={264} color={'green'} size={'middle'} />
+      <SVGBrainLine start={'468,262'} end={'420,229'} color={'green'} />
+      <SVGBrainDot cx={414} cy={224} color={'green'} size={'large'} />
+      <SVGBrainLine start={'414,216'} end={'414,172'} color={'green'} />
+      <SVGBrainDot cx={414} cy={164} color={'green'} size={'large'} />
+      <SVGBrainLine start={'354,164'} end={'404,164'} color={'green'} />
+      <SVGBrainDot cx={344} cy={164} color={'green'} size={'giant'} />
+      <SVGBrainLine start={'282,182'} end={'334,168'} color={'green'} />
+      <SVGBrainDot cx={274} cy={184} color={'green'} size={'large'} />
+      <SVGBrainLine start={'240,230'} end={'268,192'} color={'green'} />
+      <SVGBrainDot cx={234} cy={234} color={'green'} size={'middle'} />
+      <SVGBrainLine start={'238,238'} end={'268,278'} color={'green'} />
+      <SVGBrainDot cx={274} cy={284} color={'green'} size={'middle'} />
+      <SVGBrainLine start={'280,284'} end={'328,284'} color={'green'} />
+      <SVGBrainDot cx={334} cy={284} color={'green'} size={'middle'} />
+      <SVGBrainLine start={'340,284'} end={'398,284'} color={'green'} />
+      <SVGBrainDot cx={404} cy={284} color={'green'} size={'middle'} />
+      <SVGBrainLine start={'410,283'} end={'468,268'} color={'green'} />
       /* /around */
     </g>
   )
@@ -114,16 +114,16 @@ function SVGBrainCerebellum (props) {
   return (
     <g>
       /* around */
-      <SVGBrainDot cx={510} cy={300} color={'blue'} size={'middle'} />
-      <SVGBrainLine start={'446,319'} end={'504,304'} color={'blue'} />
-      <SVGBrainDot cx={440} cy={320} color={'blue'} size={'middle'} />
-      <SVGBrainLine start={'376,320'} end={'434,320'} color={'blue'} />
-      <SVGBrainDot cx={370} cy={320} color={'blue'} size={'middle'} />
-      <SVGBrainLine start={'374,326'} end={'397,357'} color={'blue'} />
-      <SVGBrainDot cx={400} cy={360} color={'blue'} size={'small'} />
-      <SVGBrainLine start={'405,360'} end={'465,360'} color={'blue'} />
-      <SVGBrainDot cx={470} cy={360} color={'blue'} size={'small'} />
-      <SVGBrainLine start={'473,357'} end={'507,306'} color={'blue'} />
+      <SVGBrainDot cx={474} cy={264} color={'blue'} size={'middle'} />
+      <SVGBrainLine start={'410,283'} end={'468,268'} color={'blue'} />
+      <SVGBrainDot cx={404} cy={284} color={'blue'} size={'middle'} />
+      <SVGBrainLine start={'340,284'} end={'398,284'} color={'blue'} />
+      <SVGBrainDot cx={334} cy={284} color={'blue'} size={'middle'} />
+      <SVGBrainLine start={'338,290'} end={'361,321'} color={'blue'} />
+      <SVGBrainDot cx={364} cy={324} color={'blue'} size={'small'} />
+      <SVGBrainLine start={'369,324'} end={'429,324'} color={'blue'} />
+      <SVGBrainDot cx={434} cy={324} color={'blue'} size={'small'} />
+      <SVGBrainLine start={'437,321'} end={'471,270'} color={'blue'} />
       /* /around */
     </g>
   )
@@ -133,14 +133,14 @@ function SVGBrainBrainstem (props) {
   return (
     <g>
       /* around */
-      <SVGBrainDot cx={440} cy={320} color={'purple'} size={'middle'} />
-      <SVGBrainLine start={'375,320'} end={'435,320'} color={'purple'} />
-      <SVGBrainDot cx={370} cy={320} color={'purple'} size={'middle'} />
-      <SVGBrainLine start={'372,325'} end={'407,407'} color={'purple'} />
-      <SVGBrainDot cx={410} cy={410} color={'purple'} size={'small'} />
-      <SVGBrainLine start={'415,410'} end={'445,410'} color={'purple'} />
-      <SVGBrainDot cx={450} cy={410} color={'purple'} size={'small'} />
-      <SVGBrainLine start={'450,405'} end={'442,328'} color={'purple'} />
+      <SVGBrainDot cx={404} cy={284} color={'purple'} size={'middle'} />
+      <SVGBrainLine start={'339,284'} end={'399,284'} color={'purple'} />
+      <SVGBrainDot cx={334} cy={284} color={'purple'} size={'middle'} />
+      <SVGBrainLine start={'336,289'} end={'371,371'} color={'purple'} />
+      <SVGBrainDot cx={374} cy={374} color={'purple'} size={'small'} />
+      <SVGBrainLine start={'379,374'} end={'409,374'} color={'purple'} />
+      <SVGBrainDot cx={414} cy={374} color={'purple'} size={'small'} />
+      <SVGBrainLine start={'414,369'} end={'406,292'} color={'purple'} />
       /* /around */
     </g>
   )
@@ -190,33 +190,33 @@ function SVGSkin (props) {
         strokeWidth="8"
         fill="rgba(0,0,0,0)"
         d="
-          M 400,40
-          C 650,40 650,400 500,500
-          Q 480,510 500,640
+          M 364,4
+          C 614,4 614,364 464,464
+          Q 444,474 464,604
         " />
       <path
         stroke="#37536A"
         strokeWidth="8"
         fill="rgba(0,0,0,0)"
         d="
-          M 400,40
-          Q 150,40 80,250
-          C 70,270 70,290 90,320
-          L 40,440
-          Q 40,450 50,450
-          L 80,455
-          Q 90,455 90,470
-          L 90,480
-          L 75,495
-          Q 75,505 120,510
-          L 90,510
-          C 75,520 75,530 85,530
-          Q 95,530 95,540
-          L 85,570
-          Q 80,580 100,590
-          Q 120,595 250,600
-          Q 270,600 270,620
-          L 275,650
+          M 364,4
+          Q 114,4 44,214
+          C 34,234 34,254 54,284
+          L 4,404
+          Q 4,414 14,414
+          L 44,419
+          Q 54,419 54,434
+          L 54,454
+          L 39,459
+          Q 39,469 84,474
+          L 54,474
+          C 39,484 39,494 49,494
+          Q 59,494 59,504
+          L 49,534
+          Q 44,544 64,554
+          Q 84,559 214,564
+          Q 234,564 234,584
+          L 239,614
         " />
     </g>
   )
