@@ -22,67 +22,263 @@ body {
   width: 100%; height: 100%;
 }
 
-@mixin rotate($deg) {
-  -moz-transform: rotate($deg);
-  -webkit-transform: rotate($deg);
-  -o-transform: rotate($deg);
-  -ms-transform: rotate($deg);
-  transform: rotate($deg);
+@mixin scale($scale) {
+  -moz-transform: scale($scale);
+  -webkit-transform: scale($scale);
+  -o-transform: scale($scale);
+  -ms-transform: scale($scale);
+  transform: scale($scale);
+}
+@mixin translate($x, $y) {
+  -moz-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+  -o-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+@mixin transform-origin-center {
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
 
-@mixin display-box() {
-  display: -moz-box;
-  display: -webkit-box;
-  display: -o-box;
-  display: -ms-box;
-  display: box;
+@mixin keyframes($id) {
+  @-webkit-keyframes #{$id} { @content; }
+  @-moz-keyframes #{$id} { @content; }
+  @-ms-keyframes #{$id} { @content; }
+  @-o-keyframes #{$id} { @content; }
+  @keyframes #{$id} { @content; }
 }
 
-@mixin box-align($arg) {
-  -moz-box-align: $arg;
-  -webkit-box-align: $arg;
-  -o-box-align: $arg;
-  -ms-box-align: $arg;
-  box-align: $arg;
+@mixin circle-animation($delay) {
+  animation: circle 0.2s ease-in forwards;
+  -webit-animation: circle 0.2s ease-in forwards;
+  -moz-animation: circle 0.2 ease-in forwards;
+  animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+}
+@include keyframes(circle) {
+  0% {
+    stroke-opacity: 0;
+    @include transform-origin-center;
+    @include scale(0.8);
+  }
+  70% {
+    stroke-opacity: 1;
+    @include transform-origin-center;
+    @include scale(1.5);
+  }
+  100% {
+    stroke-opacity: 1;
+    @include transform-origin-center;
+    @include scale(1);
+  }
+}
+@mixin line-animation($delay) {
+  animation: line 0.2s ease-in forwards;
+  -webit-animation: line 0.2s ease-in forwards;
+  -moz-animation: line 0.2s ease-in forwards;
+  animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+}
+@include keyframes(line) {
+  0% { stroke-dashoffset: 2000; }
+  100% { stroke-dashoffset: 0; }
+}
+@mixin slow-line-animation($duration, $delay: 0s) {
+  animation: slow-line $duration ease-in forwards;
+  -webkit-animation: slow-line $duration ease-in forwards;
+  -moz-animation: slow-line $duration ease-in forwards;
+  animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+}
+@include keyframes(slow-line) {
+  0% { stroke-dashoffset: 4000; }
+  100% { stroke-dashoffset: 0; }
 }
 
-@mixin box-pack($arg) {
-  -moz-box-pack: $arg;
-  -webkit-box-pack: $arg;
-  -o-box-pack: $arg;
-  -ms-box-pack: $arg;
-  box-pack: $arg;
+@mixin slow-hover-animation {
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
-@mixin box-orient($arg) {
-  -moz-box-orient: $arg;
-  -webkit-box-orient: $arg;
-  -o-box-orient: $arg;
-  -ms-box-orient: $arg;
-  box-orient: $arg;
+@mixin slide-down-animation($duration, $delay) {
+  animation: slide-down $duration ease-out forwards;
+  -webkit-animation: slide-down $duration ease-out forwards;
+  -moz-animation: slide-down $duration ease-out forwards;
+  animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
 }
-
-@mixin appearance($arg) {
-  -moz-appearance: $arg;
-  -webkit-appearance: $arg;
-  appearance: $arg;
+@include keyframes(slide-down) {
+  0% {
+    opacity: 0;
+    @include translate(0px, -100px);
+  }
+  100% {
+    opacity: 1;
+    @include translate(0px, 0px);
+  }
 }
-
+@mixin slide-up-animation($duration, $delay) {
+  animation: slide-up $duration ease-out forwards;
+  -webkit-animation: slide-up $duration ease-out forwards;
+  -moz-animation: slide-up $duration ease-out forwards;
+  animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+}
+@include keyframes(slide-up) {
+  0% {
+    opacity: 0;
+    @include translate(0px, 200px);
+  }
+  100% {
+    opacity: 1;
+    @include translate(0px, 0px);
+  }
+}
 
 .header__title {
   margin-bottom: 0;
   text-align: center;
+  opacity: 0;
+  @include slide-down-animation(1s, 2s);
 }
 
 .brainNav {
+  $skin-duration: 1;
   text-align: center;
   margin: 20px 20px 20px 0;
+  g path {
+    @include slow-hover-animation;
+  }
+  &__skin {
+    path {
+      stroke-dasharray: 4000;
+      stroke-dashoffset: 4000;
+      @include slow-line-animation(#{$skin-duration + 0.5}s);
+    }
+  }
+  g .circleInner1 {
+    stroke-opacity: 0;
+    @include circle-animation(#{0.2 + $skin-duration + 1.2}s);
+  }
+  g .lineInner1 {
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 4000;
+    @include slow-line-animation(3s, #{$skin-duration + 1.2}s);
+  }
+  &__frontalLobe {
+    &:hover {
+      g path { fill: rgba(255,0,0,0.5); }
+    }
+    @for $i from 1 through 10 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__parietalLobe {
+    &:hover {
+      g path { fill: rgba(255,255,0,0.5); }
+    }
+    @for $i from 1 through 6 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__occipitalLobe {
+    &:hover {
+      g path { fill: rgba(0,255,255,0.5); }
+    }
+    @for $i from 1 through 5 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__temporalLobe {
+    &:hover {
+      g path { fill: rgba(0,255,0,0.5); }
+    }
+    @for $i from 1 through 9 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__cerebellum {
+    &:hover {
+      g path { fill: rgba(0,0,255,0.5); }
+    }
+    @for $i from 1 through 5 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__brainstem {
+    &:hover {
+      g path { fill: rgba(128,0,128,0.5); }
+    }
+    @for $i from 1 through 4 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
 }
 
 .section {
   width: 500px;
   min-height: 200px;
   margin: -200px auto 0;
+  opacity: 0;
+  @include slide-up-animation(1s, 2s);
   h2 {
     text-align: center;
     margin-bottom: 20px;
