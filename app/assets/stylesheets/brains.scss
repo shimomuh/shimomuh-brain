@@ -144,6 +144,124 @@ body {
     @include translate(0px, 0px);
   }
 }
+@mixin signal-animation($delay) {
+  animation-delay: $delay;
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+}
+@mixin signal1-animation($duration, $delay) {
+  animation: signal1 $duration linear;
+  -webkit-animation: signal1 $duration linear;
+  -moz-animation: signal1 $duration linear;
+  @include signal-animation($delay)
+}
+@include keyframes(signal1) {
+  0% { @include scale(1); opacity: 0; }
+  1% { @include scale(1.2); opacity: 1; }
+  2% { @include scale(1); opacity: 0; }
+  3% { @include scale(1.2); opacity: 1; }
+  4% { @include scale(1); opacity: 0; }
+  5% { @include scale(1.2); opacity: 1; }
+  6% { @include scale(1); opacity: 0; }
+  7% { @include scale(1.2); opacity: 1; }
+  8% { @include scale(1); opacity: 0; }
+  9% { @include scale(1.2); opacity: 1; }
+  10% { @include scale(1); opacity: 0; }
+  100% {
+    opacity: 0;
+  }
+}
+@mixin signal2-animation($duration, $delay) {
+  animation: signal2 $duration linear;
+  -webkit-animation: signal2 $duration linear;
+  -moz-animation: signal2 $duration linear;
+  @include signal-animation($delay)
+}
+@include keyframes(signal2) {
+  20% { @include scale(1); opacity: 0; }
+  21% { @include scale(1.2); opacity: 1; }
+  22% { @include scale(1); opacity: 0; }
+  23% { @include scale(1.2); opacity: 1; }
+  24% { @include scale(1); opacity: 0; }
+  25% { @include scale(1.2); opacity: 1; }
+  26% { @include scale(1); opacity: 0; }
+  27% { @include scale(1.2); opacity: 1; }
+  28% { @include scale(1); opacity: 0; }
+  29% { @include scale(1.2); opacity: 1; }
+  30% { @include scale(1); opacity: 0; }
+  100% {
+    opacity: 0;
+  }
+}
+@mixin signal3-animation($duration, $delay) {
+  animation: signal3 $duration linear;
+  -webkit-animation: signal3 $duration linear;
+  -moz-animation: signal3 $duration linear;
+  @include signal-animation($delay)
+}
+@include keyframes(signal3) {
+  40% { @include scale(1); opacity: 0; }
+  41% { @include scale(1.2); opacity: 1; }
+  42% { @include scale(1); opacity: 0; }
+  43% { @include scale(1.2); opacity: 1; }
+  44% { @include scale(1); opacity: 0; }
+  45% { @include scale(1.2); opacity: 1; }
+  46% { @include scale(1); opacity: 0; }
+  47% { @include scale(1.2); opacity: 1; }
+  48% { @include scale(1); opacity: 0; }
+  49% { @include scale(1.2); opacity: 1; }
+  50% { @include scale(1); opacity: 0; }
+  100% {
+    opacity: 0;
+  }
+}
+@mixin signal4-animation($duration, $delay) {
+  animation: signal4 $duration linear;
+  -webkit-animation: signal4 $duration linear;
+  -moz-animation: signal4 $duration linear;
+  @include signal-animation($delay)
+}
+@include keyframes(signal4) {
+  65% { @include scale(1); opacity: 0; }
+  66% { @include scale(1.2); opacity: 1; }
+  67% { @include scale(1); opacity: 0; }
+  68% { @include scale(1.2); opacity: 1; }
+  69% { @include scale(1); opacity: 0; }
+  70% { @include scale(1.2); opacity: 1; }
+  71% { @include scale(1); opacity: 0; }
+  72% { @include scale(1.2); opacity: 1; }
+  73% { @include scale(1); opacity: 0; }
+  74% { @include scale(1.2); opacity: 1; }
+  75% { @include scale(1); opacity: 0; }
+  100% {
+    opacity: 0;
+  }
+}
+@mixin signal5-animation($duration, $delay) {
+  animation: signal5 $duration linear;
+  -webkit-animation: signal5 $duration linear;
+  -moz-animation: signal5 $duration linear;
+  @include signal-animation($delay)
+}
+@include keyframes(signal5) {
+  75% { @include scale(1); opacity: 0; }
+  76% { @include scale(1.2); opacity: 1; }
+  77% { @include scale(1); opacity: 0; }
+  78% { @include scale(1.2); opacity: 1; }
+  79% { @include scale(1); opacity: 0; }
+  80% { @include scale(1.2); opacity: 1; }
+  81% { @include scale(1); opacity: 0; }
+  82% { @include scale(1.2); opacity: 1; }
+  83% { @include scale(1); opacity: 0; }
+  84% { @include scale(1.2); opacity: 1; }
+  85% { @include scale(1); opacity: 0; }
+  100% {
+    opacity: 0;
+  }
+}
 
 .header__title {
   margin-bottom: 0;
@@ -174,6 +292,26 @@ body {
     stroke-dasharray: 4000;
     stroke-dashoffset: 4000;
     @include slow-line-animation(3s, #{$skin-duration + 1.2}s);
+  }
+  .circleAnimation1 {
+    opacity: 0;
+    @include signal1-animation(10s, 3s);
+  }
+  .circleAnimation2 {
+    opacity: 0;
+    @include signal2-animation(10s, 3s);
+  }
+  .circleAnimation3 {
+    opacity: 0;
+    @include signal3-animation(10s, 3s);
+  }
+  .circleAnimation4 {
+    opacity: 0;
+    @include signal4-animation(10s, 3.5s);
+  }
+  .circleAnimation5 {
+    opacity: 0;
+    @include signal5-animation(10s, 3.5s);
   }
   &__frontalLobe {
     &:hover {

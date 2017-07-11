@@ -21,8 +21,80 @@ export function SVGBrain (props) {
         <a className='brainNav__frontalLobe' xlinkHref='/frontal_lobes'>
           <SVGBrainFrontalLobe />
         </a>
+        <SVGBrainAnimation />
       </svg>
     </div>
+  )
+}
+
+function SVGBrainAnimation (props) {
+  const lines = [
+    [
+      { x: 174, y: 224 },
+      { x: 154, y: 164 },
+      { x: 174, y: 104 },
+      { x: 218, y: 162 },
+      { x: 274, y: 184 },
+      { x: 300, y: 234 },
+      { x: 334, y: 284 },
+      { x: 374, y: 374 }
+    ],
+    [
+      { x: 454, y:  74 },
+      { x: 494, y: 134 },
+      { x: 440, y: 120 },
+      { x: 414, y: 164 },
+      { x: 344, y: 164 },
+      { x: 360, y: 230 },
+      { x: 334, y: 284 },
+      { x: 414, y: 374 }
+    ],
+    [
+      { x: 514, y: 204 },
+      { x: 470, y: 200 },
+      { x: 414, y: 224 },
+      { x: 474, y: 264 },
+      { x: 404, y: 284 },
+      { x: 414, y: 374 }
+    ],
+    [
+      { x: 374, y:  44 },
+      { x: 304, y:  44 },
+      { x: 270, y: 118 },
+      { x: 274, y: 184 },
+      { x: 234, y: 234 },
+      { x: 274, y: 284 },
+      { x: 334, y: 284 },
+      { x: 374, y: 374 }
+    ],
+    [
+      { x: 434, y: 324 },
+      { x: 364, y: 324 },
+      { x: 334, y: 284 },
+      { x: 404, y: 284 },
+      { x: 414, y: 374 }
+    ]
+  ]
+  const dots = [
+    { x: 0, y: 0, size: 'M' },
+    { x: 0, y: 0, size: 'M' },
+    { x: 0, y: 0, size: 'M' },
+    { x: 0, y: 0, size: 'M' },
+    { x: 0, y: 0, size: 'M' },
+  ]
+  return (
+    <g pointerEvents='none'>
+      {
+        lines.map((c, i) => {
+          return <SVGBrainAnimationLine coordinates={c} i={i} key={i} />
+        })
+      }
+      {
+        dots.map((c, i) => {
+          return <SVGBrainAnimationDot dot={c} color={'white'} i={i} key={i} />
+        })
+      }
+    </g>
   )
 }
 
@@ -275,6 +347,27 @@ function SVGBrainDot (props) {
   )
 }
 
+function SVGBrainAnimationDot (props) {
+  const { dot, color, i } = props
+  const { r, width } = getSizeProperties(dot['size'])
+  const dotAnimationClass = `circleAnimation${i + 1}`
+  const lineAnimationClass = `lineAnimation${i + 1}`
+  return (
+    <circle
+      className={dotAnimationClass}
+      cx={dot['x']}
+      cy={dot['y']}
+      r={r}
+      fill="#222222"
+      stroke={color}
+      strokeWidth={width}>
+      <animateMotion dur="1s" repeatCount="indefinite">
+        <mpath xlinkHref={`#${lineAnimationClass}`} />
+      </animateMotion>
+    </circle>
+  )
+}
+
 function getSizeProperties (size) {
   switch (size) {
     case 'SS':
@@ -317,6 +410,23 @@ function SVGBrainAnchorLine (props) {
     <path
       stroke="rgba(0,0,0,0)"
       strokeWidth="8"
+      fill="rgba(0,0,0,0)"
+      d={d} />
+  )
+}
+
+function SVGBrainAnimationLine (props) {
+  const { coordinates, i } = props
+  const firstCoordinate = coordinates.shift()
+  const m = `M ${firstCoordinate['x']},${firstCoordinate['y']}`
+  const ls = coordinates.map((c) => { return `L ${c['x']},${c['y']}` }).join(' ')
+  const d = [m, ls].join(' ')
+  const lineAnimationClass = `lineAnimation${i + 1}`
+  return (
+    <path
+      id={lineAnimationClass}
+      stroke="rgba(0,0,0,0)"
+      strokeWidth="1"
       fill="rgba(0,0,0,0)"
       d={d} />
   )
