@@ -36,6 +36,13 @@ body {
   -ms-transform: translate($x, $y);
   transform: translate($x, $y);
 }
+@mixin translate-and-scale($x, $y, $scale) {
+  -moz-transform: translate($x, $y) scale($scale);
+  -webkit-transform: translate($x, $y) scale($scale);
+  -o-transform: translate($x, $y) scale($scale);
+  -ms-transform: translate($x, $y) scale($scale);
+  transform: translate($x, $y) scale($scale);
+}
 @mixin transform-origin-center {
   -moz-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
@@ -153,114 +160,106 @@ body {
   -moz-animation-iteration-count: infinite;
 }
 @mixin signal1-animation($duration, $delay) {
-  animation: signal1 $duration linear;
-  -webkit-animation: signal1 $duration linear;
-  -moz-animation: signal1 $duration linear;
+  @include transform-origin-center;
+  animation: signal1 $duration ease-in;
+  -webkit-animation: signal1 $duration ease-in;
+  -moz-animation: signal1 $duration ease-in;
   @include signal-animation($delay)
 }
 @include keyframes(signal1) {
-  0% { @include scale(1); opacity: 0; }
-  1% { @include scale(1.2); opacity: 1; }
-  2% { @include scale(1); opacity: 0; }
-  3% { @include scale(1.2); opacity: 1; }
-  4% { @include scale(1); opacity: 0; }
-  5% { @include scale(1.2); opacity: 1; }
-  6% { @include scale(1); opacity: 0; }
-  7% { @include scale(1.2); opacity: 1; }
-  8% { @include scale(1); opacity: 0; }
-  9% { @include scale(1.2); opacity: 1; }
-  10% { @include scale(1); opacity: 0; }
-  100% {
-    opacity: 0;
-  }
+  /*
+   *  Bad solution.
+   *  However, svg animateMotion cannot adjust css animation timing.
+   *  In addition, cannot support ie.
+   */
+   0% { @include translate-and-scale(174px, 224px, 1  ); opacity: 0; }
+   1% { @include translate-and-scale(154px, 164px, 1.2); opacity: 1; }
+   2% { @include translate-and-scale(174px, 104px, 1  ); opacity: 0; }
+   3% { @include translate-and-scale(218px, 162px, 1.2); opacity: 1; }
+   4% { @include translate-and-scale(274px, 184px, 1  ); opacity: 0; }
+   5% { @include translate-and-scale(300px, 234px, 1.2); opacity: 1; }
+   6% { @include translate-and-scale(360px, 234px, 1  ); opacity: 0; }
+   7% { @include translate-and-scale(334px, 284px, 1.2); opacity: 1; }
+   8% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
+   9% { @include translate-and-scale(374px, 374px, 1.2); opacity: 1; }
+  10% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
 }
 @mixin signal2-animation($duration, $delay) {
+  @include transform-origin-center;
   animation: signal2 $duration linear;
   -webkit-animation: signal2 $duration linear;
   -moz-animation: signal2 $duration linear;
   @include signal-animation($delay)
 }
 @include keyframes(signal2) {
-  20% { @include scale(1); opacity: 0; }
-  21% { @include scale(1.2); opacity: 1; }
-  22% { @include scale(1); opacity: 0; }
-  23% { @include scale(1.2); opacity: 1; }
-  24% { @include scale(1); opacity: 0; }
-  25% { @include scale(1.2); opacity: 1; }
-  26% { @include scale(1); opacity: 0; }
-  27% { @include scale(1.2); opacity: 1; }
-  28% { @include scale(1); opacity: 0; }
-  29% { @include scale(1.2); opacity: 1; }
-  30% { @include scale(1); opacity: 0; }
-  100% {
-    opacity: 0;
-  }
+  20% { @include translate-and-scale(454px,  74px, 1  ); opacity: 0; }
+  21% { @include translate-and-scale(494px, 134px, 1.2); opacity: 1; }
+  22% { @include translate-and-scale(440px, 120px, 1  ); opacity: 0; }
+  23% { @include translate-and-scale(414px, 164px, 1.2); opacity: 1; }
+  24% { @include translate-and-scale(344px, 164px, 1  ); opacity: 0; }
+  25% { @include translate-and-scale(360px, 230px, 1.2); opacity: 1; }
+  26% { @include translate-and-scale(334px, 284px, 1  ); opacity: 0; }
+  27% { @include translate-and-scale(414px, 374px, 1.2); opacity: 1; }
+  28% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
 }
 @mixin signal3-animation($duration, $delay) {
+  @include transform-origin-center;
   animation: signal3 $duration linear;
   -webkit-animation: signal3 $duration linear;
   -moz-animation: signal3 $duration linear;
   @include signal-animation($delay)
 }
 @include keyframes(signal3) {
-  40% { @include scale(1); opacity: 0; }
-  41% { @include scale(1.2); opacity: 1; }
-  42% { @include scale(1); opacity: 0; }
-  43% { @include scale(1.2); opacity: 1; }
-  44% { @include scale(1); opacity: 0; }
-  45% { @include scale(1.2); opacity: 1; }
-  46% { @include scale(1); opacity: 0; }
-  47% { @include scale(1.2); opacity: 1; }
-  48% { @include scale(1); opacity: 0; }
-  49% { @include scale(1.2); opacity: 1; }
-  50% { @include scale(1); opacity: 0; }
-  100% {
-    opacity: 0;
-  }
+  40% { @include translate-and-scale(494px, 134px, 1  ); opacity: 0; }
+  41% { @include translate-and-scale(514px, 204px, 1.2); opacity: 1; }
+  42% { @include translate-and-scale(470px, 200px, 1  ); opacity: 0; }
+  43% { @include translate-and-scale(414px, 224px, 1.2); opacity: 1; }
+  44% { @include translate-and-scale(474px, 264px, 1  ); opacity: 0; }
+  45% { @include translate-and-scale(404px, 284px, 1.2); opacity: 1; }
+  46% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  47% { @include translate-and-scale(414px, 374px, 1.2); opacity: 1; }
+  48% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
 }
 @mixin signal4-animation($duration, $delay) {
+  @include transform-origin-center;
   animation: signal4 $duration linear;
   -webkit-animation: signal4 $duration linear;
   -moz-animation: signal4 $duration linear;
   @include signal-animation($delay)
 }
 @include keyframes(signal4) {
-  65% { @include scale(1); opacity: 0; }
-  66% { @include scale(1.2); opacity: 1; }
-  67% { @include scale(1); opacity: 0; }
-  68% { @include scale(1.2); opacity: 1; }
-  69% { @include scale(1); opacity: 0; }
-  70% { @include scale(1.2); opacity: 1; }
-  71% { @include scale(1); opacity: 0; }
-  72% { @include scale(1.2); opacity: 1; }
-  73% { @include scale(1); opacity: 0; }
-  74% { @include scale(1.2); opacity: 1; }
-  75% { @include scale(1); opacity: 0; }
-  100% {
-    opacity: 0;
-  }
+  60% { @include translate-and-scale(374px,  44px, 1  ); opacity: 0; }
+  61% { @include translate-and-scale(304px,  44px, 1.2); opacity: 1; }
+  62% { @include translate-and-scale(270px, 118px, 1  ); opacity: 0; }
+  63% { @include translate-and-scale(274px, 184px, 1.2); opacity: 1; }
+  64% { @include translate-and-scale(234px, 234px, 1  ); opacity: 0; }
+  65% { @include translate-and-scale(274px, 284px, 1.2); opacity: 1; }
+  66% { @include translate-and-scale(334px, 284px, 1  ); opacity: 0; }
+  67% { @include translate-and-scale(374px, 374px, 1.2); opacity: 1; }
+  68% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
 }
 @mixin signal5-animation($duration, $delay) {
+  @include transform-origin-center;
   animation: signal5 $duration linear;
   -webkit-animation: signal5 $duration linear;
   -moz-animation: signal5 $duration linear;
   @include signal-animation($delay)
 }
 @include keyframes(signal5) {
-  75% { @include scale(1); opacity: 0; }
-  76% { @include scale(1.2); opacity: 1; }
-  77% { @include scale(1); opacity: 0; }
-  78% { @include scale(1.2); opacity: 1; }
-  79% { @include scale(1); opacity: 0; }
-  80% { @include scale(1.2); opacity: 1; }
-  81% { @include scale(1); opacity: 0; }
-  82% { @include scale(1.2); opacity: 1; }
-  83% { @include scale(1); opacity: 0; }
-  84% { @include scale(1.2); opacity: 1; }
-  85% { @include scale(1); opacity: 0; }
-  100% {
-    opacity: 0;
-  }
+  70% { @include translate-and-scale(474px, 264px, 1  ); opacity: 0; }
+  71% { @include translate-and-scale(434px, 324px, 1.2); opacity: 1; }
+  72% { @include translate-and-scale(364px, 324px, 1  ); opacity: 0; }
+  73% { @include translate-and-scale(334px, 284px, 1.2); opacity: 1; }
+  74% { @include translate-and-scale(360px, 230px, 1  ); opacity: 0; }
+  75% { @include translate-and-scale(404px, 284px, 1.2); opacity: 1; }
+  76% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  77% { @include translate-and-scale(414px, 374px, 1.2); opacity: 1; }
+  78% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
 }
 
 .header__title {
@@ -295,23 +294,23 @@ body {
   }
   .circleAnimation1 {
     opacity: 0;
-    @include signal1-animation(10s, 3s);
+    @include signal1-animation(10s, 4s);
   }
   .circleAnimation2 {
     opacity: 0;
-    @include signal2-animation(10s, 3s);
+    @include signal2-animation(10s, 4s);
   }
   .circleAnimation3 {
     opacity: 0;
-    @include signal3-animation(10s, 3s);
+    @include signal3-animation(10s, 4s);
   }
   .circleAnimation4 {
     opacity: 0;
-    @include signal4-animation(10s, 3.5s);
+    @include signal4-animation(10s, 4s);
   }
   .circleAnimation5 {
     opacity: 0;
-    @include signal5-animation(10s, 3.5s);
+    @include signal5-animation(10s, 4s);
   }
   &__frontalLobe {
     &:hover {
