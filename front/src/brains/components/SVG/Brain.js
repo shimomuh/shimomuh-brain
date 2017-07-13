@@ -1,26 +1,16 @@
+import { Component } from 'react'
+
 export function SVGBrain (props) {
   return (
     <div className='brainNav'>
       <svg width="570px" height="614px">
         <SVGSkin />
-        <a className='brainNav__brainstem' xlinkHref='/brainstems'>
-          <SVGBrainBrainstem />
-        </a>
-        <a className='brainNav__cerebellum' xlinkHref='/cerebellums'>
-          <SVGBrainCerebellum />
-        </a>
-        <a className='brainNav__temporalLobe' xlinkHref='/temporal_lobes'>
-          <SVGBrainTemporalLobe />
-        </a>
-        <a className='brainNav__occipitalLobe' xlinkHref='/occipital_lobes'>
-          <SVGBrainOccipitalLobe />
-        </a>
-        <a className='brainNav__parietalLobe' xlinkHref='/parietal_lobes'>
-          <SVGBrainParietalLobe />
-        </a>
-        <a className='brainNav__frontalLobe' xlinkHref='/frontal_lobes'>
-          <SVGBrainFrontalLobe />
-        </a>
+        <SVGBrainBrainstem {...props} />
+        <SVGBrainCerebellum {...props} />
+        <SVGBrainTemporalLobe {...props} />
+        <SVGBrainOccipitalLobe {...props} />
+        <SVGBrainParietalLobe {...props} />
+        <SVGBrainFrontalLobe {...props} />
         <SVGBrainAnimation />
       </svg>
     </div>
@@ -47,6 +37,7 @@ function SVGBrainAnimation (props) {
 }
 
 function SVGBrainFrontalLobe (props) {
+  const { selectComponent } = props
   const dots = [
     { x: 304, y:  44, size: 'S' },
     { x: 234, y:  64, size: 'S' },
@@ -91,10 +82,15 @@ function SVGBrainFrontalLobe (props) {
     { x1: 304, y1:  44, x2: 334, y2: 104 }
   ]
   const color = 'red'
-  return <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+  return (
+    <a className='brainNav__frontalLobe' xlinkHref='javascript:void(0)' onClick={(() => selectComponent('frontalLobe'))}>
+      <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+    </a>
+  )
 }
 
 function SVGBrainParietalLobe (props) {
+  const { selectComponent } = props
   const dots = [
     { x: 374, y:  44, size: 'S' },
     { x: 334, y: 104, size: 'M' },
@@ -127,10 +123,15 @@ function SVGBrainParietalLobe (props) {
     { x1: 390, y1: 110, x2: 440, y2: 120 },
   ]
   const color = 'yellow'
-  return <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+  return (
+    <a className='brainNav__parietalLobe' xlinkHref='javascript:void(0)' onClick={(() => selectComponent('parietalLobe'))}>
+      <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+    </a>
+  )
 }
 
 function SVGBrainOccipitalLobe (props) {
+  const { selectComponent } = props
   const dots = [
     { x: 494, y: 134, size: 'S' },
     { x: 414, y: 164, size: 'M' },
@@ -156,10 +157,15 @@ function SVGBrainOccipitalLobe (props) {
     { x1: 514, y1: 204, x2: 470, y2: 200 }
   ]
   const color = 'aqua'
-  return <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+  return (
+    <a className='brainNav__occipitalLobe' xlinkHref='javascript:void(0)' onClick={(() => selectComponent('occipitalLobe'))}>
+      <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+    </a>
+  )
 }
 
 function SVGBrainTemporalLobe (props) {
+  const { selectComponent } = props
   const dots = [
     { x: 344, y: 164, size: 'L' },
     { x: 274, y: 184, size: 'M' },
@@ -202,10 +208,15 @@ function SVGBrainTemporalLobe (props) {
     { x1: 404, y1: 284, x2: 414, y2: 224 }
   ]
   const color = 'green'
-  return <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+  return (
+    <a className='brainNav__temporalLobe' xlinkHref='javascript:void(0)' onClick={(() => selectComponent('temporalLobe'))}>
+      <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
+    </a>
+  )
 }
 
 function SVGBrainCerebellum (props) {
+  const { selectComponent } = props
   const dots = [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
@@ -225,10 +236,15 @@ function SVGBrainCerebellum (props) {
     { x1: 434, y1: 324, x2: 404, y2: 284 }
   ]
   const color = 'blue'
-  return <SVGBrainField dots={dots} connectors={connectors} color={color} innerConnectors={innerConnectors} />
+  return (
+    <a className='brainNav__cerebellum' xlinkHref='javascript:void(0)' onClick={(() => selectComponent('cerebellum'))}>
+      <SVGBrainField dots={dots} connectors={connectors} color={color} innerConnectors={innerConnectors} />
+    </a>
+  )
 }
 
 function SVGBrainBrainstem (props) {
+  const { selectComponent } = props
   const dots = [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
@@ -245,7 +261,11 @@ function SVGBrainBrainstem (props) {
     { x1: 334, y1: 284, x2: 414, y2: 374 }
   ]
   const color = 'purple'
-  return <SVGBrainField dots={dots} connectors={connectors} color={color} innerConnectors={innerConnectors} />
+  return (
+    <a className='brainNav__brainstem' xlinkHref='javascript:void(0)' onClick={(() => selectComponent('brainstem'))}>
+      <SVGBrainField dots={dots} connectors={connectors} color={color} innerConnectors={innerConnectors} />
+    </a>
+  )
 }
 
 function SVGBrainField (props) {

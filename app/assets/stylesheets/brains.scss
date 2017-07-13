@@ -114,7 +114,6 @@ body {
   -moz-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
 }
-
 @mixin slide-down-animation($duration, $delay) {
   animation: slide-down $duration ease-out forwards;
   -webkit-animation: slide-down $duration ease-out forwards;
@@ -126,7 +125,7 @@ body {
 @include keyframes(slide-down) {
   0% {
     opacity: 0;
-    @include translate(0px, -100px);
+    @include translate(0px, -50px);
   }
   100% {
     opacity: 1;
@@ -144,7 +143,7 @@ body {
 @include keyframes(slide-up) {
   0% {
     opacity: 0;
-    @include translate(0px, 200px);
+    @include translate(0px, 50px);
   }
   100% {
     opacity: 1;
@@ -416,6 +415,9 @@ body {
   margin: -200px auto 0;
   opacity: 0;
   @include slide-up-animation(1s, 2s);
+  &._selected_ {
+    @include slide-up-animation(1s, 0s);
+  }
   h2 {
     text-align: center;
     margin-bottom: 20px;
