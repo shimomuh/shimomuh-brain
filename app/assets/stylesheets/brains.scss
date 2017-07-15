@@ -312,7 +312,7 @@ body {
     @include signal5-animation(10s, 4s);
   }
   &__frontalLobe {
-    &:hover {
+    &._animated_:hover {
       g path { fill: rgba(255,0,0,0.5); }
     }
     @for $i from 1 through 10 {
@@ -328,7 +328,7 @@ body {
     }
   }
   &__parietalLobe {
-    &:hover {
+    &._animated_:hover {
       g path { fill: rgba(255,255,0,0.5); }
     }
     @for $i from 1 through 6 {
@@ -344,7 +344,7 @@ body {
     }
   }
   &__occipitalLobe {
-    &:hover {
+    &._animated_:hover {
       g path { fill: rgba(0,255,255,0.5); }
     }
     @for $i from 1 through 5 {
@@ -360,7 +360,7 @@ body {
     }
   }
   &__temporalLobe {
-    &:hover {
+    &._animated_:hover {
       g path { fill: rgba(0,255,0,0.5); }
     }
     @for $i from 1 through 9 {
@@ -376,7 +376,7 @@ body {
     }
   }
   &__cerebellum {
-    &:hover {
+    &._animated_:hover {
       g path { fill: rgba(0,0,255,0.5); }
     }
     @for $i from 1 through 5 {
@@ -392,7 +392,7 @@ body {
     }
   }
   &__brainstem {
-    &:hover {
+    &._animated_:hover {
       g path { fill: rgba(128,0,128,0.5); }
     }
     @for $i from 1 through 4 {

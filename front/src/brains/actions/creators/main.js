@@ -10,7 +10,13 @@ export function selectComponent (component) {
   return {
     type: 'SELECT_COMPONENT',
     payload: {
-      selected_component: component
+      selectedComponent: component
     }
+  }
+}
+
+export function didIntroAnimation () {
+  return {
+    type: 'DID_INTRO_ANIMATION'
   }
 }

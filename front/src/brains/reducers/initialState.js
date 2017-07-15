@@ -1,3 +1,4 @@
 export const initialState = {
-  selected_component: null
+  selectedComponent: null,
+  introAnimation: false
 }

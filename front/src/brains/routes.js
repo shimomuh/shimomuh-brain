@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux'
 import { store } from '~/brains/store'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { NotFound } from '~/brains/components/NotFound'
-import Body from '~/brains/containers/Body'
+import NotFound from '~/brains/containers/notFound'
+import Body from '~/brains/containers/body'
 
 export function routes () {
   return (
