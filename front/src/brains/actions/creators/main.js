@@ -14,3 +14,9 @@ export function selectComponent (component) {
     }
   }
 }
+
+export function didIntroAnimation () {
+  return {
+    type: 'DID_INTRO_ANIMATION'
+  }
+}

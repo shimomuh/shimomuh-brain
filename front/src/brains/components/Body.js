@@ -1,17 +1,18 @@
 import { Component } from 'react'
-import { SVGBrain } from '~/brains/components/SVG/Brain'
-import { Header } from '~/brains/components/Header'
-import { Footer } from '~/brains/components/Footer'
-import { FrontalLobe } from '~/brains/components/sections/FrontalLobe'
-import { TemporalLobe } from '~/brains/components/sections/TemporalLobe'
-import { ParietalLobe } from '~/brains/components/sections/ParietalLobe'
-import { OccipitalLobe } from '~/brains/components/sections/OccipitalLobe'
-import { Cerebellum } from '~/brains/components/sections/Cerebellum'
-import { Brainstem } from '~/brains/components/sections/Brainstem'
+import { SVGBrain } from '~/brains/components/svg/brain'
+import { Header } from '~/brains/components/header'
+import { Footer } from '~/brains/components/footer'
+import { FrontalLobe } from '~/brains/components/sections/frontalLobe'
+import { TemporalLobe } from '~/brains/components/sections/temporalLobe'
+import { ParietalLobe } from '~/brains/components/sections/parietalLobe'
+import { OccipitalLobe } from '~/brains/components/sections/occipitalLobe'
+import { Cerebellum } from '~/brains/components/sections/cerebellum'
+import { Brainstem } from '~/brains/components/sections/brainstem'
 import { toCamelCase, toSingularSimply } from '~/brains/helpers/string'
+import { getComponentName } from '~/brains/helpers/componentManager'
 
 export function Body (props) {
-  const componentName = getComponentName(props)
+  const componentName = getComponentName(props.selectedComponent)
   const selected = !!props.selectedComponent
   return (
     <div>
@@ -38,11 +39,4 @@ export function Body (props) {
       <Footer />
     </div>
   )
-}
-
-function getComponentName (props) {
-  if (props.selectedComponent !== null) return props.selectedComponent
-  const pathname = location.pathname
-  if (pathname === '/') return ''
-  return toSingularSimply(toCamelCase(pathname.slice(1)))
 }
