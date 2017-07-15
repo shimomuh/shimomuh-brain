@@ -10,7 +10,7 @@ export function selectComponent (component) {
   return {
     type: 'SELECT_COMPONENT',
     payload: {
-      selected_component: component
+      selectedComponent: component
     }
   }
 }

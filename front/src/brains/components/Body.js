@@ -12,7 +12,7 @@ import { toCamelCase, toSingularSimply } from '~/brains/helpers/string'
 
 export function Body (props) {
   const componentName = getComponentName(props)
-  const selected = !!props.selected_component
+  const selected = !!props.selectedComponent
   return (
     <div>
       <Header />
@@ -41,7 +41,7 @@ export function Body (props) {
 }
 
 function getComponentName (props) {
-  if (props.selected_component !== null) return props.selected_component
+  if (props.selectedComponent !== null) return props.selectedComponent
   const pathname = location.pathname
   if (pathname === '/') return ''
   return toSingularSimply(toCamelCase(pathname.slice(1)))
