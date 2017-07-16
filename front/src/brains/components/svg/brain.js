@@ -1,9 +1,16 @@
 import classNames from 'classnames'
 import { Component } from 'react'
+import { getComponentName } from '~/brains/helpers/componentManager'
 
 export class SVGBrain extends Component {
   constructor (props) {
     super(props)
+  }
+  componentWillReceiveProps () {
+    const componentName = getComponentName(this.props.selectedComponent)
+    if (!!componentName && this.props.selectedComponent === null) {
+      this.props.selectComponent(componentName)
+    }
   }
   componentDidMount () {
     setTimeout(() => {
@@ -49,7 +56,7 @@ function SVGBrainAnimation (props) {
 }
 
 function SVGBrainFrontalLobe (props) {
-  const { selectComponent, introAnimation } = props
+  const { selectComponent, selectedComponent, introAnimation } = props
   const dots = [
     { x: 304, y:  44, size: 'S' },
     { x: 234, y:  64, size: 'S' },
@@ -94,7 +101,7 @@ function SVGBrainFrontalLobe (props) {
     { x1: 304, y1:  44, x2: 334, y2: 104 }
   ]
   const color = 'red'
-  const brainNavClassName = classNames('brainNav__frontalLobe', { '_animated_': introAnimation })
+  const brainNavClassName = classNames('brainNav__frontalLobe', { '_animated_': introAnimation, '_selected_': selectedComponent === 'frontalLobe' })
   return (
     <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent('frontalLobe') })}>
       <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
@@ -103,7 +110,7 @@ function SVGBrainFrontalLobe (props) {
 }
 
 function SVGBrainParietalLobe (props) {
-  const { selectComponent, introAnimation } = props
+  const { selectComponent, selectedComponent, introAnimation } = props
   const dots = [
     { x: 374, y:  44, size: 'S' },
     { x: 334, y: 104, size: 'M' },
@@ -136,7 +143,7 @@ function SVGBrainParietalLobe (props) {
     { x1: 390, y1: 110, x2: 440, y2: 120 },
   ]
   const color = 'yellow'
-  const brainNavClassName = classNames('brainNav__parietalLobe', { '_animated_': introAnimation })
+  const brainNavClassName = classNames('brainNav__parietalLobe', { '_animated_': introAnimation, '_selected_': selectedComponent === 'parietalLobe' })
   return (
     <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent('parietalLobe') })}>
       <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
@@ -145,7 +152,7 @@ function SVGBrainParietalLobe (props) {
 }
 
 function SVGBrainOccipitalLobe (props) {
-  const { selectComponent, introAnimation } = props
+  const { selectComponent, selectedComponent, introAnimation } = props
   const dots = [
     { x: 494, y: 134, size: 'S' },
     { x: 414, y: 164, size: 'M' },
@@ -171,7 +178,7 @@ function SVGBrainOccipitalLobe (props) {
     { x1: 514, y1: 204, x2: 470, y2: 200 }
   ]
   const color = 'aqua'
-  const brainNavClassName = classNames('brainNav__occipitalLobe', { '_animated_': introAnimation })
+  const brainNavClassName = classNames('brainNav__occipitalLobe', { '_animated_': introAnimation, '_selected_': selectedComponent === 'occipitalLobe' })
   return (
     <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent('occipitalLobe') })}>
       <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
@@ -180,7 +187,7 @@ function SVGBrainOccipitalLobe (props) {
 }
 
 function SVGBrainTemporalLobe (props) {
-  const { selectComponent, introAnimation } = props
+  const { selectComponent, selectedComponent, introAnimation } = props
   const dots = [
     { x: 344, y: 164, size: 'L' },
     { x: 274, y: 184, size: 'M' },
@@ -223,7 +230,7 @@ function SVGBrainTemporalLobe (props) {
     { x1: 404, y1: 284, x2: 414, y2: 224 }
   ]
   const color = 'green'
-  const brainNavClassName = classNames('brainNav__temporalLobe', { '_animated_': introAnimation })
+  const brainNavClassName = classNames('brainNav__temporalLobe', { '_animated_': introAnimation, '_selected_': selectedComponent === 'temporalLobe' })
   return (
     <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent('temporalLobe') })}>
       <SVGBrainField dots={dots} connectors={connectors} color={color} innerDots={innerDots} innerConnectors={innerConnectors} />
@@ -232,7 +239,7 @@ function SVGBrainTemporalLobe (props) {
 }
 
 function SVGBrainCerebellum (props) {
-  const { selectComponent, introAnimation } = props
+  const { selectComponent, selectedComponent, introAnimation } = props
   const dots = [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
@@ -252,7 +259,7 @@ function SVGBrainCerebellum (props) {
     { x1: 434, y1: 324, x2: 404, y2: 284 }
   ]
   const color = 'blue'
-  const brainNavClassName = classNames('brainNav__cerebellum', { '_animated_': introAnimation })
+  const brainNavClassName = classNames('brainNav__cerebellum', { '_animated_': introAnimation, '_selected_': selectedComponent === 'cerebellum' })
   return (
     <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent('cerebellum') })}>
       <SVGBrainField dots={dots} connectors={connectors} color={color} innerConnectors={innerConnectors} />
@@ -261,7 +268,7 @@ function SVGBrainCerebellum (props) {
 }
 
 function SVGBrainBrainstem (props) {
-  const { selectComponent, introAnimation } = props
+  const { selectComponent, selectedComponent, introAnimation } = props
   const dots = [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
@@ -278,7 +285,7 @@ function SVGBrainBrainstem (props) {
     { x1: 334, y1: 284, x2: 414, y2: 374 }
   ]
   const color = 'purple'
-  const brainNavClassName = classNames('brainNav__brainstem', { '_animated_': introAnimation })
+  const brainNavClassName = classNames('brainNav__brainstem', { '_animated_': introAnimation, '_selected_': selectedComponent === 'brainstem' })
   return (
     <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent('brainstem') })}>
       <SVGBrainField dots={dots} connectors={connectors} color={color} innerConnectors={innerConnectors} />
