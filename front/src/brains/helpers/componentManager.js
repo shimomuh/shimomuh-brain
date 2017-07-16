@@ -1,3 +1,5 @@
+import { toSingularSimply, toCamelCase } from '~/brains/helpers/string'
+
 export function getComponentName (selectedComponent) {
   if (selectedComponent !== null) return selectedComponent
   const pathname = location.pathname
