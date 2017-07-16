@@ -6,7 +6,7 @@ import { NotFound } from '~/brains/components/notFound'
 
 class NotFoundContainer extends Component {
   render () {
-    return <Body {...this.props} />
+    return <NotFound {...this.props} />
   }
 }
 

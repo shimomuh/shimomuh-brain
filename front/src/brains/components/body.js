@@ -8,7 +8,6 @@ import { ParietalLobe } from '~/brains/components/sections/parietalLobe'
 import { OccipitalLobe } from '~/brains/components/sections/occipitalLobe'
 import { Cerebellum } from '~/brains/components/sections/cerebellum'
 import { Brainstem } from '~/brains/components/sections/brainstem'
-import { toCamelCase, toSingularSimply } from '~/brains/helpers/string'
 import { getComponentName } from '~/brains/helpers/componentManager'
 
 export function Body (props) {
