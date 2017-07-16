@@ -260,6 +260,17 @@ body {
   78% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
   100% { opacity: 0; }
 }
+@mixin selected-animation ($duration: 2.5s) {
+  animation: selected $duration ease-in-out infinite;
+  -webkit-animation: selected $duration ease-in-out infinite;
+  -moz-animation: selected $duration ease-in-out infinite;
+}
+
+@include keyframes(selected) {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
 
 .header__title {
   margin-bottom: 0;
@@ -312,6 +323,12 @@ body {
     @include signal5-animation(10s, 4s);
   }
   &__frontalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(255,0,0,0.5);
+        @include selected-animation;
+      }
+    }
     &._animated_:hover {
       g path { fill: rgba(255,0,0,0.5); }
     }
@@ -328,6 +345,12 @@ body {
     }
   }
   &__parietalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(255,255,0,0.5);
+        @include selected-animation;
+      }
+    }
     &._animated_:hover {
       g path { fill: rgba(255,255,0,0.5); }
     }
@@ -344,6 +367,12 @@ body {
     }
   }
   &__occipitalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(0,255,255,0.5);
+        @include selected-animation;
+      }
+    }
     &._animated_:hover {
       g path { fill: rgba(0,255,255,0.5); }
     }
@@ -360,6 +389,12 @@ body {
     }
   }
   &__temporalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(0,255,0,0.5);
+        @include selected-animation;
+      }
+    }
     &._animated_:hover {
       g path { fill: rgba(0,255,0,0.5); }
     }
@@ -376,6 +411,12 @@ body {
     }
   }
   &__cerebellum {
+    &._selected_ {
+      g path {
+        fill: rgba(0,0,255,0.5);
+        @include selected-animation;
+      }
+    }
     &._animated_:hover {
       g path { fill: rgba(0,0,255,0.5); }
     }
@@ -392,6 +433,12 @@ body {
     }
   }
   &__brainstem {
+    &._selected_ {
+      g path {
+        fill: rgba(128,0,128,0.5);
+        @include selected-animation;
+      }
+    }
     &._animated_:hover {
       g path { fill: rgba(128,0,128,0.5); }
     }
