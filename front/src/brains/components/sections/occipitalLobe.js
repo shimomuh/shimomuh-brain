@@ -10,3 +10,6 @@ export function OccipitalLobe (props) {
     </div>
   )
 }
+OccipitalLobe.propTypes = {
+  selected: PropTypes.bool
+}

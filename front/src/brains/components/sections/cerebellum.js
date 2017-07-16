@@ -10,3 +10,6 @@ export function Cerebellum (props) {
     </div>
   )
 }
+Cerebellum.propTypes = {
+  selected: PropTypes.bool
+}

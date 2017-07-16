@@ -7,13 +7,12 @@ import { endpoints } from '~/brains/config/endpoint'
 
 export function routes () {
   const routes = endpoints.map((endpoint, i) => {
-    return <Route exact path={endpoint['url']} component={Body} key={i} />
+    return <Route exact path={endpoint} component={Body} key={i} />
   })
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={Body} />
           {routes}
           <Route path='*' component={NotFound} />
         </Switch>

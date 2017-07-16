@@ -293,11 +293,11 @@ body {
       @include slow-line-animation(#{$skin-duration + 0.5}s);
     }
   }
-  g .circleInner1 {
+  g .innerCircle {
     stroke-opacity: 0;
     @include circle-animation(#{0.2 + $skin-duration + 1.2}s);
   }
-  g .lineInner1 {
+  g .innerLine {
     stroke-dasharray: 4000;
     stroke-dashoffset: 4000;
     @include slow-line-animation(3s, #{$skin-duration + 1.2}s);

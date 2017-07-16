@@ -20,3 +20,12 @@ export function didIntroAnimation () {
     type: 'DID_INTRO_ANIMATION'
   }
 }
+
+export function resize (size) {
+  return {
+    type: 'RESIZE',
+    payload: {
+      size: size
+    }
+  }
+}

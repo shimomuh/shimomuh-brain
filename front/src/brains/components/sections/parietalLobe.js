@@ -10,3 +10,6 @@ export function ParietalLobe (props) {
     </div>
   )
 }
+ParietalLobe.propTypes = {
+  selected: PropTypes.bool
+}

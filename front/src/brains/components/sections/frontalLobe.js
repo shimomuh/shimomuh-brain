@@ -14,3 +14,6 @@ export function FrontalLobe (props) {
     </div>
   )
 }
+FrontalLobe.propTypes = {
+  selected: PropTypes.bool
+}

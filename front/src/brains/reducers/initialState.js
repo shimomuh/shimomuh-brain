@@ -1,4 +1,5 @@
 export const initialState = {
   selectedComponent: null,
-  introAnimation: false
+  introAnimation: false,
+  size: 'wide'
 }

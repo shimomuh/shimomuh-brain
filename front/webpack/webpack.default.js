@@ -1,4 +1,4 @@
-import { JS_SRC, JS_DEST } from './local_path'
+import { JS_SRC, JS_DEST } from '../node_env'
 
 export default {
   entry: {

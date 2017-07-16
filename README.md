@@ -17,4 +17,4 @@ see: http://shimomuh-brain.net
 
 * css ... scss with rails-compass gem
 * css architecture ... BEM + SMACSS
-* js ... react
+* js ... react + redux
