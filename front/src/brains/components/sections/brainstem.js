@@ -10,3 +10,6 @@ export function Brainstem (props) {
     </div>
   )
 }
+Brainstem.propTypes = {
+  selected: PropTypes.bool
+}

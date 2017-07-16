@@ -5,7 +5,7 @@
     "build:watch": "npm run webpack:dev",
     "webpack:prod": "cd webpack && NODE_ENV=production webpack --env prod",
     "webpack:dev": "cd webpack && webpack --env dev --watch",
-    "lint": " eslint src"
+    "lint": "eslint src"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
@@ -24,6 +24,7 @@
   "dependencies": {
     "babel-polyfill": "6.23.0",
     "classnames": "2.2.5",
+    "prop-types": "15.5.10",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "react-redux": "5.0.5",

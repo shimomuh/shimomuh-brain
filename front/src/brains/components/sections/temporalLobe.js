@@ -10,3 +10,6 @@ export function TemporalLobe (props) {
     </div>
   )
 }
+TemporalLobe.propTypes = {
+  selected: PropTypes.bool
+}

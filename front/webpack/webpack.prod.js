@@ -9,7 +9,8 @@ export default {
       sourceMap: false
     }),
     new webpack.ProvidePlugin({
-      'React': 'react'
+      'React': 'react',
+      'PropTypes': 'prop-types'
     }),
     new webpack.DefinePlugin({
       'process.env': {

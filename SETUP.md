@@ -32,6 +32,8 @@ $ yarn add babel-preset-es2015 babel-preset-react --dev -E
 $ yarn add eslint --dev -E
 $ yarn add babel-eslint --dev -E
 $ yarn add eslint-plugin-react --dev -E
+$ yarn add prop-types -E
+$ yarn add redux react-redux -E
 $ echo 'node_modules' > .eslintignore
 $ yarn install
 ```
