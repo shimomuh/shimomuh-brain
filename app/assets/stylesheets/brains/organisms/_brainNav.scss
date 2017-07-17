@@ -1,0 +1,176 @@
+.brainNav {
+  $skin-duration: 1;
+  text-align: center;
+  margin: 20px 20px 20px 0;
+  g path {
+    @include slow-hover-animation;
+  }
+  &__skin {
+    path {
+      stroke-dasharray: 4000;
+      stroke-dashoffset: 4000;
+      @include slow-line-animation(#{$skin-duration + 0.5}s);
+    }
+  }
+  g .innerCircle {
+    stroke-opacity: 0;
+    @include circle-animation(#{0.2 + $skin-duration + 1.2}s);
+  }
+  g .innerLine {
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 4000;
+    @include slow-line-animation(3s, #{$skin-duration + 1.2}s);
+  }
+  .circleAnimation1 {
+    opacity: 0;
+    @include signal1-animation(10s, 4s);
+  }
+  .circleAnimation2 {
+    opacity: 0;
+    @include signal2-animation(10s, 4s);
+  }
+  .circleAnimation3 {
+    opacity: 0;
+    @include signal3-animation(10s, 4s);
+  }
+  .circleAnimation4 {
+    opacity: 0;
+    @include signal4-animation(10s, 4s);
+  }
+  .circleAnimation5 {
+    opacity: 0;
+    @include signal5-animation(10s, 4s);
+  }
+  &__frontalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(255,0,0,0.5);
+        @include selected-animation;
+      }
+    }
+    &._animated_:hover {
+      g path { fill: rgba(255,0,0,0.5); }
+    }
+    @for $i from 1 through 10 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__parietalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(255,255,0,0.5);
+        @include selected-animation;
+      }
+    }
+    &._animated_:hover {
+      g path { fill: rgba(255,255,0,0.5); }
+    }
+    @for $i from 1 through 6 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__occipitalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(0,255,255,0.5);
+        @include selected-animation;
+      }
+    }
+    &._animated_:hover {
+      g path { fill: rgba(0,255,255,0.5); }
+    }
+    @for $i from 1 through 5 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__temporalLobe {
+    &._selected_ {
+      g path {
+        fill: rgba(0,255,0,0.5);
+        @include selected-animation;
+      }
+    }
+    &._animated_:hover {
+      g path { fill: rgba(0,255,0,0.5); }
+    }
+    @for $i from 1 through 9 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__cerebellum {
+    &._selected_ {
+      g path {
+        fill: rgba(0,0,255,0.5);
+        @include selected-animation;
+      }
+    }
+    &._animated_:hover {
+      g path { fill: rgba(0,0,255,0.5); }
+    }
+    @for $i from 1 through 5 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  &__brainstem {
+    &._selected_ {
+      g path {
+        fill: rgba(128,0,128,0.5);
+        @include selected-animation;
+      }
+    }
+    &._animated_:hover {
+      g path { fill: rgba(128,0,128,0.5); }
+    }
+    @for $i from 1 through 4 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+}

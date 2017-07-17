@@ -1,0 +1,160 @@
+// just alias
+@mixin circle-animation($delay) {
+  @include animation(circle, 0.2s, ease-in, $delay, 1, forwards);
+}
+@include keyframes(circle) {
+  0% {
+    stroke-opacity: 0;
+    @include transform-origin-center;
+    @include scale(0.8);
+  }
+  70% {
+    stroke-opacity: 1;
+    @include transform-origin-center;
+    @include scale(1.5);
+  }
+  100% {
+    stroke-opacity: 1;
+    @include transform-origin-center;
+    @include scale(1);
+  }
+}
+@mixin line-animation($delay) {
+  @include animation(line, 0.2s, ease-in, $delay, 1, forwards);
+}
+@include keyframes(line) {
+  0% { stroke-dashoffset: 2000; }
+  100% { stroke-dashoffset: 0; }
+}
+@mixin slow-line-animation($duration, $delay: 0s) {
+  @include animation(slow-line, $duration, ease-in, $delay, 1, forwards);
+}
+@include keyframes(slow-line) {
+  0% { stroke-dashoffset: 4000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@mixin slow-hover-animation {
+  @include transition(0.4s, ease-in-out);
+}
+@mixin slide-down-animation($duration, $delay) {
+  @include animation(slide-down, $duration, ease-out, $delay, 1, forwards);
+}
+@include keyframes(slide-down) {
+  0% {
+    opacity: 0;
+    @include translate(0px, -50px);
+  }
+  100% {
+    opacity: 1;
+    @include translate(0px, 0px);
+  }
+}
+@mixin slide-up-animation($duration, $delay) {
+  @include animation(slide-up, $duration, ease-out, $delay, 1, forwards);
+}
+@include keyframes(slide-up) {
+  0% {
+    opacity: 0;
+    @include translate(0px, 50px);
+  }
+  100% {
+    opacity: 1;
+    @include translate(0px, 0px);
+  }
+}
+@mixin signal-animation($name, $duration, $delay) {
+  @include transform-origin-center;
+  @include animation($name, $duration, linear, $delay, infinite, none);
+}
+@mixin signal1-animation($duration, $delay) {
+  @include signal-animation(signal1, $duration, $delay);
+}
+@include keyframes(signal1) {
+  /*
+   *  Bad solution.
+   *  However, svg animateMotion cannot adjust css animation timing.
+   *  In addition, cannot support ie.
+   */
+   0% { @include translate-and-scale(174px, 224px, 1  ); opacity: 0; }
+   1% { @include translate-and-scale(154px, 164px, 1.2); opacity: 1; }
+   2% { @include translate-and-scale(174px, 104px, 1  ); opacity: 0; }
+   3% { @include translate-and-scale(218px, 162px, 1.2); opacity: 1; }
+   4% { @include translate-and-scale(274px, 184px, 1  ); opacity: 0; }
+   5% { @include translate-and-scale(300px, 234px, 1.2); opacity: 1; }
+   6% { @include translate-and-scale(360px, 234px, 1  ); opacity: 0; }
+   7% { @include translate-and-scale(334px, 284px, 1.2); opacity: 1; }
+   8% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
+   9% { @include translate-and-scale(374px, 374px, 1.2); opacity: 1; }
+  10% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal2-animation($duration, $delay) {
+  @include signal-animation(signal2, $duration, $delay);
+}
+@include keyframes(signal2) {
+  20% { @include translate-and-scale(454px,  74px, 1  ); opacity: 0; }
+  21% { @include translate-and-scale(494px, 134px, 1.2); opacity: 1; }
+  22% { @include translate-and-scale(440px, 120px, 1  ); opacity: 0; }
+  23% { @include translate-and-scale(414px, 164px, 1.2); opacity: 1; }
+  24% { @include translate-and-scale(344px, 164px, 1  ); opacity: 0; }
+  25% { @include translate-and-scale(360px, 230px, 1.2); opacity: 1; }
+  26% { @include translate-and-scale(334px, 284px, 1  ); opacity: 0; }
+  27% { @include translate-and-scale(414px, 374px, 1.2); opacity: 1; }
+  28% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal3-animation($duration, $delay) {
+  @include signal-animation(signal3, $duration, $delay);
+}
+@include keyframes(signal3) {
+  40% { @include translate-and-scale(494px, 134px, 1  ); opacity: 0; }
+  41% { @include translate-and-scale(514px, 204px, 1.2); opacity: 1; }
+  42% { @include translate-and-scale(470px, 200px, 1  ); opacity: 0; }
+  43% { @include translate-and-scale(414px, 224px, 1.2); opacity: 1; }
+  44% { @include translate-and-scale(474px, 264px, 1  ); opacity: 0; }
+  45% { @include translate-and-scale(404px, 284px, 1.2); opacity: 1; }
+  46% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  47% { @include translate-and-scale(414px, 374px, 1.2); opacity: 1; }
+  48% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal4-animation($duration, $delay) {
+  @include signal-animation(signal4, $duration, $delay);
+}
+@include keyframes(signal4) {
+  60% { @include translate-and-scale(374px,  44px, 1  ); opacity: 0; }
+  61% { @include translate-and-scale(304px,  44px, 1.2); opacity: 1; }
+  62% { @include translate-and-scale(270px, 118px, 1  ); opacity: 0; }
+  63% { @include translate-and-scale(274px, 184px, 1.2); opacity: 1; }
+  64% { @include translate-and-scale(234px, 234px, 1  ); opacity: 0; }
+  65% { @include translate-and-scale(274px, 284px, 1.2); opacity: 1; }
+  66% { @include translate-and-scale(334px, 284px, 1  ); opacity: 0; }
+  67% { @include translate-and-scale(374px, 374px, 1.2); opacity: 1; }
+  68% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal5-animation($duration, $delay) {
+  @include signal-animation(signal5, $duration, $delay);
+}
+@include keyframes(signal5) {
+  70% { @include translate-and-scale(474px, 264px, 1  ); opacity: 0; }
+  71% { @include translate-and-scale(434px, 324px, 1.2); opacity: 1; }
+  72% { @include translate-and-scale(364px, 324px, 1  ); opacity: 0; }
+  73% { @include translate-and-scale(334px, 284px, 1.2); opacity: 1; }
+  74% { @include translate-and-scale(360px, 230px, 1  ); opacity: 0; }
+  75% { @include translate-and-scale(404px, 284px, 1.2); opacity: 1; }
+  76% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  77% { @include translate-and-scale(414px, 374px, 1.2); opacity: 1; }
+  78% { @include translate-and-scale(414px, 374px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin selected-animation() {
+  @include animation(selected, 2.5s, ease-in-out, 0s, infinite, none);
+}
+
+@include keyframes(selected) {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}

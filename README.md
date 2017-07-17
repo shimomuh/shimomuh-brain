@@ -16,5 +16,8 @@ see: http://shimomuh-brain.net
 ## Front Development
 
 * css ... scss with rails-compass gem
-* css architecture ... BEM + SMACSS
+  * architecture (file structure) ... atomic design
+  * class name rule ... bem (base) + smacss (just state)
 * js ... react + redux
+  * architecture ... flux (redux)
+  * file structure ... https://marmelab.com/blog/2015/12/17/react-directory-structure.html

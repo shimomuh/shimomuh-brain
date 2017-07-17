@@ -1,0 +1,9 @@
+.header {
+  &__title {
+    margin-bottom: 0;
+    text-align: center;
+    opacity: 0;
+    @include slide-down-animation(1s, 2s);
+  }
+}
+

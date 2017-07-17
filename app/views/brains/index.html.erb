@@ -1,5 +1,5 @@
 <%- content_for :stylesheet_in_head do -%>
-  <%= stylesheet_link_tag 'brains', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'brains/pages/application', media: 'all', 'data-turbolinks-track' => true %>
 <%- end -%>
 
 <%= content_tag :div, nil,
@@ -11,7 +11,7 @@
 
 <%- content_for :javascript_after_body do -%>
   <%-# FIXME: for IE 11 -%>
-  <script src="https://www.promisejs.org/polyfills/promise-6.1.0.min.js"></script>
+  <%-# <script src="https://www.promisejs.org/polyfills/promise-6.1.0.min.js"></script> %>
   <%= javascript_include_tag 'commons_chunk' %>
   <%= javascript_include_tag 'brains' %>
 <%- end -%>

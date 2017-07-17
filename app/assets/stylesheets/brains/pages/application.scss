@@ -1,0 +1,16 @@
+@charset 'utf-8';
+
+// CSS Archiecture (File Structure) - Atomic Design
+// Class Name Rule                  - Bem (base) + SMACSS (just state)
+@import '../atoms/variables/colors';
+@import '../../common/atoms/mixins/transforms';
+@import '../../common/atoms/mixins/keyframes';
+@import '../../common/atoms/mixins/animations';
+@import '../../common/atoms/mixins/transitions';
+@import '../atoms/mixins/animations';
+@import '../templates/reset';
+@import '../templates/body';
+@import '../organisms/header';
+@import '../organisms/brainNav';
+@import '../organisms/section';
+@import '../organisms/footer';
