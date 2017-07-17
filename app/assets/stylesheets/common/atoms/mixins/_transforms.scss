@@ -1,0 +1,28 @@
+@mixin scale($scale) {
+  -moz-transform: scale($scale);
+  -webkit-transform: scale($scale);
+  -o-transform: scale($scale);
+  -ms-transform: scale($scale);
+  transform: scale($scale);
+}
+@mixin translate($x, $y) {
+  -moz-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+  -o-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+@mixin translate-and-scale($x, $y, $scale) {
+  -moz-transform: translate($x, $y) scale($scale);
+  -webkit-transform: translate($x, $y) scale($scale);
+  -o-transform: translate($x, $y) scale($scale);
+  -ms-transform: translate($x, $y) scale($scale);
+  transform: translate($x, $y) scale($scale);
+}
+@mixin transform-origin-center {
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
