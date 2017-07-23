@@ -1,6 +1,6 @@
-@mixin animation($name, $duration: 0s, $timing: ease, $delay: 0s, $iteration: 1, $mode: none) {
-  animation: $name $duration $timing $delay $iteration $mode;
-  -webkit-animation: $name $duration $timing $delay $iteration $mode;
-  -moz-animation: $name $duration $timing $delay $iteration $mode;
-  -o-animation: $name $duration $timing $delay $iteration $mode;
+@mixin animation($name, $duration: 0s, $timing: ease, $delay: 0s, $iteration: 1, $mode: none, $direction: normal) {
+  animation: $name $duration $timing $delay $iteration $mode $direction;
+  -webkit-animation: $name $duration $timing $delay $iteration $mode $direction;
+  -moz-animation: $name $duration $timing $delay $iteration $mode $direction;
+  -o-animation: $name $duration $timing $delay $iteration $mode $direction;
 }

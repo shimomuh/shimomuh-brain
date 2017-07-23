@@ -16,7 +16,7 @@ export class SVGBrain extends Component {
   }
   componentDidMount () {
     window.addEventListener('resize', this.componentResize.bind(this))
-    setTimeout(() => { this.props.didIntroAnimation() }, 2500)
+    setTimeout(() => { this.props.didIntroAnimation() }, 2600)
     this.componentResize()
   }
   componentWillUnmount () {
@@ -29,8 +29,9 @@ export class SVGBrain extends Component {
   render () {
     const width = `${blueprint[this.props.size].width}px`
     const height = `${blueprint[this.props.size].height}px`
+    const brainNavClassName = classNames('brainNav', { '_introAnimation_': !this.props.introAnimation })
     return (
-      <div className='brainNav' ref='brainNavComponent'>
+      <div className={brainNavClassName} ref='brainNavComponent'>
         <svg width={width} height={height}>
           <SVGSkin {...this.props} />
           <SVGBrainFields {...this.props} />
@@ -43,6 +44,7 @@ export class SVGBrain extends Component {
 SVGBrain.propTypes = {
   selectComponent: PropTypes.func,
   didIntroAnimation: PropTypes.func,
+  introAnimation: PropTypes.bool,
   resize: PropTypes.func,
   selectedComponent: PropTypes.string,
   size: PropTypes.string
@@ -91,28 +93,30 @@ function SVGBrainField (props) {
   return (
     <g>
       <SVGBrainAnchorLine coordinates={dots} />
-      {
-        innerConnectors !== undefined ?
-        innerConnectors.map((c, i) => {
-          return <SVGBrainConnector coordinate={c} color={color} key={i} className={'innerLine'} />
-        }) : false
-      }
-      {
-        innerDots !== undefined ?
-        innerDots.map((c, i) => {
-          return <SVGBrainDot dot={c} color={color} key={i} className={'innerCircle'} />
-        }) : false
-      }
-      {
-        shows.map((c, i) => {
-          const _i = parseInt(i / 2)
-          if (i % 2 === 0) {
-            return <SVGBrainDot dot={dots[_i]} color={color} key={i} className={`circle${_i + 1}`} />
-          } else {
-            return <SVGBrainConnector coordinate={connectors[_i]} color={color} key={i} className={`line${_i + 1}`} />
-          }
-        })
-      }
+      <g>
+        {
+          innerConnectors !== undefined ?
+          innerConnectors.map((c, i) => {
+            return <SVGBrainConnector coordinate={c} color={color} key={i} className={`innerLine${i + 1}`} />
+          }) : false
+        }
+        {
+          innerDots !== undefined ?
+          innerDots.map((c, i) => {
+            return <SVGBrainDot dot={c} color={color} key={i} className={`innerCircle${i + 1}`} />
+          }) : false
+        }
+        {
+          shows.map((c, i) => {
+            const _i = parseInt(i / 2)
+            if (i % 2 === 0) {
+              return <SVGBrainDot dot={dots[_i]} color={color} key={i} className={`circle${_i + 1}`} />
+            } else {
+              return <SVGBrainConnector coordinate={connectors[_i]} color={color} key={i} className={`line${_i + 1}`} />
+            }
+          })
+        }
+      </g>
     </g>
   )
 }
@@ -198,7 +202,7 @@ function SVGBrainAnchorLine (props) {
   return (
     <path
       stroke="rgba(0,0,0,0)"
-      strokeWidth="8"
+      strokeWidth="4"
       fill="rgba(0,0,0,0)"
       d={d} />
   )

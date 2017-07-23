@@ -1,21 +1,19 @@
 // just alias
 @mixin circle-animation($delay) {
+  @include transform-origin-center;
   @include animation(circle, 0.2s, ease-in, $delay, 1, forwards);
 }
 @include keyframes(circle) {
   0% {
     stroke-opacity: 0;
-    @include transform-origin-center;
     @include scale(0.8);
   }
   70% {
     stroke-opacity: 1;
-    @include transform-origin-center;
     @include scale(1.5);
   }
   100% {
     stroke-opacity: 1;
-    @include transform-origin-center;
     @include scale(1);
   }
 }
@@ -64,8 +62,8 @@
   }
 }
 @mixin signal-animation($name, $duration, $delay) {
-  @include transform-origin-center;
   @include animation($name, $duration, linear, $delay, infinite, none);
+  @include transform-origin-center;
 }
 @mixin signal1-animation($duration, $delay) {
   @include signal-animation(signal1, $duration, $delay);
