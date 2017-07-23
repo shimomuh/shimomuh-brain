@@ -130,169 +130,47 @@
     opacity: 0;
     @include signal5-animation(10s, 4s);
   }
-  @mixin expand-animation($name) {
-    @include transform-origin-center;
-    @include animation($name, .4s, ease-out, 0s, 1, forwards, alternate);
+  @for $i from 1 through 13 {
+    .circle#{$i},
+    .innerCircle#{$i},
+    .line#{$i},
+    .innerLine#{$i} {
+      @include transition(.4s, ease-out);
+    }
+    .line#{$i},
+    .innerLine#{$i} {
+      @include transform-origin-center;
+    }
   }
   &__frontalLobe {
     &._animated_ {
       &:hover path + g {
-        .circle1 {
-          @include expand-animation(frontal-lobe-circle1);
-          @include keyframes(frontal-lobe-circle1) {
-            100% { @include translate(0px, -30px); }
-          }
-        }
-        .circle2 {
-          @include expand-animation(frontal-lobe-circle2);
-          @include keyframes(frontal-lobe-circle2) {
-            100% { @include translate(-30px, -40px); }
-          }
-        }
-        .circle3 {
-          @include expand-animation(frontal-lobe-circle3);
-          @include keyframes(frontal-lobe-circle3) {
-            100% { @include translate(-60px, -30px); }
-          }
-        }
-        .circle4 {
-          @include expand-animation(frontal-lobe-circle4);
-          @include keyframes(frontal-lobe-circle4) {
-            100% { @include translate(-60px, 10px); }
-          }
-        }
-        .circle5 {
-          @include expand-animation(frontal-lobe-circle5);
-          @include keyframes(frontal-lobe-circle5) {
-            100% { @include translate(-10px, 30px); }
-          }
-        }
-        .innerCircle1 {
-          @include expand-animation(frontal-lobe-inner-circle1);
-          @include keyframes(frontal-lobe-inner-circle1) {
-            100% { @include translate(-30px, -10px); }
-          }
-        }
-        .innerCircle2 {
-          @include expand-animation(frontal-lobe-inner-circle2);
-          @include keyframes(frontal-lobe-inner-circle2) {
-            100% { @include translate(-10px, -20px); }
-          }
-        }
-        .line1 {
-          @include expand-animation(frontal-lobe-line1);
-          @include keyframes(frontal-lobe-line1) {
-            100% { @include translate-rotate-scale(-15px, -35px, 5deg, 1.5, 1); }
-          }
-        }
-        .line2 {
-          @include expand-animation(frontal-lobe-line2);
-          @include keyframes(frontal-lobe-line2) {
-            100% { @include translate-rotate-scale(-46px, -35px, -8deg, 1.72, 1); }
-          }
-        }
-        .line3 {
-          @include expand-animation(frontal-lobe-line3);
-          @include keyframes(frontal-lobe-line3) {
-            100% { @include translate-rotate-scale(-61px, -10px, 1deg, 1, 1.8); }
-          }
-        }
-        .line4 {
-          @include expand-animation(frontal-lobe-line4);
-          @include keyframes(frontal-lobe-line4) {
-            100% { @include translate-rotate-scale(-35px, 20px, -30deg, 1.1, 1.95); }
-          }
-        }
-        .line5 {
-          @include expand-animation(frontal-lobe-line5);
-          @include keyframes(frontal-lobe-line5) {
-            100% { @include translate-rotate-scale(-4px, 15px, -24deg, 1.3, 1); }
-          }
-        }
-        .line10 {
-          @include expand-animation(frontal-lobe-line10);
-          @include keyframes(frontal-lobe-line10) {
-            100% { @include translate-rotate-scale(0px, -15px, 22deg, 1.1, 1); }
-          }
-        }
-        .innerLine1 {
-          @include expand-animation(frontal-lobe-inner-line1);
-          @include keyframes(frontal-lobe-inner-line1) {
-            100% { @include translate-rotate-scale(-46px, -20px, -14deg, 1, 1.4); }
-          }
-        }
-        .innerLine2 {
-          @include expand-animation(frontal-lobe-inner-line2);
-          @include keyframes(frontal-lobe-inner-line2) {
-            100% { @include translate-rotate-scale(-47px, 1px, -12deg, 1.3, 1); }
-          }
-        }
-        .innerLine3 {
-          @include expand-animation(frontal-lobe-inner-line3);
-          @include keyframes(frontal-lobe-inner-line3) {
-            100% { @include translate-rotate-scale(-21px, 6px, -15deg, 1, 1.3); }
-          }
-        }
-        .innerLine4 {
-          @include expand-animation(frontal-lobe-inner-line4);
-          @include keyframes(frontal-lobe-inner-line4) {
-            100% { @include translate-rotate-scale(-13px, 1px, -19deg, 1, 1.2); }
-          }
-        }
-        .innerLine5 {
-          @include expand-animation(frontal-lobe-inner-line5);
-          @include keyframes(frontal-lobe-inner-line5) {
-            100% { @include translate-rotate-scale(-16px, -6px, 1deg, 1.3, 1); }
-          }
-        }
-        .innerLine6 {
-          @include expand-animation(frontal-lobe-inner-line6);
-          @include keyframes(frontal-lobe-inner-line6) {
-            100% { @include translate-rotate-scale(-20px, -15px, -4deg, 1.3, 1); }
-          }
-        }
-        .innerLine7 {
-          @include expand-animation(frontal-lobe-inner-line7);
-          @include keyframes(frontal-lobe-inner-line7) {
-            100% { @include translate-rotate-scale(-35px, -24px, 3deg, 1.4, 1); }
-          }
-        }
-        .innerLine8 {
-          @include expand-animation(frontal-lobe-inner-line8);
-          @include keyframes(frontal-lobe-inner-line8) {
-            100% { @include translate-rotate-scale(-21px, -31px, -10deg, 1, 1.3); }
-          }
-        }
-        .innerLine9 {
-          @include expand-animation(frontal-lobe-inner-line9);
-          @include keyframes(frontal-lobe-inner-line9) {
-            100% { @include translate-rotate-scale(-5px, -26px, 2deg, 1); }
-          }
-        }
-        .innerLine10 {
-          @include expand-animation(frontal-lobe-inner-line10);
-          @include keyframes(frontal-lobe-inner-line10) {
-            100% { @include translate-rotate-scale(-8px, -11px, 18deg, 1); }
-          }
-        }
-        .innerLine11 {
-          @include expand-animation(frontal-lobe-inner-line11);
-          @include keyframes(frontal-lobe-inner-line11) {
-            100% { @include translate-rotate-scale(-8px, -13px, -1deg, 1, 1.3); }
-          }
-        }
-        .innerLine12 {
-          @include expand-animation(frontal-lobe-inner-line12);
-          @include keyframes(frontal-lobe-inner-line12) {
-            100% { @include translate-rotate-scale(-6px, -15px, -6deg, 1, 1.3); }
-          }
-        }
-        .innerLine13 {
-          @include expand-animation(frontal-lobe-inner-line13);
-          @include keyframes(frontal-lobe-inner-line13) {
-            100% { @include translate-rotate-scale(-1px, -16px, 2deg, 1, 1.3); }
-          }
-        }
+        .circle1 { @include translate(0px, -30px); }
+        .circle2 { @include translate(-30px, -40px); }
+        .circle3 { @include translate(-60px, -30px); }
+        .circle4 { @include translate(-60px, 10px); }
+        .circle5 { @include translate(-10px, 30px); }
+        .innerCircle1 { @include translate(-30px, -10px); }
+        .innerCircle2 { @include translate(-10px, -20px); }
+        .line1 { @include translate-rotate-scale(-15px, -35px, 5deg, 1.5, 1); }
+        .line2 { @include translate-rotate-scale(-46px, -35px, -8deg, 1.72, 1); }
+        .line3 { @include translate-rotate-scale(-61px, -10px, 1deg, 1, 1.8); }
+        .line4 { @include translate-rotate-scale(-35px, 20px, -30deg, 1.1, 1.95); }
+        .line5 { @include translate-rotate-scale(-4px, 15px, -24deg, 1.3, 1); }
+        .line10 { @include translate-rotate-scale(0px, -15px, 22deg, 1.1, 1); }
+        .innerLine1 { @include translate-rotate-scale(-46px, -20px, -14deg, 1, 1.4); }
+        .innerLine2 { @include translate-rotate-scale(-47px, 1px, -12deg, 1.3, 1); }
+        .innerLine3 { @include translate-rotate-scale(-21px, 6px, -15deg, 1, 1.3); }
+        .innerLine4 { @include translate-rotate-scale(-13px, 1px, -19deg, 1, 1.2); }
+        .innerLine5 { @include translate-rotate-scale(-16px, -6px, 1deg, 1.3, 1); }
+        .innerLine6 { @include translate-rotate-scale(-20px, -15px, -4deg, 1.3, 1); }
+        .innerLine7 { @include translate-rotate-scale(-35px, -24px, 3deg, 1.4, 1); }
+        .innerLine8 { @include translate-rotate-scale(-21px, -31px, -10deg, 1, 1.3); }
+        .innerLine9 { @include translate-rotate-scale(-5px, -26px, 2deg, 1); }
+        .innerLine10 { @include translate-rotate-scale(-8px, -11px, 18deg, 1); }
+        .innerLine11 { @include translate-rotate-scale(-8px, -13px, -1deg, 1, 1.3); }
+        .innerLine12 { @include translate-rotate-scale(-6px, -15px, -6deg, 1, 1.3); }
+        .innerLine13 { @include translate-rotate-scale(-1px, -16px, 2deg, 1, 1.3); }
       }
       &:hover {
         g path { fill: rgba(255,0,0,0.5); }
@@ -314,90 +192,20 @@
     }
     &._animated_ {
       &:hover path + g {
-        .circle6 {
-          @include expand-animation(parietal-lobe-circle6);
-          @include keyframes(parietal-lobe-circle6) {
-            100% { @include translate(40px, -40px); }
-          }
-        }
-        .innerCircle1 {
-          @include expand-animation(parietal-lobe-inner-circle1);
-          @include keyframes(parietal-lobe-inner-circle1) {
-            100% { @include translate(10px, -30px); }
-          }
-        }
-        .innerCircle2 {
-          @include expand-animation(parietal-lobe-inner-circle2);
-          @include keyframes(parietal-lobe-inner-circle2) {
-            100% { @include translate(20px, -20px); }
-          }
-        }
-        .line5 {
-          @include expand-animation(parietal-lobe-line5);
-          @include keyframes(parietal-lobe-line5) {
-            100% { @include translate-rotate-scale(20px, -20px, 22deg, 1, 1.7); }
-          }
-        }
-        .line6 {
-          @include expand-animation(parietal-lobe-line6);
-          @include keyframes(parietal-lobe-line6) {
-            100% { @include translate-rotate-scale(16px, -21px, -18deg, 1.7, 1); }
-          }
-        }
-        .innerLine1 {
-          @include expand-animation(parietal-lobe-inner-line1);
-          @include keyframes(parietal-lobe-inner-line1) {
-            100% { @include translate-rotate-scale(8px, -11px, -9deg, 1, .5); }
-          }
-        }
-        .innerLine2 {
-          @include expand-animation(parietal-lobe-inner-line2);
-          @include keyframes(parietal-lobe-inner-line2) {
-            100% { @include translate-rotate-scale(3px, -14px, -28deg, 1); }
-          }
-        }
-        .innerLine3 {
-          @include expand-animation(parietal-lobe-inner-line3);
-          @include keyframes(parietal-lobe-inner-line3) {
-            100% { @include translate-rotate-scale(6px, -15px, 0deg, 1, 1.3); }
-          }
-        }
-        .innerLine4 {
-          @include expand-animation(parietal-lobe-inner-line4);
-          @include keyframes(parietal-lobe-inner-line4) {
-            100% { @include translate-rotate-scale(5px, -15px, 9deg, 1, 1.3); }
-          }
-        }
-        .innerLine5 {
-          @include expand-animation(parietal-lobe-inner-line5);
-          @include keyframes(parietal-lobe-inner-line5) {
-            100% { @include translate-rotate-scale(19px, -32px, -6deg, 1.5, 1); }
-          }
-        }
-        .innerLine6 {
-          @include expand-animation(parietal-lobe-inner-line6);
-          @include keyframes(parietal-lobe-inner-line6) {
-            100% { @include translate-rotate-scale(8px, -8px, 15deg, 1, 1.5); }
-          }
-        }
-        .innerLine7 {
-          @include expand-animation(parietal-lobe-inner-line7);
-          @include keyframes(parietal-lobe-inner-line7) {
-            100% { @include translate-rotate-scale(28px, -26px, 16deg, 1, 1.5); }
-          }
-        }
-        .innerLine8 {
-          @include expand-animation(parietal-lobe-inner-line8);
-          @include keyframes(parietal-lobe-inner-line8) {
-            100% { @include translate-rotate-scale(11px, -9px, 19deg, .5, 1); }
-          }
-        }
-        .innerLine9 {
-          @include expand-animation(parietal-lobe-inner-line9);
-          @include keyframes(parietal-lobe-inner-line9) {
-            100% { @include translate-rotate-scale(14px, -24px, 8deg, 1); }
-          }
-        }
+        .circle6 { @include translate(40px, -40px); }
+        .innerCircle1 { @include translate(10px, -30px); }
+        .innerCircle2 { @include translate(20px, -20px); }
+        .line5 { @include translate-rotate-scale(20px, -20px, 22deg, 1, 1.7); }
+        .line6 { @include translate-rotate-scale(16px, -21px, -18deg, 1.7, 1); }
+        .innerLine1 { @include translate-rotate-scale(8px, -11px, -9deg, 1, .5); }
+        .innerLine2 { @include translate-rotate-scale(3px, -14px, -28deg, 1); }
+        .innerLine3 { @include translate-rotate-scale(6px, -15px, 0deg, 1, 1.3); }
+        .innerLine4 { @include translate-rotate-scale(5px, -15px, 9deg, 1, 1.3); }
+        .innerLine5 { @include translate-rotate-scale(19px, -32px, -6deg, 1.5, 1); }
+        .innerLine6 { @include translate-rotate-scale(8px, -8px, 15deg, 1, 1.5); }
+        .innerLine7 { @include translate-rotate-scale(28px, -26px, 16deg, 1, 1.5); }
+        .innerLine8 { @include translate-rotate-scale(11px, -9px, 19deg, .5, 1); }
+        .innerLine9 { @include translate-rotate-scale(14px, -24px, 8deg, 1); }
       }
       &:hover {
         g path { fill: rgba(255,255,0,0.5); }
@@ -413,60 +221,15 @@
     }
     &._animated_ {
       &:hover path + g {
-        .circle5 {
-          @include expand-animation(occipital-lobe-circle5);
-          @include keyframes(occipital-lobe-circle5) {
-            100% { @include translate(40px, 20px); }
-          }
-        }
-        .innerCircle1 {
-          @include expand-animation(occipital-lobe-inner-circle1);
-          @include keyframes(occipital-lobe-inner-circle1) {
-            100% { @include translate(20px, 10px); }
-          }
-        }
-        .line4 {
-          @include expand-animation(occipital-lobe-line4);
-          @include keyframes(occipital-lobe-line4) {
-            100% { @include translate-rotate-scale(21px, 11px, 41deg, 1, 1.7); }
-          }
-        }
-        .line5 {
-          @include expand-animation(occipital-lobe-line5);
-          @include keyframes(occipital-lobe-line5) {
-            100% { @include translate-rotate-scale(18px, 7px, -23deg, 1, 1.7); }
-          }
-        }
-        .innerLine1 {
-          @include expand-animation(occipital-lobe-inner-line1);
-          @include keyframes(occipital-lobe-inner-line1) {
-            100% { @include translate-rotate-scale(9px, 5px, -17deg, 1); }
-          }
-        }
-        .innerLine2 {
-          @include expand-animation(occipital-lobe-inner-line2);
-          @include keyframes(occipital-lobe-inner-line2) {
-            100% { @include translate-rotate-scale(10px, 5px, 3deg, 1.2, 1); }
-          }
-        }
-        .innerLine3 {
-          @include expand-animation(occipital-lobe-inner-line3);
-          @include keyframes(occipital-lobe-inner-line3) {
-            100% { @include translate-rotate-scale(10px, 5px, 9deg, 1.2, 1); }
-          }
-        }
-        .innerLine4 {
-          @include expand-animation(occipital-lobe-inner-line4);
-          @include keyframes(occipital-lobe-inner-line4) {
-            100% { @include translate-rotate-scale(10px, 5px, 20deg, 1, .7); }
-          }
-        }
-        .innerLine5 {
-          @include expand-animation(occipital-lobe-inner-line5);
-          @include keyframes(occipital-lobe-inner-line5) {
-            100% { @include translate-rotate-scale(32px, 16px, 8deg, 1.2, 1); }
-          }
-        }
+        .circle5 { @include translate(40px, 20px); }
+        .innerCircle1 { @include translate(20px, 10px); }
+        .line4 { @include translate-rotate-scale(21px, 11px, 41deg, 1, 1.7); }
+        .line5 { @include translate-rotate-scale(18px, 7px, -23deg, 1, 1.7); }
+        .innerLine1 { @include translate-rotate-scale(9px, 5px, -17deg, 1); }
+        .innerLine2 { @include translate-rotate-scale(10px, 5px, 3deg, 1.2, 1); }
+        .innerLine3 { @include translate-rotate-scale(10px, 5px, 9deg, 1.2, 1); }
+        .innerLine4 { @include translate-rotate-scale(10px, 5px, 20deg, 1, .7); }
+        .innerLine5 { @include translate-rotate-scale(32px, 16px, 8deg, 1.2, 1); }
       }
       &:hover {
         g path { fill: rgba(0,255,255,0.5); }
@@ -482,126 +245,26 @@
     }
     &._animated_ {
       &:hover path + g {
-        .circle4 {
-          @include expand-animation(temporal-lobe-circle4);
-          @include keyframes(temporal-lobe-circle4) {
-            100% { @include translate(-60px, 50px); }
-          }
-        }
-        .circle5 {
-          @include expand-animation(temporal-lobe-circle5);
-          @include keyframes(temporal-lobe-circle5) {
-            100% { @include translate(-20px, 40px); }
-          }
-        }
-        .circle6 {
-          @include expand-animation(temporal-lobe-circle6);
-          @include keyframes(temporal-lobe-circle6) {
-            100% { @include translate(-20px, 20px); }
-          }
-        }
-        .innerCircle1 {
-          @include expand-animation(temporal-lobe-inner-circle1);
-          @include keyframes(temporal-lobe-inner-circle1) {
-            100% { @include translate(-10px, 30px); }
-          }
-        }
-        .innerCircle2 {
-          @include expand-animation(temporal-lobe-inner-circle2);
-          @include keyframes(temporal-lobe-inner-circle2) {
-            100% { @include translate(0px, 20px); }
-          }
-        }
-        .line3 {
-          @include expand-animation(temporal-lobe-line3);
-          @include keyframes(temporal-lobe-line3) {
-            100% { @include translate-rotate-scale(-29px, 26px, 30deg, 1, 2.2); }
-          }
-        }
-        .line4 {
-          @include expand-animation(temporal-lobe-line4);
-          @include keyframes(temporal-lobe-line4) {
-            100% { @include translate-rotate-scale(-35px, 46px, -5deg, 2, 1); }
-          }
-        }
-        .line5 {
-          @include expand-animation(temporal-lobe-line5);
-          @include keyframes(temporal-lobe-line5) {
-            100% { @include translate-rotate-scale(-20px, 31px, -17deg, 1); }
-          }
-        }
-        .line6 {
-          @include expand-animation(temporal-lobe-line6);
-          @include keyframes(temporal-lobe-line6) {
-            100% { @include translate-rotate-scale(-10px, 9px, -13deg, 1.5, 1); }
-          }
-        }
-        .innerLine1 {
-          @include expand-animation(temporal-lobe-inner-line1);
-          @include keyframes(temporal-lobe-inner-line1) {
-            100% { @include translate-rotate-scale(-6px, 16px, -1deg, 1, 1.2); }
-          }
-        }
-        .innerLine2 {
-          @include expand-animation(temporal-lobe-inner-line2);
-          @include keyframes(temporal-lobe-inner-line2) {
-            100% { @include translate-rotate-scale(-5px, 16px, 13deg, 1, 1.2); }
-          }
-        }
-        .innerLine3 {
-          @include expand-animation(temporal-lobe-inner-line3);
-          @include keyframes(temporal-lobe-inner-line3) {
-            100% { @include translate-rotate-scale(-8px, 13px, 28deg, .8, 1); }
-          }
-        }
-        .innerLine4 {
-          @include expand-animation(temporal-lobe-inner-line4);
-          @include keyframes(temporal-lobe-inner-line4) {
-            100% { @include translate-rotate-scale(-32px, 38px, 33deg, 1, 2); }
-          }
-        }
-        .innerLine5 {
-          @include expand-animation(temporal-lobe-inner-line5);
-          @include keyframes(temporal-lobe-inner-line5) {
-            100% { @include translate-rotate-scale(-14px, 38px, 14deg, 1); }
-          }
-        }
-        .innerLine6 {
-          @include expand-animation(temporal-lobe-inner-line6);
-          @include keyframes(temporal-lobe-inner-line6) {
-            100% { @include translate-rotate-scale(-11px, 33px, 12deg, 1, 1.3); }
-          }
-        }
-        .innerLine7 {
-          @include expand-animation(temporal-lobe-inner-line7);
-          @include keyframes(temporal-lobe-inner-line7) {
-            100% { @include translate-rotate-scale(-10px, 19px, 27deg, 1, .7); }
-          }
-        }
-        .innerLine8 {
-          @include expand-animation(temporal-lobe-inner-line8);
-          @include keyframes(temporal-lobe-inner-line8) {
-            100% { @include translate-rotate-scale(-1px, 11px, -17deg, .7, 1); }
-          }
-        }
-        .innerLine9 {
-          @include expand-animation(temporal-lobe-inner-line9);
-          @include keyframes(temporal-lobe-inner-line9) {
-            100% { @include translate-rotate-scale(-1px, 11px, -8deg, 1); }
-          }
-        }
-        .innerLine10 {
-          @include expand-animation(temporal-lobe-inner-line10);
-          @include keyframes(temporal-lobe-inner-line10) {
-            100% { @include translate-rotate-scale(-1px, 11px, 3deg, 1); }
-          }
-        }
-        .innerLine11 {
-          @include expand-animation(temporal-lobe-inner-line11);
-          @include keyframes(temporal-lobe-inner-line11) {
-            100% { @include translate-rotate-scale(-1px, 25px, -7deg, 1); }
-          }
-        }
+        .circle4 { @include translate(-60px, 50px); }
+        .circle5 { @include translate(-20px, 40px); }
+        .circle6 { @include translate(-20px, 20px); }
+        .innerCircle1 { @include translate(-10px, 30px); }
+        .innerCircle2 { @include translate(0px, 20px); }
+        .line3 { @include translate-rotate-scale(-29px, 26px, 30deg, 1, 2.2); }
+        .line4 { @include translate-rotate-scale(-35px, 46px, -5deg, 2, 1); }
+        .line5 { @include translate-rotate-scale(-20px, 31px, -17deg, 1); }
+        .line6 { @include translate-rotate-scale(-10px, 9px, -13deg, 1.5, 1); }
+        .innerLine1 { @include translate-rotate-scale(-6px, 16px, -1deg, 1, 1.2); }
+        .innerLine2 { @include translate-rotate-scale(-5px, 16px, 13deg, 1, 1.2); }
+        .innerLine3 { @include translate-rotate-scale(-8px, 13px, 28deg, .8, 1); }
+        .innerLine4 { @include translate-rotate-scale(-32px, 38px, 33deg, 1, 2); }
+        .innerLine5 { @include translate-rotate-scale(-14px, 38px, 14deg, 1); }
+        .innerLine6 { @include translate-rotate-scale(-11px, 33px, 12deg, 1, 1.3); }
+        .innerLine7 { @include translate-rotate-scale(-10px, 19px, 27deg, 1, .7); }
+        .innerLine8 { @include translate-rotate-scale(-1px, 11px, -17deg, .7, 1); }
+        .innerLine9 { @include translate-rotate-scale(-1px, 11px, -8deg, 1); }
+        .innerLine10 { @include translate-rotate-scale(-1px, 11px, 3deg, 1); }
+        .innerLine11 { @include translate-rotate-scale(-1px, 25px, -7deg, 1); }
       }
       &:hover {
         g path { fill: rgba(0,255,0,0.5); }
@@ -617,48 +280,13 @@
     }
     &._animated_ {
       &:hover path + g {
-        .circle3 {
-          @include expand-animation(cerebellum-circle3);
-          @include keyframes(cerebellum-circle3) {
-            100% { @include translate(30px, 20px); }
-          }
-        }
-        .circle4 {
-          @include expand-animation(cerebellum-circle4);
-          @include keyframes(cerebellum-circle4) {
-            100% { @include translate(40px, 30px); }
-          }
-        }
-        .line2 {
-          @include expand-animation(cerebellum-line2);
-          @include keyframes(cerebellum-line2) {
-            100% { @include translate-rotate-scale(14px, 9px, -27deg, 1, 2.4); }
-          }
-        }
-        .line3 {
-          @include expand-animation(cerebellum-line3);
-          @include keyframes(cerebellum-line3) {
-            100% { @include translate-rotate-scale(34px, 25px, 7deg, 1.2, 1); }
-          }
-        }
-        .line4 {
-          @include expand-animation(cerebellum-line4);
-          @include keyframes(cerebellum-line4) {
-            100% { @include translate-rotate-scale(20px, 14px, -26deg, 1, 1.4); }
-          }
-        }
-        .innerLine1 {
-          @include expand-animation(cerebellum-inner-line1);
-          @include keyframes(cerebellum-inner-line1) {
-            100% { @include translate-rotate-scale(15px, 14px, -36deg, 1); }
-          }
-        }
-        .innerLine2 {
-          @include expand-animation(cerebellum-inner-line2);
-          @include keyframes(cerebellum-inner-line2) {
-            100% { @include translate-rotate-scale(21px, 16px, -27deg, 1, 2.2); }
-          }
-        }
+        .circle3 { @include translate(30px, 20px); }
+        .circle4 { @include translate(40px, 30px); }
+        .line2 { @include translate-rotate-scale(14px, 9px, -27deg, 1, 2.4); }
+        .line3 { @include translate-rotate-scale(34px, 25px, 7deg, 1.2, 1); }
+        .line4 { @include translate-rotate-scale(20px, 14px, -26deg, 1, 1.4); }
+        .innerLine1 { @include translate-rotate-scale(15px, 14px, -36deg, 1); }
+        .innerLine2 { @include translate-rotate-scale(21px, 16px, -27deg, 1, 2.2); }
       }
       &:hover {
         g path { fill: rgba(0,0,255,0.5); }
@@ -674,42 +302,12 @@
     }
     &._animated_ {
       &:hover path + g {
-        .circle3 {
-          @include expand-animation(brainstem-circle3);
-          @include keyframes(brainstem-circle3) {
-            100% { @include translate(20px, 20px); }
-          }
-        }
-        .circle4 {
-          @include expand-animation(brainstem-circle4);
-          @include keyframes(brainstem-circle4) {
-            100% { @include translate(30px, 20px); }
-          }
-        }
-        .line2 {
-          @include expand-animation(brainstem-line2);
-          @include keyframes(brainstem-line2) {
-            100% { @include translate-rotate-scale(9px, 9px, -12deg, 1, 1.4); }
-          }
-        }
-        .line3 {
-          @include expand-animation(brainstem-line3);
-          @include keyframes(brainstem-line3) {
-            100% { @include translate-rotate-scale(25px, 21px, 1deg, 1.4, 1); }
-          }
-        }
-        .line4 {
-          @include expand-animation(brainstem-line4);
-          @include keyframes(brainstem-line4) {
-            100% { @include translate-rotate-scale(14px, 9px, -16deg, 1, 1.4); }
-          }
-        }
-        .innerLine1 {
-          @include expand-animation(brainstem-inner-line1);
-          @include keyframes(brainstem-inner-line1) {
-            100% { @include translate-rotate-scale(14px, 9px, -12deg, 1, 1.4); }
-          }
-        }
+        .circle3 { @include translate(20px, 20px); }
+        .circle4 { @include translate(30px, 20px); }
+        .line2 {  @include translate-rotate-scale(9px, 9px, -12deg, 1, 1.4); }
+        .line3 { @include translate-rotate-scale(25px, 21px, 1deg, 1.4, 1); }
+        .line4 { @include translate-rotate-scale(14px, 9px, -16deg, 1, 1.4); }
+        .innerLine1 { @include translate-rotate-scale(14px, 9px, -12deg, 1, 1.4); }
       }
       &:hover {
         g path { fill: rgba(128,0,128,0.5); }
