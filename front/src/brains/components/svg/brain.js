@@ -64,15 +64,16 @@ function SVGBrainAnimation (props) {
 }
 
 function SVGBrainFields (props) {
-  const { selectComponent, selectedComponent, introAnimation, size } = props
+  const { selectComponent, selectedComponent, introAnimation, size, hoverComponent, hoveredComponent } = props
   return (
     <g>
       {
         blueprint[size].field.map((c, i) => {
           const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName })
+          const anchors = (hoveredComponent === c.fieldName) ? c.hoveredDots : c.dots
           return (
-            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} key={i}>
-              <SVGBrainField dots={c.dots} connectors={c.connectors} color={c.color} innerDots={c.innerDots} innerConnectors={c.innerConnectors} />
+            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} onMouseOver={(() => { hoverComponent(c.fieldName) })} onMouseOut={(() => { hoverComponent(null) })} key={i}>
+              <SVGBrainField dots={c.dots} connectors={c.connectors} color={c.color} innerDots={c.innerDots} innerConnectors={c.innerConnectors} anchors={anchors} />
             </a>
           )
         })
@@ -84,15 +85,17 @@ SVGBrainFields.propTypes = {
   selectComponent: PropTypes.func,
   selectedComponent: PropTypes.string,
   introAnimation: PropTypes.bool,
-  size: PropTypes.string
+  size: PropTypes.string,
+  hoverComponent: PropTypes.func,
+  hoveredComponent: PropTypes.string
 }
 
 function SVGBrainField (props) {
-  const { dots, connectors, color, innerDots, innerConnectors } = props
+  const { dots, connectors, color, innerDots, innerConnectors, anchors } = props
   const shows = dots.concat(connectors)
   return (
     <g>
-      <SVGBrainAnchorLine coordinates={dots} />
+      <SVGBrainAnchorLine coordinates={anchors} />
       <g>
         {
           innerConnectors !== undefined ?
@@ -125,7 +128,8 @@ SVGBrainField.propTypes = {
   connectors: PropTypes.array,
   color: PropTypes.string,
   innerDots: PropTypes.array,
-  innerConnectors: PropTypes.array
+  innerConnectors: PropTypes.array,
+  anchors: PropTypes.array
 }
 
 function SVGBrainDot (props) {

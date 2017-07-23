@@ -7,6 +7,10 @@ export default (state = initialState, action) => {
     const { payload } = action
     return Object.assign({}, state, payload)
   }
+  case 'HOVER_COMPONENT': {
+    const { payload } = action
+    return Object.assign({}, state, payload)
+  }
   case 'DID_INTRO_ANIMATION': {
     return Object.assign({}, state, { introAnimation: true })
   }

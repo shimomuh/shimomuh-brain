@@ -15,6 +15,15 @@ export function selectComponent (component) {
   }
 }
 
+export function hoverComponent (component) {
+  return {
+    type: 'HOVER_COMPONENT',
+    payload: {
+      hoveredComponent: component
+    }
+  }
+}
+
 export function didIntroAnimation () {
   return {
     type: 'DID_INTRO_ANIMATION'
