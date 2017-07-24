@@ -19,10 +19,15 @@
   -ms-transform: translate($x, $y) scale($scale);
   transform: translate($x, $y) scale($scale);
 }
+@mixin translate-rotate-scale($x, $y, $rotate, $scaleX, $scaleY: $scaleX) {
+  -moz-transform: translate($x, $y) rotate($rotate) scale($scaleX, $scaleY);
+  -webkit-transform: translate($x, $y) rotate($rotate) scale($scaleX, $scaleY);
+  -o-transform: translate($x, $y) rotate($rotate) scale($scaleX, $scaleY);
+  -ms-transform: translate($x, $y) rotate($rotate) scale($scaleX, $scaleY);
+  transform: translate($x, $y) rotate($rotate) scale($scaleX, $scaleY);
+}
 @mixin transform-origin-center {
-  -moz-transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -moz-transform-origin: 0 0;
 }

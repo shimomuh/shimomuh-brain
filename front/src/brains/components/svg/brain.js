@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { getComponentName } from '~/brains/helpers/componentManager'
 import blueprint from '~/brains/config/svg/blueprint'
 import { getBoundingClientRect } from '~/brains/helpers/domReader'
+import { isFirefox } from '~/brains/helpers/userAgent'
 
 export class SVGBrain extends Component {
   constructor (props) {
@@ -16,7 +17,7 @@ export class SVGBrain extends Component {
   }
   componentDidMount () {
     window.addEventListener('resize', this.componentResize.bind(this))
-    setTimeout(() => { this.props.didIntroAnimation() }, 2500)
+    setTimeout(() => { this.props.didIntroAnimation() }, 2600)
     this.componentResize()
   }
   componentWillUnmount () {
@@ -29,8 +30,9 @@ export class SVGBrain extends Component {
   render () {
     const width = `${blueprint[this.props.size].width}px`
     const height = `${blueprint[this.props.size].height}px`
+    const brainNavClassName = classNames('brainNav', { '_introAnimation_': !this.props.introAnimation })
     return (
-      <div className='brainNav' ref='brainNavComponent'>
+      <div className={brainNavClassName} ref='brainNavComponent'>
         <svg width={width} height={height}>
           <SVGSkin {...this.props} />
           <SVGBrainFields {...this.props} />
@@ -43,6 +45,7 @@ export class SVGBrain extends Component {
 SVGBrain.propTypes = {
   selectComponent: PropTypes.func,
   didIntroAnimation: PropTypes.func,
+  introAnimation: PropTypes.bool,
   resize: PropTypes.func,
   selectedComponent: PropTypes.string,
   size: PropTypes.string
@@ -62,15 +65,16 @@ function SVGBrainAnimation (props) {
 }
 
 function SVGBrainFields (props) {
-  const { selectComponent, selectedComponent, introAnimation, size } = props
+  const { selectComponent, selectedComponent, introAnimation, size, hoverComponent, hoveredComponent } = props
   return (
     <g>
       {
         blueprint[size].field.map((c, i) => {
-          const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName })
+          const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName, '_moz_': isFirefox })
+          const anchors = (hoveredComponent === c.fieldName) ? c.hoveredDots : c.dots
           return (
-            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} key={i}>
-              <SVGBrainField dots={c.dots} connectors={c.connectors} color={c.color} innerDots={c.innerDots} innerConnectors={c.innerConnectors} />
+            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} onMouseOver={(() => { hoverComponent(c.fieldName) })} onMouseOut={(() => { hoverComponent(null) })} key={i}>
+              <SVGBrainField dots={c.dots} connectors={c.connectors} color={c.color} innerDots={c.innerDots} innerConnectors={c.innerConnectors} anchors={anchors} />
             </a>
           )
         })
@@ -82,37 +86,41 @@ SVGBrainFields.propTypes = {
   selectComponent: PropTypes.func,
   selectedComponent: PropTypes.string,
   introAnimation: PropTypes.bool,
-  size: PropTypes.string
+  size: PropTypes.string,
+  hoverComponent: PropTypes.func,
+  hoveredComponent: PropTypes.string
 }
 
 function SVGBrainField (props) {
-  const { dots, connectors, color, innerDots, innerConnectors } = props
+  const { dots, connectors, color, innerDots, innerConnectors, anchors } = props
   const shows = dots.concat(connectors)
   return (
     <g>
-      <SVGBrainAnchorLine coordinates={dots} />
-      {
-        innerConnectors !== undefined ?
-        innerConnectors.map((c, i) => {
-          return <SVGBrainConnector coordinate={c} color={color} key={i} className={'innerLine'} />
-        }) : false
-      }
-      {
-        innerDots !== undefined ?
-        innerDots.map((c, i) => {
-          return <SVGBrainDot dot={c} color={color} key={i} className={'innerCircle'} />
-        }) : false
-      }
-      {
-        shows.map((c, i) => {
-          const _i = parseInt(i / 2)
-          if (i % 2 === 0) {
-            return <SVGBrainDot dot={dots[_i]} color={color} key={i} className={`circle${_i + 1}`} />
-          } else {
-            return <SVGBrainConnector coordinate={connectors[_i]} color={color} key={i} className={`line${_i + 1}`} />
-          }
-        })
-      }
+      <SVGBrainAnchorLine coordinates={anchors} />
+      <g>
+        {
+          innerConnectors !== undefined ?
+          innerConnectors.map((c, i) => {
+            return <SVGBrainConnector coordinate={c} color={color} key={i} className={`innerLine${i + 1}`} />
+          }) : false
+        }
+        {
+          innerDots !== undefined ?
+          innerDots.map((c, i) => {
+            return <SVGBrainDot dot={c} color={color} key={i} className={`innerCircle${i + 1}`} />
+          }) : false
+        }
+        {
+          shows.map((c, i) => {
+            const _i = parseInt(i / 2)
+            if (i % 2 === 0) {
+              return <SVGBrainDot dot={dots[_i]} color={color} key={i} className={`circle${_i + 1}`} />
+            } else {
+              return <SVGBrainConnector coordinate={connectors[_i]} color={color} key={i} className={`line${_i + 1}`} />
+            }
+          })
+        }
+      </g>
     </g>
   )
 }
@@ -121,7 +129,8 @@ SVGBrainField.propTypes = {
   connectors: PropTypes.array,
   color: PropTypes.string,
   innerDots: PropTypes.array,
-  innerConnectors: PropTypes.array
+  innerConnectors: PropTypes.array,
+  anchors: PropTypes.array
 }
 
 function SVGBrainDot (props) {
@@ -191,14 +200,14 @@ function SVGBrainAnchorLine (props) {
   const copiedCoordinates = Object.assign([], coordinates)
   const firstCoordinate = copiedCoordinates.shift()
   const connectedCoordinate = `${firstCoordinate.x},${firstCoordinate.y}`
-  const m = `M ${connectedCoordinate},`
+  const m = `M ${connectedCoordinate}`
   const lastL = `L ${connectedCoordinate}`
   const ls = coordinates.map((c) => { return `L ${c.x},${c.y}` }).join(' ')
   const d = [m, ls, lastL].join(' ')
   return (
     <path
       stroke="rgba(0,0,0,0)"
-      strokeWidth="8"
+      strokeWidth="4"
       fill="rgba(0,0,0,0)"
       d={d} />
   )

@@ -1,45 +1,25 @@
 .brainNav {
+  $n: &;
   $skin-duration: 1;
   text-align: center;
   margin: 20px 20px 20px 0;
-  g path {
-    @include slow-hover-animation;
-  }
-  &__skin {
-    path {
-      stroke-dasharray: 4000;
-      stroke-dashoffset: 4000;
-      @include slow-line-animation(#{$skin-duration + 0.5}s);
+
+  // hover animation
+  g path { @include slow-hover-animation; }
+
+  @import 'brainNav/introAnimation';
+  @import 'brainNav/signalAnimation';
+  @for $i from 1 through 13 {
+    .circle#{$i},
+    .innerCircle#{$i},
+    .line#{$i},
+    .innerLine#{$i} {
+      @include transition(.4s, ease-in-out);
     }
-  }
-  g .innerCircle {
-    stroke-opacity: 0;
-    @include circle-animation(#{0.2 + $skin-duration + 1.2}s);
-  }
-  g .innerLine {
-    stroke-dasharray: 4000;
-    stroke-dashoffset: 4000;
-    @include slow-line-animation(3s, #{$skin-duration + 1.2}s);
-  }
-  .circleAnimation1 {
-    opacity: 0;
-    @include signal1-animation(10s, 4s);
-  }
-  .circleAnimation2 {
-    opacity: 0;
-    @include signal2-animation(10s, 4s);
-  }
-  .circleAnimation3 {
-    opacity: 0;
-    @include signal3-animation(10s, 4s);
-  }
-  .circleAnimation4 {
-    opacity: 0;
-    @include signal4-animation(10s, 4s);
-  }
-  .circleAnimation5 {
-    opacity: 0;
-    @include signal5-animation(10s, 4s);
+    .line#{$i},
+    .innerLine#{$i} {
+      @include transform-origin-center;
+    }
   }
   &__frontalLobe {
     &._selected_ {
@@ -48,18 +28,58 @@
         @include selected-animation;
       }
     }
-    &._animated_:hover {
-      g path { fill: rgba(255,0,0,0.5); }
-    }
-    @for $i from 1 through 10 {
-      .circle#{$i} {
-        stroke-opacity: 0;
-        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
-      }
-      .line#{$i} {
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-        @include line-animation(#{$i / 10 + $skin-duration}s);
+    &._animated_ {
+      &:hover {
+        g path { fill: rgba(255,0,0,0.5); }
+        path + g {
+          .circle1 { @include translate(0px, -30px); }
+          .circle2 { @include translate(-30px, -40px); }
+          .circle3 { @include translate(-60px, -30px); }
+          .circle4 { @include translate(-60px, 10px); }
+          .circle5 { @include translate(-10px, 30px); }
+          .innerCircle1 { @include translate(-30px, -10px); }
+          .innerCircle2 { @include translate(-10px, -20px); }
+          .line1 { @include translate-rotate-scale(-15px, -35px, 5deg, 1.5, 1); }
+          .line2 { @include translate-rotate-scale(-46px, -35px, -8deg, 1.72, 1); }
+          .line3 { @include translate-rotate-scale(-61px, -10px, 1deg, 1, 1.8); }
+          .line4 { @include translate-rotate-scale(-35px, 20px, -30deg, 1.1, 1.95); }
+          .line5 { @include translate-rotate-scale(-4px, 15px, -24deg, 1.3, 1); }
+          .line10 { @include translate-rotate-scale(0px, -15px, 22deg, 1.1, 1); }
+          .innerLine1 { @include translate-rotate-scale(-46px, -20px, -14deg, 1, 1.4); }
+          .innerLine2 { @include translate-rotate-scale(-47px, 1px, -12deg, 1.3, 1); }
+          .innerLine3 { @include translate-rotate-scale(-21px, 6px, -15deg, 1, 1.3); }
+          .innerLine4 { @include translate-rotate-scale(-13px, 1px, -19deg, 1, 1.2); }
+          .innerLine5 { @include translate-rotate-scale(-16px, -6px, 1deg, 1.3, 1); }
+          .innerLine6 { @include translate-rotate-scale(-20px, -15px, -4deg, 1.3, 1); }
+          .innerLine7 { @include translate-rotate-scale(-35px, -24px, 3deg, 1.4, 1); }
+          .innerLine8 { @include translate-rotate-scale(-21px, -31px, -10deg, 1, 1.3); }
+          .innerLine9 { @include translate-rotate-scale(-5px, -26px, 2deg, 1); }
+          .innerLine10 { @include translate-rotate-scale(-8px, -11px, 18deg, 1); }
+          .innerLine11 { @include translate-rotate-scale(-8px, -13px, -1deg, 1, 1.3); }
+          .innerLine12 { @include translate-rotate-scale(-6px, -15px, -6deg, 1, 1.3); }
+          .innerLine13 { @include translate-rotate-scale(-1px, -16px, 2deg, 1, 1.3); }
+        }
+        &._moz_ path + g {
+          .line1 { @include translate-rotate-scale(-143px, -71px, 5deg, 1.5, 1); }
+          .line2 { @include translate-rotate-scale(-202px, 14px, -8deg, 1.72, 1); }
+          .line3 { @include translate-rotate-scale(-57px, -121px, 1deg, 1, 1.8); }
+          .line4 { @include translate-rotate-scale(-217px, -23px, -30deg, 1.1, 1.95); }
+          .line5 { @include translate-rotate-scale(-136px, 144px, -24deg, 1.3, 1); }
+          .line10 { @include translate-rotate-scale(9px, -152px, 22deg, 1.1, 1); }
+          .innerLine1 { @include translate-rotate-scale(-85px, -20px, -14deg, 1, 1.4); }
+          .innerLine2 { @include translate-rotate-scale(-129px, 54px, -12deg, 1.3, 1); }
+          .innerLine3 { @include translate-rotate-scale(-79px, 8px, -15deg, 1, 1.3); }
+          .innerLine4 { @include translate-rotate-scale(-79px, 44px, -19deg, 1, 1.2); }
+          .innerLine5 { @include translate-rotate-scale(-88px, -12px, 1deg, 1.3, 1); }
+          .innerLine6 { @include translate-rotate-scale(-103px, 7px, -4deg, 1.3, 1); }
+          .innerLine7 { @include translate-rotate-scale(-116px, -41px, 3deg, 1.4, 1); }
+          .innerLine8 { @include translate-rotate-scale(-38px, -12px, -10deg, 1, 1.3); }
+          .innerLine9 { @include translate-rotate-scale(-3px, -35px, 2deg, 1); }
+          .innerLine10 { @include translate-rotate-scale(40px, -97px, 18deg, 1); }
+          .innerLine11 { @include translate-rotate-scale(-11px, -48px, -1deg, 1, 1.3); }
+          .innerLine12 { @include translate-rotate-scale(-24px, -18px, -6deg, 1, 1.3); }
+          .innerLine13 { @include translate-rotate-scale(3px, -50px, 2deg, 1, 1.3); }
+        }
       }
     }
   }
@@ -70,18 +90,38 @@
         @include selected-animation;
       }
     }
-    &._animated_:hover {
-      g path { fill: rgba(255,255,0,0.5); }
-    }
-    @for $i from 1 through 6 {
-      .circle#{$i} {
-        stroke-opacity: 0;
-        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
-      }
-      .line#{$i} {
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-        @include line-animation(#{$i / 10 + $skin-duration}s);
+    &._animated_ {
+      &:hover {
+        g path { fill: rgba(255,255,0,0.5); }
+        path + g {
+          .circle6 { @include translate(40px, -40px); }
+          .innerCircle1 { @include translate(10px, -30px); }
+          .innerCircle2 { @include translate(20px, -20px); }
+          .line5 { @include translate-rotate-scale(20px, -20px, 22deg, 1, 1.7); }
+          .line6 { @include translate-rotate-scale(16px, -21px, -18deg, 1.7, 1); }
+          .innerLine1 { @include translate-rotate-scale(8px, -11px, -9deg, 1, .5); }
+          .innerLine2 { @include translate-rotate-scale(3px, -14px, -28deg, 1); }
+          .innerLine3 { @include translate-rotate-scale(6px, -15px, 0deg, 1, 1.3); }
+          .innerLine4 { @include translate-rotate-scale(5px, -15px, 9deg, 1, 1.3); }
+          .innerLine5 { @include translate-rotate-scale(19px, -32px, -6deg, 1.5, 1); }
+          .innerLine6 { @include translate-rotate-scale(8px, -8px, 15deg, 1, 1.5); }
+          .innerLine7 { @include translate-rotate-scale(28px, -26px, 16deg, 1, 1.5); }
+          .innerLine8 { @include translate-rotate-scale(11px, -9px, 19deg, .5, 1); }
+          .innerLine9 { @include translate-rotate-scale(14px, -24px, 8deg, 1); }
+        }
+        &._moz_ path + g {
+          .line5 { @include translate-rotate-scale(121px, -256px, 22deg, 1, 1.7); }
+          .line6 { @include translate-rotate-scale(-259px, 199px, -18deg, 1.7, 1); }
+          .innerLine1 { @include translate-rotate-scale(2px, 81px, -9deg, 1, .5); }
+          .innerLine2 { @include translate-rotate-scale(0px, 168px, -28deg, 1); }
+          .innerLine3 { @include translate-rotate-scale(5px, -55px, 0deg, 1, 1.3); }
+          .innerLine4 { @include translate-rotate-scale(39px, -115px, 9deg, 1, 1.3); }
+          .innerLine5 { @include translate-rotate-scale(-192px, 32px, -6deg, 1.5, 1); }
+          .innerLine6 { @include translate-rotate-scale(76px, -181px, 15deg, 1, 1.5); }
+          .innerLine7 { @include translate-rotate-scale(85px, -191px, 16deg, 1, 1.5); }
+          .innerLine8 { @include translate-rotate-scale(299px, -79px, 19deg, .5, 1); }
+          .innerLine9 { @include translate-rotate-scale(35px, -81px, 8deg, 1); }
+        }
       }
     }
   }
@@ -92,18 +132,29 @@
         @include selected-animation;
       }
     }
-    &._animated_:hover {
-      g path { fill: rgba(0,255,255,0.5); }
-    }
-    @for $i from 1 through 5 {
-      .circle#{$i} {
-        stroke-opacity: 0;
-        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
-      }
-      .line#{$i} {
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-        @include line-animation(#{$i / 10 + $skin-duration}s);
+    &._animated_ {
+      &:hover {
+        g path { fill: rgba(0,255,255,0.5); }
+        path + g {
+          .circle5 { @include translate(40px, 20px); }
+          .innerCircle1 { @include translate(20px, 10px); }
+          .line4 { @include translate-rotate-scale(21px, 11px, 41deg, 1, 1.7); }
+          .line5 { @include translate-rotate-scale(18px, 7px, -23deg, 1, 1.7); }
+          .innerLine1 { @include translate-rotate-scale(9px, 5px, -17deg, 1); }
+          .innerLine2 { @include translate-rotate-scale(10px, 5px, 3deg, 1.2, 1); }
+          .innerLine3 { @include translate-rotate-scale(10px, 5px, 9deg, 1.2, 1); }
+          .innerLine4 { @include translate-rotate-scale(10px, 5px, 20deg, 1, .7); }
+          .innerLine5 { @include translate-rotate-scale(32px, 16px, 8deg, 1.2, 1); }
+        }
+        &._moz_ path + g {
+          .line4 { @include translate-rotate-scale(403px, -378px, 41deg, 1, 1.7); }
+          .line5 { @include translate-rotate-scale(-53px, 110px, -23deg, 1, 1.7); }
+          .innerLine1 { @include translate-rotate-scale(-18px, 155px, -17deg, 1); }
+          .innerLine2 { @include translate-rotate-scale(-70px, -25px, 3deg, 1.2, 1); }
+          .innerLine3 { @include translate-rotate-scale(-30px, -77px, 9deg, 1.2, 1); }
+          .innerLine4 { @include translate-rotate-scale(94px, -75px, 20deg, 1, .7); }
+          .innerLine5 { @include translate-rotate-scale(-30px, -64px, 8deg, 1.2, 1); }
+        }
       }
     }
   }
@@ -114,18 +165,48 @@
         @include selected-animation;
       }
     }
-    &._animated_:hover {
-      g path { fill: rgba(0,255,0,0.5); }
-    }
-    @for $i from 1 through 9 {
-      .circle#{$i} {
-        stroke-opacity: 0;
-        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
-      }
-      .line#{$i} {
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-        @include line-animation(#{$i / 10 + $skin-duration}s);
+    &._animated_ {
+      &:hover {
+        g path { fill: rgba(0,255,0,0.5); }
+        path + g {
+          .circle4 { @include translate(-60px, 50px); }
+          .circle5 { @include translate(-20px, 40px); }
+          .circle6 { @include translate(-20px, 20px); }
+          .innerCircle1 { @include translate(-10px, 30px); }
+          .innerCircle2 { @include translate(0px, 20px); }
+          .line3 { @include translate-rotate-scale(-29px, 26px, 30deg, 1, 2.2); }
+          .line4 { @include translate-rotate-scale(-35px, 46px, -5deg, 2, 1); }
+          .line5 { @include translate-rotate-scale(-20px, 31px, -17deg, 1); }
+          .line6 { @include translate-rotate-scale(-10px, 9px, -13deg, 1.5, 1); }
+          .innerLine1 { @include translate-rotate-scale(-6px, 16px, -1deg, 1, 1.2); }
+          .innerLine2 { @include translate-rotate-scale(-5px, 16px, 13deg, 1, 1.2); }
+          .innerLine3 { @include translate-rotate-scale(-8px, 13px, 28deg, .8, 1); }
+          .innerLine4 { @include translate-rotate-scale(-32px, 38px, 33deg, 1, 2); }
+          .innerLine5 { @include translate-rotate-scale(-14px, 38px, 14deg, 1); }
+          .innerLine6 { @include translate-rotate-scale(-11px, 33px, 12deg, 1, 1.3); }
+          .innerLine7 { @include translate-rotate-scale(-10px, 19px, 27deg, 1, .7); }
+          .innerLine8 { @include translate-rotate-scale(-1px, 11px, -17deg, .7, 1); }
+          .innerLine9 { @include translate-rotate-scale(-1px, 11px, -8deg, 1); }
+          .innerLine10 { @include translate-rotate-scale(-1px, 11px, 3deg, 1); }
+          .innerLine11 { @include translate-rotate-scale(-1px, 25px, -7deg, 1); }
+        }
+        &._moz_ path + g {
+          .line3 { @include translate-rotate-scale(288px, -334px, 30deg, 1, 2.2); }
+          .line4 { @include translate-rotate-scale(-362px, 101px, -5deg, 2, 1); }
+          .line5 { @include translate-rotate-scale(-87px, 153px, -17deg, 1); }
+          .line6 { @include translate-rotate-scale(-273px, 165px, -13deg, 1.5, 1); }
+          .innerLine1 { @include translate-rotate-scale(-10px, -16px, -1deg, 1, 1.2); }
+          .innerLine2 { @include translate-rotate-scale(59px, -83px, 13deg, 1, 1.2); }
+          .innerLine3 { @include translate-rotate-scale(182px, -59px, 28deg, .8, 1); }
+          .innerLine4 { @include translate-rotate-scale(292px, -290px, 33deg, 1, 2); }
+          .innerLine5 { @include translate-rotate-scale(56px, -38px, 14deg, 1); }
+          .innerLine6 { @include translate-rotate-scale(66px, -111px, 12deg, 1, 1.3); }
+          .innerLine7 { @include translate-rotate-scale(115px, -53px, 27deg, 1, .7); }
+          .innerLine8 { @include translate-rotate-scale(62px, 100px, -17deg, .7, 1); }
+          .innerLine9 { @include translate-rotate-scale(-24px, 65px, -8deg, 1); }
+          .innerLine10 { @include translate-rotate-scale(10px, -9px, 3deg, 1); }
+          .innerLine11 { @include translate-rotate-scale(-31px, 69px, -7deg, 1); }
+        }
       }
     }
   }
@@ -136,18 +217,25 @@
         @include selected-animation;
       }
     }
-    &._animated_:hover {
-      g path { fill: rgba(0,0,255,0.5); }
-    }
-    @for $i from 1 through 5 {
-      .circle#{$i} {
-        stroke-opacity: 0;
-        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
-      }
-      .line#{$i} {
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-        @include line-animation(#{$i / 10 + $skin-duration}s);
+    &._animated_ {
+      &:hover {
+        g path { fill: rgba(0,0,255,0.5); }
+        path + g {
+          .circle3 { @include translate(30px, 20px); }
+          .circle4 { @include translate(40px, 30px); }
+          .line2 { @include translate-rotate-scale(14px, 9px, -27deg, 1, 2.4); }
+          .line3 { @include translate-rotate-scale(34px, 25px, 7deg, 1.2, 1); }
+          .line4 { @include translate-rotate-scale(20px, 14px, -26deg, 1, 1.4); }
+          .innerLine1 { @include translate-rotate-scale(15px, 14px, -36deg, 1); }
+          .innerLine2 { @include translate-rotate-scale(21px, 16px, -27deg, 1, 2.2); }
+        }
+        &._moz_ path + g {
+          .line2 { @include translate-rotate-scale(-279px, -179px, -27deg, 1, 2.4); }
+          .line3 { @include translate-rotate-scale(-2px, -29px, 7deg, 1.2, 1); }
+          .line4 { @include translate-rotate-scale(-115px, 136px, -26deg, 1, 1.4); }
+          .innerLine1 { @include translate-rotate-scale(-90px, 296px, -36deg, 1); }
+          .innerLine2 { @include translate-rotate-scale(-237px, -86px, -27deg, 1, 2.2); }
+        }
       }
     }
   }
@@ -158,18 +246,23 @@
         @include selected-animation;
       }
     }
-    &._animated_:hover {
-      g path { fill: rgba(128,0,128,0.5); }
-    }
-    @for $i from 1 through 4 {
-      .circle#{$i} {
-        stroke-opacity: 0;
-        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
-      }
-      .line#{$i} {
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-        @include line-animation(#{$i / 10 + $skin-duration}s);
+    &._animated_ {
+      &:hover {
+        g path { fill: rgba(128,0,128,0.5); }
+        path + g {
+          .circle3 { @include translate(20px, 20px); }
+          .circle4 { @include translate(30px, 20px); }
+          .line2 {  @include translate-rotate-scale(9px, 9px, -12deg, 1, 1.4); }
+          .line3 { @include translate-rotate-scale(25px, 21px, 1deg, 1.4, 1); }
+          .line4 { @include translate-rotate-scale(14px, 9px, -16deg, 1, 1.4); }
+          .innerLine1 { @include translate-rotate-scale(14px, 9px, -12deg, 1, 1.4); }
+        }
+        &._moz_ path + g {
+          .line2 {  @include translate-rotate-scale(-78px, -39px, -12deg, 1, 1.4); }
+          .line3 { @include translate-rotate-scale(-125px, 11px, 1deg, 1.4, 1); }
+          .line4 { @include translate-rotate-scale(-98px, 7px, -16deg, 1, 1.4); }
+          .innerLine1 { @include translate-rotate-scale(-70px, -31px, -12deg, 1, 1.4); }
+        }
       }
     }
   }
