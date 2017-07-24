@@ -3,7 +3,7 @@ import { Component } from 'react'
 import { getComponentName } from '~/brains/helpers/componentManager'
 import blueprint from '~/brains/config/svg/blueprint'
 import { getBoundingClientRect } from '~/brains/helpers/domReader'
-import { isFirefox } from '~/brains/helpers/userAgent'
+import { isFirefox, isIE } from '~/brains/helpers/userAgent'
 
 export class SVGBrain extends Component {
   constructor (props) {
@@ -30,13 +30,18 @@ export class SVGBrain extends Component {
   render () {
     const width = `${blueprint[this.props.size].width}px`
     const height = `${blueprint[this.props.size].height}px`
-    const brainNavClassName = classNames('brainNav', { '_introAnimation_': !this.props.introAnimation })
+    const brainNavClassName = classNames('brainNav', { '_introAnimation_': !isIE && !this.props.introAnimation })
     return (
       <div className={brainNavClassName} ref='brainNavComponent'>
         <svg width={width} height={height}>
           <SVGSkin {...this.props} />
           <SVGBrainFields {...this.props} />
-          <SVGBrainAnimation />
+          {
+            (() => {
+              if (isIE) return false
+              return <SVGBrainAnimation />
+            })()
+          }
         </svg>
       </div>
     )
@@ -70,10 +75,10 @@ function SVGBrainFields (props) {
     <g>
       {
         blueprint[size].field.map((c, i) => {
-          const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName, '_moz_': isFirefox })
-          const anchors = (hoveredComponent === c.fieldName) ? c.hoveredDots : c.dots
+          const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName, '_moz_': isFirefox, '_ie_': isIE })
+          const anchors = (!isIE && hoveredComponent === c.fieldName) ? c.hoveredDots : c.dots
           return (
-            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} onMouseOver={(() => { hoverComponent(c.fieldName) })} onMouseOut={(() => { hoverComponent(null) })} key={i}>
+            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} onMouseOver={(() => { if (introAnimation) return hoverComponent(c.fieldName) })} onMouseOut={(() => { if (introAnimation) return hoverComponent(null) })} key={i}>
               <SVGBrainField dots={c.dots} connectors={c.connectors} color={c.color} innerDots={c.innerDots} innerConnectors={c.innerConnectors} anchors={anchors} />
             </a>
           )
