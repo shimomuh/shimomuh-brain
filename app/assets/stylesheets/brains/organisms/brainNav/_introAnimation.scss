@@ -1,0 +1,101 @@
+&._introAnimation_ {
+  #{$n}__skin {
+    path {
+      stroke-dasharray: 4000;
+      stroke-dashoffset: 4000;
+      @include slow-line-animation(#{$skin-duration + 0.5}s);
+    }
+  }
+  @for $i from 1 through 2 {
+    .innerCircle#{$i} {
+      stroke-opacity: 0;
+      @include circle-animation(#{0.2 + $skin-duration + 1.2}s);
+    }
+  }
+  @for $i from 1 through 13 {
+    .innerLine#{$i} {
+      stroke-dasharray: 4000;
+      stroke-dashoffset: 4000;
+      @include slow-line-animation(3s, #{$skin-duration + 1.2}s);
+    }
+  }
+  #{$n}__frontalLobe {
+    @for $i from 1 through 10 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  #{$n}__parietalLobe {
+    @for $i from 1 through 6 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  #{$n}__occipitalLobe {
+    @for $i from 1 through 5 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  #{$n}__temporalLobe {
+    @for $i from 1 through 9 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  #{$n}__cerebellum {
+    @for $i from 1 through 5 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  #{$n}__brainstem {
+    @for $i from 1 through 4 {
+      .circle#{$i} {
+        stroke-opacity: 0;
+        @include circle-animation(#{$i / 10 - 0.2 + $skin-duration}s);
+      }
+      .line#{$i} {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        @include line-animation(#{$i / 10 + $skin-duration}s);
+      }
+    }
+  }
+  g g path { stroke: rgba(0,0,0,0); }
+}

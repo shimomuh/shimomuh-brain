@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { getComponentName } from '~/brains/helpers/componentManager'
 import blueprint from '~/brains/config/svg/blueprint'
 import { getBoundingClientRect } from '~/brains/helpers/domReader'
+import { isFirefox } from '~/brains/helpers/userAgent'
 
 export class SVGBrain extends Component {
   constructor (props) {
@@ -69,7 +70,7 @@ function SVGBrainFields (props) {
     <g>
       {
         blueprint[size].field.map((c, i) => {
-          const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName })
+          const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName, '_moz_': isFirefox })
           const anchors = (hoveredComponent === c.fieldName) ? c.hoveredDots : c.dots
           return (
             <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} onMouseOver={(() => { hoverComponent(c.fieldName) })} onMouseOut={(() => { hoverComponent(null) })} key={i}>
@@ -199,7 +200,7 @@ function SVGBrainAnchorLine (props) {
   const copiedCoordinates = Object.assign([], coordinates)
   const firstCoordinate = copiedCoordinates.shift()
   const connectedCoordinate = `${firstCoordinate.x},${firstCoordinate.y}`
-  const m = `M ${connectedCoordinate},`
+  const m = `M ${connectedCoordinate}`
   const lastL = `L ${connectedCoordinate}`
   const ls = coordinates.map((c) => { return `L ${c.x},${c.y}` }).join(' ')
   const d = [m, ls, lastL].join(' ')

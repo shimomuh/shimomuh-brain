@@ -27,7 +27,7 @@
   transform: translate($x, $y) rotate($rotate) scale($scaleX, $scaleY);
 }
 @mixin transform-origin-center {
-  -moz-transform-origin: center center;
   -webkit-transform-origin: center center;
   transform-origin: center center;
+  -moz-transform-origin: 0 0;
 }
