@@ -21,3 +21,7 @@ see: http://shimomuh-brain.net
 * js ... react + redux
   * architecture ... flux (redux)
   * file structure ... https://marmelab.com/blog/2015/12/17/react-directory-structure.html
+
+## Animation Support
+
+Chrome > Safari > Firefox > Internet Explorer
