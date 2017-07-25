@@ -14,7 +14,7 @@
     .innerCircle#{$i},
     .line#{$i},
     .innerLine#{$i} {
-      @include transition(.4s, ease-in-out);
+      @include transition(0.4s, ease-in-out);
     }
     .line#{$i},
     .innerLine#{$i} {
