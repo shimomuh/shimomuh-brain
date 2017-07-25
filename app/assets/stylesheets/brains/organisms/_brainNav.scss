@@ -189,6 +189,7 @@
           .innerLine9 { @include translate-rotate-scale(-1px, 11px, -8deg, 1); }
           .innerLine10 { @include translate-rotate-scale(-1px, 11px, 3deg, 1); }
           .innerLine11 { @include translate-rotate-scale(-1px, 25px, -7deg, 1); }
+          .innerLine12 { @include translate-rotate-scale(-9px, 7px, 14deg, 1, 1.4); }
         }
         &._moz_ path + g {
           .line3 { @include translate-rotate-scale(288px, -334px, 30deg, 1, 2.2); }
@@ -206,6 +207,7 @@
           .innerLine9 { @include translate-rotate-scale(-24px, 65px, -8deg, 1); }
           .innerLine10 { @include translate-rotate-scale(10px, -9px, 3deg, 1); }
           .innerLine11 { @include translate-rotate-scale(-31px, 69px, -7deg, 1); }
+          .innerLine12 { @include translate-rotate-scale(87px, -177px, 14deg, 1, 1.4); }
         }
       }
     }
@@ -255,13 +257,155 @@
           .line2 {  @include translate-rotate-scale(9px, 9px, -12deg, 1, 1.4); }
           .line3 { @include translate-rotate-scale(25px, 21px, 1deg, 1.4, 1); }
           .line4 { @include translate-rotate-scale(14px, 9px, -16deg, 1, 1.4); }
-          .innerLine1 { @include translate-rotate-scale(14px, 9px, -12deg, 1, 1.4); }
+          .innerline1 { @include translate-rotate-scale(14px, 9px, -12deg, 1, 1.4); }
         }
         &._moz_ path + g {
           .line2 {  @include translate-rotate-scale(-78px, -39px, -12deg, 1, 1.4); }
           .line3 { @include translate-rotate-scale(-125px, 11px, 1deg, 1.4, 1); }
           .line4 { @include translate-rotate-scale(-98px, 7px, -16deg, 1, 1.4); }
           .innerLine1 { @include translate-rotate-scale(-70px, -31px, -12deg, 1, 1.4); }
+        }
+      }
+    }
+  }
+  &._compact_ {
+    margin: 0;
+    @import 'brainNav/signalCompactAnimation';
+    #{$n}__frontalLobe {
+      &._animated_ {
+        &:hover {
+          g path { fill: rgba(255,0,0,0.5); }
+          path + g {
+            .circle1 { @include translate(0px, -15px); }
+            .circle2 { @include translate(-15px, -20px); }
+            .circle3 { @include translate(-30px, -15px); }
+            .circle4 { @include translate(-30px, 5px); }
+            .circle5 { @include translate(-5px, 15px); }
+            .innerCircle1 { @include translate(-15px, -5px); }
+            .innerCircle2 { @include translate(-5px, -10px); }
+            .line1 { @include translate-rotate-scale(-8px, -18px, 5deg, 1.5, 1); }
+            .line2 { @include translate-rotate-scale(-23px, -18px, -8deg, 1.72, 1); }
+            .line3 { @include translate-rotate-scale(-31px, -5px, 1deg, 1, 1.8); }
+            .line4 { @include translate-rotate-scale(-18px, 10px, -30deg, 1.1, 1.95); }
+            .line5 { @include translate-rotate-scale(-2px, 7px, -24deg, 1.3, 1); }
+            .line10 { @include translate-rotate-scale(0px, -7px, 22deg, 1.1, 1); }
+            .innerLine1 { @include translate-rotate-scale(-23px, -10px, -14deg, 1, 1.4); }
+            .innerLine2 { @include translate-rotate-scale(-23px, 1px, -12deg, 1.3, 1); }
+            .innerLine3 { @include translate-rotate-scale(-10px, 3px, -15deg, 1, 1.3); }
+            .innerLine4 { @include translate-rotate-scale(-6px, 1px, -19deg, 1, 1.2); }
+            .innerLine5 { @include translate-rotate-scale(-8px, -3px, 1deg, 1.3, 1); }
+            .innerLine6 { @include translate-rotate-scale(-10px, -7px, -4deg, 1.3, 1); }
+            .innerLine7 { @include translate-rotate-scale(-17px, -12px, 3deg, 1.4, 1); }
+            .innerLine8 { @include translate-rotate-scale(-10px, -15px, -10deg, 1, 1.3); }
+            .innerLine9 { @include translate-rotate-scale(-2px, -13px, 2deg, 1); }
+            .innerLine10 { @include translate-rotate-scale(-4px, -5px, 18deg, 1); }
+            .innerLine11 { @include translate-rotate-scale(-4px, -6px, -1deg, 1, 1.3); }
+            .innerLine12 { @include translate-rotate-scale(-3px, -7px, -6deg, 1, 1.3); }
+            .innerLine13 { @include translate-rotate-scale(0px, -8px, 2deg, 1, 1.3); }
+          }
+        }
+      }
+    }
+    #{$n}__parietalLobe {
+      &._animated_ {
+        &:hover {
+          g path { fill: rgba(255,255,0,0.5); }
+          path + g {
+            .circle6 { @include translate(20px, -20px); }
+            .innerCircle1 { @include translate(5px, -15px); }
+            .innerCircle2 { @include translate(10px, -10px); }
+            .line5 { @include translate-rotate-scale(10px, -10px, 22deg, 1, 1.7); }
+            .line6 { @include translate-rotate-scale(8px, -10px, -18deg, 1.7, 1); }
+            .innerLine1 { @include translate-rotate-scale(4px, -5px, -9deg, 1, .5); }
+            .innerLine2 { @include translate-rotate-scale(1px, -7px, -28deg, 1); }
+            .innerLine3 { @include translate-rotate-scale(3px, -7px, 0deg, 1, 1.3); }
+            .innerLine4 { @include translate-rotate-scale(3px, -7px, 9deg, 1, 1.3); }
+            .innerLine5 { @include translate-rotate-scale(10px, -16px, -6deg, 1.5, 1); }
+            .innerLine6 { @include translate-rotate-scale(4px, -4px, 15deg, 1, 1.5); }
+            .innerLine7 { @include translate-rotate-scale(14px, -13px, 16deg, 1, 1.5); }
+            .innerLine8 { @include translate-rotate-scale(6px, -4px, 19deg, .5, 1); }
+            .innerLine9 { @include translate-rotate-scale(7px, -12px, 8deg, 1); }
+          }
+        }
+      }
+    }
+    #{$n}__occipitalLobe {
+      &._animated_ {
+        &:hover {
+          g path { fill: rgba(0,255,255,0.5); }
+          path + g {
+            .circle5 { @include translate(20px, 10px); }
+            .innerCircle1 { @include translate(10px, 5px); }
+            .line4 { @include translate-rotate-scale(11px, 6px, 41deg, 1, 1.7); }
+            .line5 { @include translate-rotate-scale(9px, 4px, -23deg, 1, 1.7); }
+            .innerLine1 { @include translate-rotate-scale(5px, 3px, -17deg, 1); }
+            .innerLine2 { @include translate-rotate-scale(5px, 3px, 3deg, 1.2, 1); }
+            .innerLine3 { @include translate-rotate-scale(5px, 3px, 9deg, 1.2, 1); }
+            .innerLine4 { @include translate-rotate-scale(5px, 3px, 20deg, 1, .7); }
+            .innerLine5 { @include translate-rotate-scale(16px, 8px, 8deg, 1.2, 1); }
+          }
+        }
+      }
+    }
+    #{$n}__temporalLobe {
+      &._animated_ {
+        &:hover {
+          g path { fill: rgba(0,255,0,0.5); }
+          path + g {
+            .circle4 { @include translate(-30px, 25px); }
+            .circle5 { @include translate(-10px, 20px); }
+            .circle6 { @include translate(-10px, 10px); }
+            .innerCircle1 { @include translate(-5px, 15px); }
+            .innerCircle2 { @include translate(0px, 10px); }
+            .line3 { @include translate-rotate-scale(-14px, 13px, 30deg, 1, 2.2); }
+            .line4 { @include translate-rotate-scale(-17px, 23px, -5deg, 2, 1); }
+            .line5 { @include translate-rotate-scale(-10px, 16px, -17deg, 1); }
+            .line6 { @include translate-rotate-scale(-5px, 5px, -13deg, 1.5, 1); }
+            .innerLine1 { @include translate-rotate-scale(-3px, 8px, -1deg, 1, 1.2); }
+            .innerLine2 { @include translate-rotate-scale(-2px, 8px, 13deg, 1, 1.2); }
+            .innerLine3 { @include translate-rotate-scale(-4px, 7px, 28deg, .8, 1); }
+            .innerLine4 { @include translate-rotate-scale(-16px, 19px, 33deg, 1, 2); }
+            .innerLine5 { @include translate-rotate-scale(-16px, 19px, 33deg, 1, 2); }
+            .innerLine6 { @include translate-rotate-scale(-8px, 17px, 13deg, 1); }
+            .innerLine7 { @include translate-rotate-scale(-6px, 16px, 9deg, 1, 1.2); }
+            .innerLine8 { @include translate-rotate-scale(-7px, 6px, 8deg, .7, 1); }
+            .innerLine9 { @include translate-rotate-scale(0px, 6px, -20deg, 1); }
+            .innerLine10 { @include translate-rotate-scale(-1px, 6px, -7deg, 1); }
+            .innerLine11 { @include translate-rotate-scale(0px, 9px, 5deg, 1); }
+            .innerLine12 { @include translate-rotate-scale(-6px, 14px, -12deg, 1.4, 1); }
+            .innerLine13 { @include translate-rotate-scale(-3px, 2px, 15deg, 1, 1.4); }
+          }
+        }
+      }
+    }
+    #{$n}__cerebellum {
+      &._animated_ {
+        &:hover {
+          g path { fill: rgba(0,0,255,0.5); }
+          path + g {
+            .circle3 { @include translate(15px, 10px); }
+            .circle4 { @include translate(20px, 15px); }
+            .line2 { @include translate-rotate-scale(7px, 5px, -27deg, 1, 2.4); }
+            .line3 { @include translate-rotate-scale(17px, 13px, 7deg, 1.2, 1); }
+            .line4 { @include translate-rotate-scale(10px, 7px, -26deg, 1, 1.4); }
+            .innerLine1 { @include translate-rotate-scale(8px, 7px, -36deg, 1); }
+            .innerLine2 { @include translate-rotate-scale(11px, 8px, -27deg, 1, 2.2); }
+          }
+        }
+      }
+    }
+    #{$n}__brainstem {
+      &._animated_ {
+        &:hover {
+          g path { fill: rgba(128,0,128,0.5); }
+          path + g {
+            .circle3 { @include translate(10px, 10px); }
+            .circle4 { @include translate(15px, 10px); }
+            .line2 {  @include translate-rotate-scale(5px, 5px, -12deg, 1, 1.4); }
+            .line3 { @include translate-rotate-scale(13px, 11px, 1deg, 1.4, 1); }
+            .line4 { @include translate-rotate-scale(7px, 5px, -16deg, 1, 1.4); }
+            .innerLine1 { @include translate-rotate-scale(7px, 5px, -12deg, 1, 1.4); }
+          }
         }
       }
     }

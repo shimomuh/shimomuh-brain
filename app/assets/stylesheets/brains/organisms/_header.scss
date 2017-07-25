@@ -4,6 +4,9 @@
     text-align: center;
     opacity: 0;
     @include slide-down-animation(1s, 2s);
+    &._compact_ {
+      font-size: 1.6rem;
+    }
   }
 }
 

@@ -1,9 +1,12 @@
-import { Component } from 'react'
+import classNames from 'classnames'
 
-export class Header extends Component {
-  render () {
-    return (
-      <h1 className='header__title'>Shimomuh&#39;s Brain</h1>
-    )
-  }
+export function Header (props) {
+  const { size } = props
+  const headerClassName = classNames('header__title', { '_compact_': size === 'compact' })
+  return (
+    <h1 className={headerClassName}>Shimomuh&#39;s Brain</h1>
+  )
+}
+Header.propTypes = {
+  size: PropTypes.string
 }

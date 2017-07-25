@@ -1,15 +1,15 @@
 const frontalLobe = {
   dots: [
-    { x: 304, y:  44, size: 'S' },
-    { x: 234, y:  64, size: 'S' },
-    { x: 174, y: 104, size: 'S' },
-    { x: 154, y: 164, size: 'S' },
-    { x: 174, y: 224, size: 'S' },
-    { x: 234, y: 234, size: 'S' },
-    { x: 274, y: 184, size: 'M' },
-    { x: 344, y: 164, size: 'L' },
-    { x: 334, y: 104, size: 'M' },
-    { x: 374, y:  44, size: 'S' }
+    { x: 304, y:  44, size:  'M' },
+    { x: 234, y:  64, size:  'M' },
+    { x: 174, y: 104, size:  'M' },
+    { x: 154, y: 164, size:  'M' },
+    { x: 174, y: 224, size:  'M' },
+    { x: 234, y: 234, size:  'M' },
+    { x: 274, y: 184, size:  'L' },
+    { x: 344, y: 164, size: 'LL' },
+    { x: 334, y: 104, size:  'L' },
+    { x: 374, y:  44, size:  'M' }
   ],
   connectors: [
     { x1: 297, y1:  46, x2: 241, y2:  62 },
@@ -24,20 +24,20 @@ const frontalLobe = {
     { x1: 367, y1:  44, x2: 312, y2:  44 }
   ],
   hoveredDots: [
-    { x: 304, y:  14, size: 'S' },
-    { x: 204, y:  24, size: 'S' },
-    { x: 114, y:  74, size: 'S' },
-    { x:  94, y: 174, size: 'S' },
-    { x: 164, y: 254, size: 'S' },
-    { x: 234, y: 234, size: 'S' },
-    { x: 274, y: 184, size: 'M' },
-    { x: 344, y: 164, size: 'L' },
-    { x: 334, y: 104, size: 'M' },
-    { x: 374, y:  44, size: 'S' }
+    { x: 304, y:  14, size:  'M' },
+    { x: 204, y:  24, size:  'M' },
+    { x: 114, y:  74, size:  'M' },
+    { x:  94, y: 174, size:  'M' },
+    { x: 164, y: 254, size:  'M' },
+    { x: 234, y: 234, size:  'M' },
+    { x: 274, y: 184, size:  'L' },
+    { x: 344, y: 164, size: 'LL' },
+    { x: 334, y: 104, size:  'L' },
+    { x: 374, y:  44, size:  'M' }
   ],
   innerDots: [
-    { x: 218, y: 162, size: 'M' },
-    { x: 270, y: 118, size: 'M' }
+    { x: 218, y: 162, size:  'L' },
+    { x: 270, y: 118, size:  'L' }
   ],
   innerConnectors: [
     { x1: 174, y1: 104, x2: 218, y2: 162 },
@@ -60,12 +60,12 @@ const frontalLobe = {
 
 const parietalLobe = {
   dots: [
-    { x: 374, y:  44, size: 'S' },
-    { x: 334, y: 104, size: 'M' },
-    { x: 344, y: 164, size: 'L' },
-    { x: 414, y: 164, size: 'M' },
-    { x: 494, y: 134, size: 'S' },
-    { x: 454, y:  74, size: 'S' }
+    { x: 374, y:  44, size:  'M' },
+    { x: 334, y: 104, size:  'L' },
+    { x: 344, y: 164, size: 'LL' },
+    { x: 414, y: 164, size:  'L' },
+    { x: 494, y: 134, size:  'M' },
+    { x: 454, y:  74, size:  'M' }
   ],
   connectors: [
     { x1: 340, y1:  96, x2: 369, y2:  50 },
@@ -76,16 +76,16 @@ const parietalLobe = {
     { x1: 447, y1:  72, x2: 380, y2:  46 }
   ],
   hoveredDots: [
-    { x: 374, y:  44, size: 'S' },
-    { x: 334, y: 104, size: 'M' },
-    { x: 344, y: 164, size: 'L' },
-    { x: 414, y: 164, size: 'M' },
-    { x: 494, y: 134, size: 'S' },
-    { x: 494, y:  34, size: 'S' }
+    { x: 374, y:  44, size:  'M' },
+    { x: 334, y: 104, size:  'L' },
+    { x: 344, y: 164, size: 'LL' },
+    { x: 414, y: 164, size:  'L' },
+    { x: 494, y: 134, size:  'M' },
+    { x: 494, y:  34, size:  'M' }
   ],
   innerDots: [
-    { x: 390, y: 110, size: 'M' },
-    { x: 440, y: 120, size: 'M' }
+    { x: 390, y: 110, size:  'L' },
+    { x: 440, y: 120, size:  'L' }
   ],
   innerConnectors: [
     { x1: 374, y1:  44, x2: 390, y2: 110 },
@@ -104,11 +104,11 @@ const parietalLobe = {
 
 const occipitalLobe = {
   dots: [
-    { x: 494, y: 134, size: 'S' },
-    { x: 414, y: 164, size: 'M' },
-    { x: 414, y: 224, size: 'M' },
-    { x: 474, y: 264, size: 'S' },
-    { x: 514, y: 204, size: 'S' }
+    { x: 494, y: 134, size:  'M' },
+    { x: 414, y: 164, size:  'L' },
+    { x: 414, y: 224, size:  'L' },
+    { x: 474, y: 264, size:  'M' },
+    { x: 514, y: 204, size:  'M' }
   ],
   connectors: [
     { x1: 488, y1: 137, x2: 424, y2: 162 },
@@ -118,14 +118,14 @@ const occipitalLobe = {
     { x1: 496, y1: 139, x2: 513, y2: 197 }
   ],
   hoveredDots: [
-    { x: 494, y: 134, size: 'S' },
-    { x: 414, y: 164, size: 'M' },
-    { x: 414, y: 224, size: 'M' },
-    { x: 474, y: 264, size: 'S' },
-    { x: 554, y: 224, size: 'S' }
+    { x: 494, y: 134, size:  'M' },
+    { x: 414, y: 164, size:  'L' },
+    { x: 414, y: 224, size:  'L' },
+    { x: 474, y: 264, size:  'M' },
+    { x: 554, y: 224, size:  'M' }
   ],
   innerDots: [
-    { x: 470, y: 200, size: 'M' }
+    { x: 470, y: 200, size:  'L' }
   ],
   innerConnectors: [
     { x1: 494, y1: 134, x2: 470, y2: 200 },
@@ -140,15 +140,15 @@ const occipitalLobe = {
 
 const temporalLobe = {
   dots: [
-    { x: 344, y: 164, size: 'L' },
-    { x: 274, y: 184, size: 'M' },
-    { x: 234, y: 234, size: 'S' },
-    { x: 274, y: 284, size: 'S' },
-    { x: 334, y: 284, size: 'S' },
-    { x: 404, y: 284, size: 'S' },
-    { x: 474, y: 264, size: 'S' },
-    { x: 414, y: 224, size: 'M' },
-    { x: 414, y: 164, size: 'M' }
+    { x: 344, y: 164, size: 'LL' },
+    { x: 274, y: 184, size:  'L' },
+    { x: 234, y: 234, size:  'M' },
+    { x: 274, y: 284, size:  'M' },
+    { x: 334, y: 284, size:  'M' },
+    { x: 404, y: 284, size:  'M' },
+    { x: 474, y: 264, size:  'M' },
+    { x: 414, y: 224, size:  'L' },
+    { x: 414, y: 164, size:  'L' }
   ],
   connectors: [
     { x1: 282, y1: 182, x2: 334, y2: 168 },
@@ -162,19 +162,19 @@ const temporalLobe = {
     { x1: 354, y1: 164, x2: 404, y2: 164 }
   ],
   hoveredDots: [
-    { x: 344, y: 164, size: 'L' },
-    { x: 274, y: 184, size: 'M' },
-    { x: 234, y: 234, size: 'S' },
-    { x: 214, y: 334, size: 'S' },
-    { x: 314, y: 324, size: 'S' },
-    { x: 384, y: 304, size: 'S' },
-    { x: 474, y: 264, size: 'S' },
-    { x: 414, y: 224, size: 'M' },
-    { x: 414, y: 164, size: 'M' }
+    { x: 344, y: 164, size: 'LL' },
+    { x: 274, y: 184, size:  'L' },
+    { x: 234, y: 234, size:  'M' },
+    { x: 214, y: 334, size:  'M' },
+    { x: 314, y: 324, size:  'M' },
+    { x: 384, y: 304, size:  'M' },
+    { x: 474, y: 264, size:  'M' },
+    { x: 414, y: 224, size:  'L' },
+    { x: 414, y: 164, size:  'L' }
   ],
   innerDots: [
-    { x: 300, y: 234, size: 'M' },
-    { x: 360, y: 230, size: 'M' }
+    { x: 300, y: 234, size:  'L' },
+    { x: 360, y: 230, size:  'L' }
   ],
   innerConnectors: [
     { x1: 344, y1: 164, x2: 300, y2: 234 },
@@ -198,8 +198,8 @@ const cerebellum = {
   dots: [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
-    { x: 364, y: 324, size: 'SS' },
-    { x: 434, y: 324, size: 'SS' },
+    { x: 364, y: 324, size:  'S' },
+    { x: 434, y: 324, size:  'S' },
     { x: 474, y: 264, size:  'S' }
   ],
   connectors: [
@@ -212,8 +212,8 @@ const cerebellum = {
   hoveredDots: [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
-    { x: 394, y: 344, size: 'SS' },
-    { x: 474, y: 354, size: 'SS' },
+    { x: 394, y: 344, size:  'S' },
+    { x: 474, y: 354, size:  'S' },
     { x: 474, y: 264, size:  'S' }
   ],
   innerConnectors: [
@@ -228,8 +228,8 @@ const brainstem = {
   dots: [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
-    { x: 374, y: 374, size: 'SS' },
-    { x: 414, y: 374, size: 'SS' }
+    { x: 374, y: 374, size:  'S' },
+    { x: 414, y: 374, size:  'S' }
   ],
   connectors: [
     { x1: 339, y1: 284, x2: 399, y2: 284 },
@@ -240,8 +240,8 @@ const brainstem = {
   hoveredDots: [
     { x: 404, y: 284, size:  'S' },
     { x: 334, y: 284, size:  'S' },
-    { x: 394, y: 394, size: 'SS' },
-    { x: 444, y: 394, size: 'SS' }
+    { x: 394, y: 394, size:  'S' },
+    { x: 444, y: 394, size:  'S' }
   ],
   innerConnectors: [
     { x1: 334, y1: 284, x2: 414, y2: 374 }

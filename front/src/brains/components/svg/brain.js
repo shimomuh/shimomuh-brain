@@ -30,7 +30,7 @@ export class SVGBrain extends Component {
   render () {
     const width = `${blueprint[this.props.size].width}px`
     const height = `${blueprint[this.props.size].height}px`
-    const brainNavClassName = classNames('brainNav', { '_introAnimation_': !this.props.introAnimation })
+    const brainNavClassName = classNames('brainNav', { '_introAnimation_': !this.props.introAnimation, '_compact_': this.props.size === 'compact' })
     return (
       <div className={brainNavClassName} ref='brainNavComponent'>
         <svg width={width} height={height}>
@@ -73,7 +73,7 @@ function SVGBrainFields (props) {
           const brainNavClassName = classNames(`brainNav__${c.fieldName}`, { '_animated_': introAnimation, '_selected_': selectedComponent === c.fieldName, '_moz_': isFirefox })
           const anchors = (hoveredComponent === c.fieldName) ? c.hoveredDots : c.dots
           return (
-            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} onMouseOver={(() => { hoverComponent(c.fieldName) })} onMouseOut={(() => { hoverComponent(null) })} key={i}>
+            <a className={brainNavClassName} xlinkHref='javascript:void(0)' onClick={(() => { if (introAnimation) return selectComponent(c.fieldName) })} onMouseOver={(() => { hoverComponent(c.fieldName) })} onMouseOut={(() => { hoverComponent(null) })} onTouchStart={(() => { hoverComponent(c.fieldName) })} onTouchEnd={(() => { hoverComponent(null) })} key={i}>
               <SVGBrainField dots={c.dots} connectors={c.connectors} color={c.color} innerDots={c.innerDots} innerConnectors={c.innerConnectors} anchors={anchors} />
             </a>
           )
@@ -159,15 +159,15 @@ SVGBrainDot.propTypes = {
 function getSizeProperties (size) {
   switch (size) {
   case 'SS':
-    return { r: 5, width: 2 }
+    return { r: 3, width: 1 }
   case 'S':
-    return { r: 7, width: 3 }
+    return { r: 5, width: 2 }
   case 'M':
-    return { r: 9, width: 4 }
+    return { r: 7, width: 3 }
   case 'L':
-    return { r: 11, width: 5 }
+    return { r: 9, width: 4 }
   case 'LL':
-    return { r: 13, width: 6 }
+    return { r: 11, width: 5 }
   }
 }
 

@@ -74,16 +74,16 @@
    *  However, svg animateMotion cannot adjust css animation timing.
    *  In addition, cannot support ie.
    */
-   0% { @include translate-and-scale(174px, 224px, 1  ); opacity: 0; }
-   1% { @include translate-and-scale(154px, 164px, 1.2); opacity: 1; }
-   2% { @include translate-and-scale(174px, 104px, 1  ); opacity: 0; }
-   3% { @include translate-and-scale(218px, 162px, 1.2); opacity: 1; }
-   4% { @include translate-and-scale(274px, 184px, 1  ); opacity: 0; }
-   5% { @include translate-and-scale(300px, 234px, 1.2); opacity: 1; }
-   6% { @include translate-and-scale(360px, 234px, 1  ); opacity: 0; }
-   7% { @include translate-and-scale(334px, 284px, 1.2); opacity: 1; }
-   8% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
-   9% { @include translate-and-scale(374px, 374px, 1.2); opacity: 1; }
+  0% { @include translate-and-scale(174px, 224px, 1  ); opacity: 0; }
+  1% { @include translate-and-scale(154px, 164px, 1.2); opacity: 1; }
+  2% { @include translate-and-scale(174px, 104px, 1  ); opacity: 0; }
+  3% { @include translate-and-scale(218px, 162px, 1.2); opacity: 1; }
+  4% { @include translate-and-scale(274px, 184px, 1  ); opacity: 0; }
+  5% { @include translate-and-scale(300px, 234px, 1.2); opacity: 1; }
+  6% { @include translate-and-scale(360px, 234px, 1  ); opacity: 0; }
+  7% { @include translate-and-scale(334px, 284px, 1.2); opacity: 1; }
+  8% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
+  9% { @include translate-and-scale(374px, 374px, 1.2); opacity: 1; }
   10% { @include translate-and-scale(374px, 374px, 1  ); opacity: 0; }
   100% { opacity: 0; }
 }
@@ -155,4 +155,87 @@
   0% { opacity: 1; }
   50% { opacity: 0.2; }
   100% { opacity: 1; }
+}
+
+@mixin signal1-compact-animation($duration, $delay) {
+  @include signal-animation(signal1-compact, $duration, $delay);
+}
+@include keyframes(signal1-compact) {
+  /*
+   *  Bad solution.
+   *  However, svg animateMotion cannot adjust css animation timing.
+   *  In addition, cannot support ie.
+   */
+  0% { @include translate-and-scale( 87px, 112px, 1  ); opacity: 0; }
+  1% { @include translate-and-scale( 77px,  82px, 1.2); opacity: 1; }
+  2% { @include translate-and-scale( 87px,  52px, 1  ); opacity: 0; }
+  3% { @include translate-and-scale(109px,  81px, 1.2); opacity: 1; }
+  4% { @include translate-and-scale(137px,  92px, 1  ); opacity: 0; }
+  5% { @include translate-and-scale(150px, 117px, 1.2); opacity: 1; }
+  6% { @include translate-and-scale(180px, 117px, 1  ); opacity: 0; }
+  7% { @include translate-and-scale(167px, 142px, 1.2); opacity: 1; }
+  8% { @include translate-and-scale(187px, 187px, 1  ); opacity: 0; }
+  9% { @include translate-and-scale(187px, 187px, 1.2); opacity: 1; }
+  10% { @include translate-and-scale(187px, 187px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal2-compact-animation($duration, $delay) {
+  @include signal-animation(signal2-compact, $duration, $delay);
+}
+@include keyframes(signal2-compact) {
+  20% { @include translate-and-scale(227px,  37px, 1  ); opacity: 0; }
+  21% { @include translate-and-scale(247px,  67px, 1.2); opacity: 1; }
+  22% { @include translate-and-scale(220px,  60px, 1  ); opacity: 0; }
+  23% { @include translate-and-scale(207px,  82px, 1.2); opacity: 1; }
+  24% { @include translate-and-scale(172px,  82px, 1  ); opacity: 0; }
+  25% { @include translate-and-scale(180px, 115px, 1.2); opacity: 1; }
+  26% { @include translate-and-scale(167px, 142px, 1  ); opacity: 0; }
+  27% { @include translate-and-scale(207px, 187px, 1.2); opacity: 1; }
+  28% { @include translate-and-scale(207px, 187px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal3-compact-animation($duration, $delay) {
+  @include signal-animation(signal3-compact, $duration, $delay);
+}
+@include keyframes(signal3-compact) {
+  40% { @include translate-and-scale(247px,  67px, 1  ); opacity: 0; }
+  41% { @include translate-and-scale(257px, 102px, 1.2); opacity: 1; }
+  42% { @include translate-and-scale(235px, 100px, 1  ); opacity: 0; }
+  43% { @include translate-and-scale(207px, 112px, 1.2); opacity: 1; }
+  44% { @include translate-and-scale(237px, 132px, 1  ); opacity: 0; }
+  45% { @include translate-and-scale(202px, 142px, 1.2); opacity: 1; }
+  46% { @include translate-and-scale(207px, 187px, 1  ); opacity: 0; }
+  47% { @include translate-and-scale(207px, 187px, 1.2); opacity: 1; }
+  48% { @include translate-and-scale(207px, 187px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal4-compact-animation($duration, $delay) {
+  @include signal-animation(signal4-compact, $duration, $delay);
+}
+@include keyframes(signal4-compact) {
+  60% { @include translate-and-scale(187px,  22px, 1  ); opacity: 0; }
+  61% { @include translate-and-scale(187px,  22px, 1.2); opacity: 1; }
+  62% { @include translate-and-scale(135px,  59px, 1  ); opacity: 0; }
+  63% { @include translate-and-scale(137px,  92px, 1.2); opacity: 1; }
+  64% { @include translate-and-scale(117px, 117px, 1  ); opacity: 0; }
+  65% { @include translate-and-scale(137px, 142px, 1.2); opacity: 1; }
+  66% { @include translate-and-scale(167px, 142px, 1  ); opacity: 0; }
+  67% { @include translate-and-scale(187px, 187px, 1.2); opacity: 1; }
+  68% { @include translate-and-scale(187px, 187px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
+}
+@mixin signal5-compact-animation($duration, $delay) {
+  @include signal-animation(signal5-compact, $duration, $delay);
+}
+@include keyframes(signal5-compact) {
+  70% { @include translate-and-scale(237px, 132px, 1  ); opacity: 0; }
+  71% { @include translate-and-scale(217px, 162px, 1.2); opacity: 1; }
+  72% { @include translate-and-scale(182px, 162px, 1  ); opacity: 0; }
+  73% { @include translate-and-scale(167px, 142px, 1.2); opacity: 1; }
+  74% { @include translate-and-scale(180px, 115px, 1  ); opacity: 0; }
+  75% { @include translate-and-scale(202px, 142px, 1.2); opacity: 1; }
+  76% { @include translate-and-scale(207px, 187px, 1  ); opacity: 0; }
+  77% { @include translate-and-scale(207px, 187px, 1.2); opacity: 1; }
+  78% { @include translate-and-scale(207px, 187px, 1  ); opacity: 0; }
+  100% { opacity: 0; }
 }

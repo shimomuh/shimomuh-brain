@@ -11,29 +11,29 @@ import { Brainstem } from '~/brains/components/sections/brainstem'
 import { getComponentName } from '~/brains/helpers/componentManager'
 
 export function Body (props) {
-  const { selectedComponent } = props
+  const { selectedComponent, size } = props
   const componentName = getComponentName(selectedComponent)
   const selected = !!selectedComponent
   return (
     <div>
-      <Header />
+      <Header {...props} />
       <SVGBrain {...props} />
       {(() => {
         switch (componentName) {
         case 'frontalLobe':
-          return <FrontalLobe selected={selected} />
+          return <FrontalLobe selected={selected} size={size} />
         case 'temporalLobe':
-          return <TemporalLobe selected={selected} />
+          return <TemporalLobe selected={selected} size={size} />
         case 'parietalLobe':
-          return <ParietalLobe selected={selected} />
+          return <ParietalLobe selected={selected} size={size} />
         case 'occipitalLobe':
-          return <OccipitalLobe selected={selected} />
+          return <OccipitalLobe selected={selected} size={size} />
         case 'cerebellum':
-          return <Cerebellum selected={selected} />
+          return <Cerebellum selected={selected} size={size} />
         case 'brainstem':
-          return <Brainstem selected={selected} />
+          return <Brainstem selected={selected} size={size} />
         default:
-          return <FrontalLobe selected={selected} />
+          return <FrontalLobe selected={selected} size={size} />
         }
       })()}
       <Footer />
@@ -41,5 +41,6 @@ export function Body (props) {
   )
 }
 Body.propTypes = {
-  selectedComponent: PropTypes.string
+  selectedComponent: PropTypes.string,
+  size: PropTypes.string
 }
