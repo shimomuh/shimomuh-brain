@@ -257,7 +257,7 @@
           .line2 {  @include translate-rotate-scale(9px, 9px, -12deg, 1, 1.4); }
           .line3 { @include translate-rotate-scale(25px, 21px, 1deg, 1.4, 1); }
           .line4 { @include translate-rotate-scale(14px, 9px, -16deg, 1, 1.4); }
-          .innerline1 { @include translate-rotate-scale(14px, 9px, -12deg, 1, 1.4); }
+          .innerLine1 { @include translate-rotate-scale(14px, 9px, -12deg, 1, 1.4); }
         }
         &._moz_ path + g {
           .line2 {  @include translate-rotate-scale(-78px, -39px, -12deg, 1, 1.4); }
