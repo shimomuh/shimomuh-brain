@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 
 export function OccipitalLobe (props) {
-  const { selected } = props
-  const sectionClassName = classNames('section', { '_selected_': selected })
+  const { selected, size } = props
+  const sectionClassName = classNames('section', { '_selected_': selected, '_compact_': size === 'compact' })
   return (
     <div className={sectionClassName}>
       <h2>Visiblization such as Product or Service</h2>
@@ -11,5 +11,6 @@ export function OccipitalLobe (props) {
   )
 }
 OccipitalLobe.propTypes = {
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  size: PropTypes.string
 }
