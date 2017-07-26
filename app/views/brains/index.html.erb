@@ -16,4 +16,7 @@
   <%- end -%>
   <%= javascript_include_tag 'commons_chunk' %>
   <%= javascript_include_tag 'brains' %>
+  <%- if Rails.env.production? -%>
+    <%= render partial: 'partials/google_analytics' %>
+  <%- end -%>
 <%- end -%>
