@@ -2,7 +2,9 @@
 
 To make homepage repository
 
-see: http://shimomuh-brain.net
+## Oops
+
+Now homepage is closed cuz renewal
 
 ## Functions
 
